@@ -25,18 +25,13 @@
                             secondary: '#00f3ff', // Cyan
                             accent: '#7000ff', // Purple
                             warning: '#ff3333', // Red
+                            success: '#00ff9d', // Green
                             text: '#e2e8f0'
                         }
                     },
-                    animation: {
-                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'scan': 'scan 4s linear infinite',
-                    },
-                    keyframes: {
-                        scan: {
-                            '0%': { transform: 'translateY(-100%)' },
-                            '100%': { transform: 'translateY(100%)' }
-                        }
+                    boxShadow: {
+                        'neon': '0 0 5px theme("colors.retro.primary"), 0 0 20px theme("colors.retro.primary")',
+                        'neon-sec': '0 0 5px theme("colors.retro.secondary"), 0 0 20px theme("colors.retro.secondary")',
                     }
                 }
             }
@@ -44,41 +39,41 @@
     </script>
     <style>
         body { background-color: #050505; color: #e2e8f0; }
-        
-        /* Retrowave Grid Background */
         .retro-grid {
             background-size: 40px 40px;
             background-image: linear-gradient(to right, rgba(112, 0, 255, 0.1) 1px, transparent 1px),
                               linear-gradient(to bottom, rgba(112, 0, 255, 0.1) 1px, transparent 1px);
             mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
             -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100vh;
-            z-index: -1;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1;
             transform: perspective(500px) rotateX(20deg) scale(1.5) translateY(-50px);
         }
-
-        /* Neon Glows */
-        .neon-text-p { text-shadow: 0 0 10px rgba(255, 0, 255, 0.7); }
-        .neon-text-c { text-shadow: 0 0 10px rgba(0, 243, 255, 0.7); }
-        .neon-text-w { text-shadow: 0 0 10px rgba(255, 51, 51, 0.7); }
-        .neon-border { box-shadow: 0 0 10px rgba(112, 0, 255, 0.2); }
-        .neon-border-red { box-shadow: 0 0 10px rgba(255, 51, 51, 0.3); }
-
-        /* Custom Chart Tooltip */
-        #chartjs-tooltip { opacity: 1; position: absolute; background: rgba(0, 0, 0, 0.8); color: white; border-radius: 3px; pointer-events: none; }
-
         .nav-btn.active { border-bottom: 2px solid #00f3ff; color: #00f3ff; text-shadow: 0 0 8px rgba(0, 243, 255, 0.5); }
         .band-btn.active { background: linear-gradient(90deg, #7000ff, #ff00ff); color: white; border: none; box-shadow: 0 0 15px rgba(112,0,255,0.5); }
+        .teacher-tab.active { background: rgba(112, 0, 255, 0.2); border-left: 4px solid #ff00ff; color: white; }
         
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #00f3ff; }
+        /* Code Block Styling */
+        .code-vault {
+            background: #0d0d15;
+            border: 1px solid #333;
+            border-radius: 8px;
+            font-family: 'Share Tech Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        .code-vault::before {
+            content: "CODE VAULT // V.1.0";
+            position: absolute; top: 0; left: 0; right: 0;
+            background: #1f2937; color: #9ca3af;
+            font-size: 10px; padding: 4px 12px; letter-spacing: 1px;
+            border-bottom: 1px solid #333;
+        }
+        .code-content { padding: 30px 15px 15px 15px; color: #00ff9d; font-size: 13px; line-height: 1.5; white-space: pre-wrap;}
         
-        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        details summary::-webkit-details-marker { display: none; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col font-sans overflow-x-hidden selection:bg-retro-primary selection:text-white">
@@ -94,7 +89,7 @@
                     </div>
                     <div>
                         <div class="font-display font-bold text-2xl tracking-wider text-white">SOVEREIGN<span class="text-retro-secondary neon-text-c">TECH</span></div>
-                        <div class="text-[10px] text-retro-primary tracking-[0.3em] uppercase neon-text-p">Colombia 2035 Roadmap</div>
+                        <div class="text-[10px] text-retro-primary tracking-[0.3em] uppercase">Colombia 2035 Roadmap</div>
                     </div>
                 </div>
                 <div class="flex space-x-8">
@@ -111,127 +106,54 @@
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
         <div id="view-dashboard" class="fade-in">
-            
-            <div class="text-center mb-12">
-                <div class="inline-block px-3 py-1 bg-retro-warning/10 border border-retro-warning/50 rounded-full text-retro-warning text-xs font-mono mb-4 tracking-widest neon-text-w">SYSTEM DIAGNOSTIC: CRITICAL</div>
+             <div class="text-center mb-12">
+                <div class="inline-block px-3 py-1 bg-retro-warning/10 border border-retro-warning/50 rounded-full text-retro-warning text-xs font-mono mb-4 tracking-widest">SYSTEM DIAGNOSTIC: CRITICAL</div>
                 <h1 class="text-5xl md:text-6xl font-display font-extrabold text-white mb-4">THE SOVEREIGN <span class="text-transparent bg-clip-text bg-gradient-to-r from-retro-warning to-retro-primary">BREACH</span></h1>
                 <p class="text-lg text-slate-400 max-w-3xl mx-auto">
-                    Colombia is not merely "developing." It is trapped in a structural <strong>Efficiency Paradox</strong> where investments are dissipated by systemic friction. We consume technology; we do not create it.
+                    Colombia is trapped in a structural <strong>Efficiency Paradox</strong>. We consume technology; we do not create it.
                 </p>
             </div>
-
+            
             <div class="grid md:grid-cols-2 gap-8 mb-8">
-                <div class="bg-retro-card border border-white/10 p-8 rounded-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-6 opacity-20"><i data-lucide="settings" class="w-16 h-16 text-retro-secondary spin-slow"></i></div>
+                <div class="bg-retro-card border border-white/10 p-8 rounded-2xl relative">
                     <h2 class="text-xl font-display font-bold text-white mb-2 uppercase tracking-widest border-b border-white/10 pb-2">1. The Efficiency Paradox</h2>
-                    
                     <div class="flex items-center justify-between mt-6 mb-4">
                         <div class="text-center">
                             <div class="text-xs text-slate-500 font-mono uppercase">Innovation Inputs</div>
-                            <div class="text-4xl font-display font-bold text-retro-secondary neon-text-c">RANK 71</div>
-                            <div class="text-xs text-slate-400 mt-1">Education Spend, Infra</div>
+                            <div class="text-4xl font-display font-bold text-retro-secondary">RANK 71</div>
                         </div>
                         <div class="h-12 w-px bg-white/20"></div>
                         <div class="text-center">
                             <div class="text-xs text-slate-500 font-mono uppercase">Innovation Outputs</div>
-                            <div class="text-4xl font-display font-bold text-retro-warning neon-text-w">RANK 72</div>
-                            <div class="text-xs text-slate-400 mt-1">Patents, Creative Goods</div>
+                            <div class="text-4xl font-display font-bold text-retro-warning">RANK 72</div>
                         </div>
                     </div>
-                    
-                    <div class="bg-white/5 rounded-lg p-4 border border-white/5">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="alert-circle" class="text-retro-warning w-5 h-5"></i>
-                            <p class="text-sm text-slate-300"><strong>1:1 Stagnation Ratio.</strong> In mature economies, $1 of input yields exponential output. In Colombia, friction consumes the investment before it becomes value.</p>
-                        </div>
-                    </div>
+                    <p class="text-sm text-slate-400"><strong>1:1 Stagnation Ratio.</strong> Investment is dissipated by friction before it becomes value.</p>
                 </div>
 
-                <div class="bg-retro-card border border-retro-warning/30 p-8 rounded-2xl relative overflow-hidden neon-border-red">
-                    <h2 class="text-xl font-display font-bold text-white mb-2 uppercase tracking-widest border-b border-white/10 pb-2">2. The Valley of Death</h2>
-                    
+                <div class="bg-retro-card border border-retro-warning/30 p-8 rounded-2xl relative shadow-neon-red">
+                    <h2 class="text-xl font-display font-bold text-white mb-2 uppercase tracking-widest border-b border-white/10 pb-2">2. The Patent Precipice</h2>
                     <div class="flex gap-6 mt-6">
                         <div class="w-1/3">
                             <div class="text-xs text-slate-500 font-mono uppercase">Total Patents (2023)</div>
-                            <div class="text-6xl font-display font-extrabold text-retro-warning neon-text-w tracking-tighter">266</div>
+                            <div class="text-6xl font-display font-extrabold text-retro-warning tracking-tighter">266</div>
                             <div class="text-xs text-red-400 mt-1 font-mono">CRITICAL DEFICIT</div>
-                            <p class="text-[10px] text-slate-500 mt-2 leading-tight">A single mid-sized US university produces more patents annually than the entire nation.</p>
                         </div>
                         <div class="w-2/3">
                             <div class="text-xs text-slate-500 font-mono uppercase mb-2">R&D Investment (% GDP)</div>
-                            <div class="h-32 relative">
-                                <canvas id="rdChart"></canvas>
-                            </div>
+                            <div class="h-32 relative"><canvas id="rdChart"></canvas></div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="bg-retro-card border border-white/10 rounded-2xl overflow-hidden mb-8 grid md:grid-cols-2">
-                <div class="p-8 border-b md:border-b-0 md:border-r border-white/10 relative">
-                    <div class="absolute inset-0 bg-retro-secondary/5"></div>
-                    <div class="relative z-10">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-display font-bold text-white">BOGOTÁ</h3>
-                            <span class="px-2 py-1 bg-retro-secondary/20 text-retro-secondary text-xs font-mono rounded">ONLINE</span>
-                        </div>
-                        <div class="text-4xl font-mono font-bold text-white mb-1">IBD 0.239</div>
-                        <p class="text-sm text-slate-400 mb-4">Digital Maturity comparable to Southern Europe. High connectivity, access to fiber, 4G/5G.</p>
-                        <div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
-                            <div class="bg-retro-secondary h-full" style="width: 85%"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-8 relative">
-                    <div class="absolute inset-0 bg-retro-warning/5"></div>
-                    <div class="relative z-10">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-display font-bold text-white">VICHADA</h3>
-                            <span class="px-2 py-1 bg-retro-warning/20 text-retro-warning text-xs font-mono rounded animate-pulse">CONNECTION ERROR</span>
-                        </div>
-                        <div class="text-4xl font-mono font-bold text-white mb-1">IBD 0.698</div>
-                        <p class="text-sm text-slate-400 mb-4">Digital Maturity comparable to Least Developed Nations. Structural exclusion.</p>
-                        <div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
-                            <div class="bg-retro-warning h-full" style="width: 15%"></div>
-                        </div>
-                        <p class="text-xs text-retro-warning mt-2 font-mono">[!] Motivation Gap: 3.5% of divide is driven by "Lack of Interest"[cite: 2040].</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-gradient-to-r from-retro-card to-retro-accent/10 border border-white/10 p-8 rounded-2xl flex flex-col md:flex-row items-center gap-8">
-                <div class="md:w-1/3 text-center md:text-left">
-                    <h2 class="text-xl font-display font-bold text-white mb-2 uppercase tracking-widest">4. The Hemorrhage</h2>
-                    <div class="text-5xl font-display font-bold text-white mb-1">100%</div>
-                    <div class="text-sm font-mono text-retro-primary uppercase">Turnover Rate </div>
-                </div>
-                <div class="md:w-2/3">
-                    <div class="flex items-center gap-4 mb-3">
-                        <div class="flex-1 bg-white/5 p-4 rounded-lg text-center border border-white/5">
-                            <div class="text-xs text-slate-500 uppercase">Education</div>
-                            <div class="text-white font-bold">Local Investment</div>
-                        </div>
-                        <i data-lucide="arrow-right" class="text-slate-500"></i>
-                        <div class="flex-1 bg-white/5 p-4 rounded-lg text-center border border-white/5">
-                            <div class="text-xs text-slate-500 uppercase">Value Capture</div>
-                            <div class="text-retro-primary font-bold">Foreign IP</div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-slate-400">
-                        <strong>Salary Arbitrage:</strong> Our "Best and Brightest" work remotely for USD/EUR. While this brings cash, it prevents the accumulation of intellectual property within Colombian firms[cite: 2068].
-                    </p>
-                </div>
-            </div>
-
+            
             <div class="mt-12 text-center">
-                <p class="text-slate-400 mb-4 font-mono text-sm">SYSTEM REBOOT REQUIRED</p>
-                <button onclick="switchView('curriculum')" class="group relative px-10 py-4 bg-retro-primary/10 hover:bg-retro-primary/20 border border-retro-primary/50 text-retro-primary font-display font-bold text-xl uppercase tracking-widest transition-all rounded-lg overflow-hidden">
-                    Initialize Sovereign Curriculum
+                 <button onclick="switchView('teacher')" class="group relative px-10 py-4 bg-retro-primary/10 hover:bg-retro-primary/20 border border-retro-primary/50 text-retro-primary font-display font-bold text-xl uppercase tracking-widest transition-all rounded-lg overflow-hidden">
+                    Access Command Center
                     <div class="absolute inset-0 w-1 bg-retro-primary group-hover:w-full transition-all duration-300 opacity-20"></div>
                 </button>
             </div>
         </div>
-
 
         <div id="view-curriculum" class="hidden fade-in">
              <div class="flex flex-wrap justify-center gap-4 mb-10">
@@ -240,33 +162,21 @@
                 <button onclick="renderBand('band3')" id="btn-band3" class="band-btn px-8 py-3 rounded-full font-display font-bold tracking-wide border border-white/10 text-slate-400 hover:text-white transition">BAND III (6-8)</button>
                 <button onclick="renderBand('band4')" id="btn-band4" class="band-btn px-8 py-3 rounded-full font-display font-bold tracking-wide border border-white/10 text-slate-400 hover:text-white transition">BAND IV (9-11)</button>
             </div>
-
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div class="lg:col-span-2 space-y-6">
-                    <div id="band-header" class="bg-retro-card border border-retro-primary/30 p-8 rounded-2xl neon-border relative overflow-hidden">
-                        </div>
-
+                    <div id="band-header" class="bg-retro-card border border-retro-primary/30 p-8 rounded-2xl relative overflow-hidden"></div>
                     <div class="bg-retro-card border border-white/10 rounded-2xl overflow-hidden">
-                        <div class="bg-white/5 px-6 py-4 border-b border-white/10 flex justify-between items-center">
-                            <h3 class="font-display font-bold text-retro-secondary uppercase tracking-widest">Academic Architecture</h3>
-                            <span class="text-xs font-mono text-slate-500">40 WEEKS / 80 HOURS</span>
-                        </div>
-                        <div id="syllabus-content" class="divide-y divide-white/5">
-                            </div>
+                         <div id="syllabus-content" class="divide-y divide-white/5"></div>
                     </div>
                 </div>
-
                 <div class="space-y-6">
                     <div class="bg-retro-card border border-white/10 p-6 rounded-2xl">
                         <h3 class="font-display font-bold text-white mb-6 uppercase tracking-widest border-b border-white/10 pb-2">Tech Stack</h3>
                         <div id="stack-container" class="space-y-3"></div>
                     </div>
-
                     <div class="bg-gradient-to-br from-retro-card to-retro-bg border border-retro-accent/50 p-6 rounded-2xl">
                          <h3 class="font-display font-bold text-retro-primary mb-4 uppercase tracking-widest">Focus Distribution</h3>
-                         <div class="h-48 relative">
-                             <canvas id="curriculumChart"></canvas>
-                         </div>
+                         <div class="h-48 relative"><canvas id="curriculumChart"></canvas></div>
                     </div>
                 </div>
             </div>
@@ -277,15 +187,15 @@
                 <div class="lg:col-span-3 h-full overflow-y-auto custom-scroll pr-2">
                     <div class="bg-retro-card rounded-2xl border border-white/10 overflow-hidden sticky top-0">
                         <div class="p-5 bg-gradient-to-r from-retro-accent to-retro-card border-b border-white/10">
-                            <h3 class="font-display font-bold text-white tracking-widest">GUIDE SELECTOR</h3>
+                            <h3 class="font-display font-bold text-white tracking-widest">COMMAND CENTER</h3>
                         </div>
                         <nav class="flex flex-col p-2 space-y-1">
-                            <button onclick="renderTeacher('general')" id="t-btn-general" class="teacher-tab active p-3 rounded-lg text-left text-sm font-semibold transition hover:bg-white/5">Methodology & Strategy</button>
+                            <button onclick="renderTeacher('general')" id="t-btn-general" class="teacher-tab active p-3 rounded-lg text-left text-sm font-semibold transition hover:bg-white/5 text-white">Strategy & Pedagogy</button>
                             <div class="h-px bg-white/10 my-2"></div>
                             <button onclick="renderTeacher('band1')" id="t-btn-band1" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white">Band I: K-2 (Embodied)</button>
                             <button onclick="renderTeacher('band2')" id="t-btn-band2" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white">Band II: 3-5 (Visual)</button>
                             <button onclick="renderTeacher('band3')" id="t-btn-band3" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white">Band III: 6-8 (Syntax)</button>
-                            <button onclick="renderTeacher('band4')" id="t-btn-band4" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white">Band IV: 9-11 (Innovation)</button>
+                            <button onclick="renderTeacher('band4')" id="t-btn-band4" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white">Band IV: 9-11 (Deep Tech)</button>
                         </nav>
                     </div>
                 </div>
@@ -300,156 +210,315 @@
     <script>
         // --- DATA STORE ---
         const curriculumData = {
-            'band1': {
-                title: "Band I: Early Foundations",
-                subtitle: "Embodied Cognition (K-2)",
-                desc: "Addressing the 'Efficiency Paradox' by starting with logic, not screens. We utilize the 'Low Floor, High Ceiling' strategy with unplugged activities and screen-less robots (Cubetto) to teach algorithms, loops, and debugging through physical movement.",
-                stack: [
-                    {name: "Cubetto/Bee-Bot", type: "Hardware", icon: "box"},
-                    {name: "Unplugged Kits", type: "Analog", icon: "file-text"},
-                    {name: "TPR English", type: "Methodology", icon: "mic"}
-                ],
-                chart: [60, 30, 10], // Logic, Phys, Tech
-                syllabus: [
-                    {term: "Term 1: The Body as Machine", weeks: "1-10", desc: "<strong>Weeks 1-2:</strong> 'The Robot Teacher' - learning literal instructions. <br><strong>Weeks 5-6:</strong> 'Simon Says Code' - linking English TPR to logic. <br><strong>Weeks 9-10:</strong> 'The Human Program' capstone."},
-                    {term: "Term 2: Tangible Coding", weeks: "11-20", desc: "<strong>Weeks 13-14:</strong> Linearity & The First Voyage. <br><strong>Weeks 17-18:</strong> Functions ('The Blue Block' backpack analogy). <br><strong>Weeks 19-20:</strong> 'Narrative Map' storytelling project."},
-                    {term: "Term 3: Mechanics 101", weeks: "21-30", desc: "<strong>Weeks 21-22:</strong> Gears & Rotation (LEGO/Recycled). <br><strong>Weeks 23-24:</strong> Torque vs Speed ('The Hill Climber'). <br><strong>Weeks 29-30:</strong> Recycled Engineering Challenge."},
-                    {term: "Term 4: Digital Transition", weeks: "31-40", desc: "<strong>Weeks 31-32:</strong> Graph Paper Programming. <br><strong>Weeks 33-34:</strong> Intro to ScratchJr. <br><strong>Week 40:</strong> 'My Community' animated story capstone."}
-                ]
-            },
-            'band2': {
-                title: "Band II: The Logic Builders",
-                subtitle: "Visual Abstraction (3-5)",
-                desc: "Moving from physical intuition to formal logic structures. Countering the 'Motivation Gap' by building games and local sensor solutions. This band introduces variables, Cartesian coordinates, and basic IoT concepts.",
-                stack: [
-                    {name: "Scratch (MIT)", type: "Software", icon: "code"},
-                    {name: "BBC Micro:bit", type: "Hardware", icon: "cpu"},
-                    {name: "MakeCode", type: "IDE", icon: "terminal"}
-                ],
-                chart: [50, 40, 10],
-                syllabus: [
-                    {term: "Term 1: Creative Computing", weeks: "1-10", desc: "<strong>Week 1:</strong> The Cartesian Plane (X,Y). <br><strong>Week 6:</strong> Variables ('The Scorekeeper'). <br><strong>Week 8:</strong> Sensing & Collision Detection."},
-                    {term: "Term 2: Game Design", weeks: "11-20", desc: "<strong>Week 11:</strong> Physics 101 (Gravity simulation). <br><strong>Week 14:</strong> State Machines (Game states). <br><strong>Week 17:</strong> Debugging 'The Broken Code Museum'."},
-                    {term: "Term 3: Physical Computing", weeks: "21-30", desc: "<strong>Week 21:</strong> Intro to Micro:bit. <br><strong>Week 23:</strong> Accelerometer (Step Counter). <br><strong>Week 27:</strong> Servo Motors ('The Waving Robot')."},
-                    {term: "Term 4: Smart Agro/City", weeks: "31-40", desc: "<strong>Week 31:</strong> Soil Moisture Sensor (Nails). <br><strong>Week 35:</strong> Automated Systems (The Water Loop). <br><strong>Week 40:</strong> Innovation Fair Capstone."}
-                ]
-            },
-            'band3': {
-                title: "Band III: Syntax & Systems",
-                subtitle: "The Cognitive Bridge (6-8)",
-                desc: "Crossing the 'Valley of Death' from blocks to Python. Heavy focus on Systems Engineering, component-level electronics (Arduino), and E-waste salvage. Addressing the 'Shallow Tech' trap.",
-                stack: [
-                    {name: "Python (Mu)", type: "Language", icon: "hash"},
-                    {name: "Arduino Uno", type: "Hardware", icon: "zap"},
-                    {name: "L298N Driver", type: "Component", icon: "settings"}
-                ],
-                chart: [40, 40, 20],
-                syllabus: [
-                    {term: "Term 1: The Rosetta Stone", weeks: "1-10", desc: "<strong>Week 1:</strong> Intro to Mu Editor. <br><strong>Week 2:</strong> Variables (Typed). <br><strong>Week 7:</strong> Functions ('The Recipe'). <br><strong>Week 10:</strong> Text Adventure Capstone."},
-                    {term: "Term 2: Electronics", weeks: "11-20", desc: "<strong>Week 11:</strong> Ohm's Law & Water Analogy. <br><strong>Week 12:</strong> Breadboarding Safety. <br><strong>Week 20:</strong> Traffic Light Controller."},
-                    {term: "Term 3: Robotics", weeks: "21-30", desc: "<strong>Week 22:</strong> L298N H-Bridge. <br><strong>Week 24:</strong> Ultrasonic Sensors (Echolocation). <br><strong>Week 28:</strong> Obstacle Avoidance Algorithm."},
-                    {term: "Term 4: E-Waste Salvage", weeks: "31-40", desc: "<strong>Week 31:</strong> E-Waste & Circular Economy. <br><strong>Week 33:</strong> Stepper Motors (DVD Drives). <br><strong>Week 36:</strong> The 'Franken-Plotter' CNC."}
-                ]
-            },
-            'band4': {
-                title: "Band IV: Innovation Engine",
-                subtitle: "Deep Tech & Sovereignty (9-11)",
-                desc: "Pre-professional incubation. Students operate as Junior Full Stack Engineers, using Data Science (Pandas) to analyze local reality and IoT (ESP32) to automate it. Culminates in a Lean Canvas startup pitch.",
-                stack: [
-                    {name: "ESP32", type: "IoT", icon: "wifi"},
-                    {name: "Pandas/Python", type: "Data Science", icon: "bar-chart-2"},
-                    {name: "Lean Canvas", type: "Business", icon: "briefcase"}
-                ],
-                chart: [30, 30, 40],
-                syllabus: [
-                    {term: "Term 1: Data Science", weeks: "1-10", desc: "<strong>Week 1:</strong> Data Ethics. <br><strong>Week 3:</strong> Intro to Pandas. <br><strong>Week 4:</strong> Data Cleaning (Handling Nulls). <br><strong>Week 8:</strong> Analyzing Colombian Datasets."},
-                    {term: "Term 2: IoT Networks", weeks: "11-20", desc: "<strong>Week 11:</strong> ESP32 Setup. <br><strong>Week 13:</strong> Cloud Dashboards (ThingSpeak). <br><strong>Week 15:</strong> Edge Computing Logic. <br><strong>Week 20:</strong> 'Connected Ecosystem'."},
-                    {term: "Term 3: Applied Eng", weeks: "21-30", desc: "<strong>Week 21:</strong> Mechanisms. <br><strong>Week 22:</strong> Color Sensor Physics (TCS3200). <br><strong>Week 26:</strong> Sorting Algorithms. <br><strong>Week 30:</strong> Industrial Sorter."},
-                    {term: "Term 4: Startup", weeks: "31-40", desc: "<strong>Week 31:</strong> Ideation ('Problem not Solution'). <br><strong>Week 33:</strong> Lean Canvas. <br><strong>Week 37:</strong> English Pitch Deck. <br><strong>Week 40:</strong> Demo Day."}
-                ]
-            }
+            'band1': { title: "Band I: Early Foundations", subtitle: "Embodied Cognition (K-2)", desc: "Addressing the 'Efficiency Paradox' by starting with logic, not screens.", stack: [{name: "Cubetto", type: "Hardware", icon: "box"}, {name: "Unplugged", type: "Analog", icon: "file-text"}], chart: [60, 30, 10], syllabus: [{term: "Term 1", weeks: "1-10", desc: "The Body as Machine"}, {term: "Term 2", weeks: "11-20", desc: "Tangible Coding (Cubetto)"}] },
+            'band2': { title: "Band II: The Logic Builders", subtitle: "Visual Abstraction (3-5)", desc: "Moving from physical intuition to formal logic structures.", stack: [{name: "Scratch", type: "Software", icon: "code"}, {name: "Micro:bit", type: "Hardware", icon: "cpu"}], chart: [50, 40, 10], syllabus: [{term: "Term 1", weeks: "1-10", desc: "Creative Computing (Scratch)"}, {term: "Term 3", weeks: "21-30", desc: "Physical Computing (Micro:bit)"}] },
+            'band3': { title: "Band III: Syntax & Systems", subtitle: "The Cognitive Bridge (6-8)", desc: "Crossing from blocks to Python and Electronics.", stack: [{name: "Python", type: "Language", icon: "hash"}, {name: "Arduino", type: "Hardware", icon: "zap"}], chart: [40, 40, 20], syllabus: [{term: "Term 1", weeks: "1-10", desc: "The Rosetta Stone (Python)"}, {term: "Term 3", weeks: "21-30", desc: "Robotics Engineering"}] },
+            'band4': { title: "Band IV: Innovation Engine", subtitle: "Deep Tech (9-11)", desc: "Pre-professional Full Stack & IoT.", stack: [{name: "ESP32", type: "IoT", icon: "wifi"}, {name: "Pandas", type: "Data", icon: "bar-chart-2"}], chart: [30, 30, 40], syllabus: [{term: "Term 1", weeks: "1-10", desc: "Data Science"}, {term: "Term 2", weeks: "11-20", desc: "IoT Networks"}] }
         };
 
         const teacherDeepContent = {
             'general': `
                 <div class="bg-retro-card p-8 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-retro-primary/10 blur-[80px]"></div>
-                    <h2 class="text-3xl font-display font-bold text-white mb-6">Pedagogical <span class="text-retro-secondary">Strategy</span></h2>
+                    <h2 class="text-3xl font-display font-bold text-white mb-6">Execution <span class="text-retro-secondary">Strategy</span></h2>
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
-                            <h3 class="text-xl font-bold text-retro-primary mb-3">1. The Flipped Classroom</h3>
-                            <p class="text-slate-400 mb-4 leading-relaxed"><strong>The "Teacher Skills Gap" Reality:</strong> You are not expected to be a Senior Developer. Your role is "CTO of the Classroom" and "Facilitator." The technical lectures are delivered via the National Repository videos. Your job is to manage the <em>process</em>, facilitate debugging, and model resilience.</p>
+                            <h3 class="text-xl font-bold text-retro-primary mb-3">1. You are the CTO</h3>
+                            <p class="text-slate-400 mb-4 leading-relaxed">You are not the "Sage on the Stage." You are the "Guide on the Side." Use the video repository for technical lectures. Your job is to unblock students.</p>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-retro-secondary mb-3">2. Assessment: Failure as Data</h3>
-                            <p class="text-slate-400 mb-4 leading-relaxed">We are shifting from "Did you finish?" to "How did you engineer it?". <strong>The Failure Log:</strong> Students receive higher grades for documenting a bug and how they fixed it than for a perfect code that they copied. This builds <em>Antifragility</em>.</p>
+                            <h3 class="text-xl font-bold text-retro-secondary mb-3">2. Grade the Failure</h3>
+                            <p class="text-slate-400 mb-4 leading-relaxed">If a robot fails but the student documents <em>why</em>, they get an A. If it works but they can't explain it, they get a C. This builds <strong>Antifragility</strong>.</p>
                         </div>
                     </div>
                 </div>
             `,
             'band1': `
-                <div class="space-y-8">
-                    <div class="bg-retro-card p-6 rounded-2xl border border-white/10">
-                        <div class="flex items-center gap-3 mb-4"><div class="p-2 bg-retro-primary/20 rounded-lg text-retro-primary"><i data-lucide="body" class="w-6 h-6"></i></div><h3 class="text-xl font-display font-bold text-white">Methodology: Embodied Cognition</h3></div>
-                        <p class="text-slate-400">For K-2, the "computer" is the student. We use <strong>TPR (Total Physical Response)</strong> to link physical movement to abstract logic. A loop is not a line of code; it is a spin. A variable is a box you hold.</p>
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-retro-accent to-retro-card p-6 rounded-2xl border border-white/10">
+                        <h2 class="text-2xl font-display font-bold text-white">Band I: Deployment Guide</h2>
+                        <p class="text-slate-300 mt-2">No Screens. Pure Logic. Total Physical Response.</p>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                            <h4 class="text-retro-secondary font-bold mb-2">Activity: The Robot Teacher</h4>
-                            <p class="text-sm text-slate-400 mb-4"><strong>Concept: Literalism.</strong></p>
-                            <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside"><li>Teacher acts as "Robot".</li><li>Students give commands like "Pick up bread."</li><li>Teacher fails (picks it up with elbows) to show lack of specificity.</li></ul>
+
+                    <details class="bg-retro-card border border-white/10 rounded-xl overflow-hidden group">
+                        <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <span class="px-3 py-1 bg-retro-primary/20 text-retro-primary text-xs font-mono rounded">WEEK 1-2</span>
+                                <h3 class="text-lg font-bold text-white">Activity: The Robot Teacher</h3>
+                            </div>
+                            <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 border-t border-white/10 bg-black/20">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="text-retro-secondary font-bold text-sm uppercase mb-2">Teacher Script (Read Aloud)</h4>
+                                    <div class="bg-white/5 p-4 rounded-lg border-l-4 border-retro-secondary italic text-slate-300">
+                                        "I am a robot. I have no brain. I only do exactly what you say. If you tell me to 'pick up the bread' but don't tell me to 'open my hand' first, I will crush it."
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-retro-warning font-bold text-sm uppercase mb-2">The Trap (Common Errors)</h4>
+                                    <ul class="list-disc list-inside text-slate-400 text-sm space-y-2">
+                                        <li>Students assume you know what they mean. <strong>Do not interpret.</strong> Be literally dumb.</li>
+                                        <li>If they say "Put it there", stand still. "There" is not a coordinate.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                            <h4 class="text-retro-primary font-bold mb-2">Activity: Simon Says Code</h4>
-                            <p class="text-sm text-slate-400 mb-4"><strong>Concept: Technical English.</strong></p>
-                            <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside"><li>"Simon Says: <strong>Function Jump</strong>" (Jump)</li><li>"Simon Says: <strong>Loop Spin</strong>" (Spin 3 times)</li></ul>
+                    </details>
+                    
+                    <details class="bg-retro-card border border-white/10 rounded-xl overflow-hidden group">
+                         <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <span class="px-3 py-1 bg-retro-primary/20 text-retro-primary text-xs font-mono rounded">WEEK 5-6</span>
+                                <h3 class="text-lg font-bold text-white">Activity: Simon Says Code (TPR)</h3>
+                            </div>
+                            <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 border-t border-white/10 bg-black/20">
+                            <p class="text-slate-400 mb-4">Link physical movement to English syntax.</p>
+                            <div class="bg-white/5 p-4 rounded-lg">
+                                <h4 class="font-bold text-white mb-2">Command List</h4>
+                                <ul class="space-y-2 text-sm text-retro-secondary font-mono">
+                                    <li>"FUNCTION: JUMP" -> <span class="text-slate-400">Student Jumps once.</span></li>
+                                    <li>"LOOP: SPIN" -> <span class="text-slate-400">Student spins 3 times.</span></li>
+                                    <li>"DEBUG: FREEZE" -> <span class="text-slate-400">Student freezes in place.</span></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    </details>
                 </div>
             `,
             'band2': `
-                <div class="space-y-8">
-                    <div class="bg-retro-card p-6 rounded-2xl border border-white/10">
-                        <h3 class="text-xl font-display font-bold text-white mb-2">Band II Strategy: Visual Abstraction</h3>
-                        <p class="text-slate-400">We move from the body to the screen. The core challenge here is the <strong>Efficiency Paradox</strong>: preventing "Digital Literacy" (passive consumption) and enforcing "Computational Fluency" (creation).</p>
+                 <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-retro-secondary/20 to-retro-card p-6 rounded-2xl border border-white/10">
+                        <h2 class="text-2xl font-display font-bold text-white">Band II: Deployment Guide</h2>
+                        <p class="text-slate-300 mt-2">Visual Abstraction. Micro:bit & Scratch.</p>
                     </div>
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <h4 class="text-retro-secondary font-bold mb-4">Critical Project: The Soil Moisture Sensor (Week 31)</h4>
-                        <p class="text-sm text-slate-400 mb-4">Designed for the <strong>Rural Context</strong>. Instead of buying expensive sensors, we use the physics of conductivity.</p>
-                        <div class="grid grid-cols-2 gap-4 text-sm">
-                            <div class="bg-black/20 p-3 rounded"><div class="font-bold text-white mb-1">Hardware</div><div class="text-slate-400">2 Galvanized Nails, Micro:bit, Alligator Clips.</div></div>
-                            <div class="bg-black/20 p-3 rounded"><div class="font-bold text-white mb-1">Logic</div><div class="text-slate-400">Water conducts electricity. Wet soil = High Signal. Dry soil = Low Signal.</div></div>
+
+                    <details class="bg-retro-card border border-white/10 rounded-xl overflow-hidden group">
+                        <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <span class="px-3 py-1 bg-retro-secondary/20 text-retro-secondary text-xs font-mono rounded">WEEK 1</span>
+                                <h3 class="text-lg font-bold text-white">Concept: The Cartesian Plane</h3>
+                            </div>
+                            <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 border-t border-white/10 bg-black/20">
+                            <h4 class="text-retro-secondary font-bold text-sm uppercase mb-2">Teacher Analogy</h4>
+                            <p class="text-slate-400 mb-4">"The Stage is a map. The center is 0,0. To go Right, X gets bigger. To go Left, X gets smaller (Negative)."</p>
+                            <div class="code-vault">
+                                <div class="code-content">
+// Scratch Logic Block
+Go to X: 0  Y: 0   (Center)
+Glide 1 sec to X: 240 Y: 180 (Top Right)
+Glide 1 sec to X: -240 Y: -180 (Bottom Left)</div>
+                                <button class="absolute top-2 right-2 text-xs bg-white/10 hover:bg-white/20 text-white px-2 py-1 rounded" onclick="copyCode(this)">COPY</button>
+                            </div>
                         </div>
-                    </div>
+                    </details>
+
+                    <details class="bg-retro-card border border-white/10 rounded-xl overflow-hidden group">
+                         <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <span class="px-3 py-1 bg-retro-warning/20 text-retro-warning text-xs font-mono rounded">WEEK 31</span>
+                                <h3 class="text-lg font-bold text-white">Project: Soil Moisture (Nails)</h3>
+                            </div>
+                            <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 border-t border-white/10 bg-black/20">
+                            <p class="text-slate-400 mb-4">Don't buy a sensor. Build it. Use 2 galvanized nails.</p>
+                            <div class="grid md:grid-cols-2 gap-6 mb-4">
+                                <div>
+                                    <h4 class="font-bold text-white mb-2">Wiring</h4>
+                                    <ul class="text-sm text-slate-400 space-y-1">
+                                        <li>Nail 1 -> <strong>3V</strong></li>
+                                        <li>Nail 2 -> <strong>Pin 1</strong></li>
+                                        <li>Insert into Soil.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-2">Logic</h4>
+                                    <p class="text-sm text-slate-400">Water conducts electricity. Wet = High Number. Dry = Low Number.</p>
+                                </div>
+                            </div>
+                            <div class="code-vault">
+                                <div class="code-content">
+// Micro:bit MakeCode Logic
+forever {
+    let moisture = pins.analogReadPin(AnalogPin.P1)
+    if (moisture < 400) {
+        basic.showIcon(IconNames.Sad) // Too Dry!
+    } else {
+        basic.showIcon(IconNames.Happy) // Good!
+    }
+}</div>
+                                <button class="absolute top-2 right-2 text-xs bg-white/10 hover:bg-white/20 text-white px-2 py-1 rounded" onclick="copyCode(this)">COPY</button>
+                            </div>
+                        </div>
+                    </details>
                 </div>
             `,
             'band3': `
-                 <div class="space-y-8">
-                    <div class="bg-gradient-to-r from-retro-card to-retro-bg p-6 rounded-2xl border border-white/10">
-                        <h3 class="text-xl font-display font-bold text-white mb-2">The Rosetta Stone Method</h3>
-                        <p class="text-slate-400">Transitioning to Python is scary. We use the "Rosetta Stone" approach: explicitly mapping a known Scratch Block to its Python equivalent line-by-line.</p>
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-retro-primary/20 to-retro-card p-6 rounded-2xl border border-white/10">
+                        <h2 class="text-2xl font-display font-bold text-white">Band III: Deployment Guide</h2>
+                        <p class="text-slate-300 mt-2">Syntax (Python) & Engineering (Arduino). The Danger Zone.</p>
                     </div>
-                    <div class="bg-retro-card p-6 rounded-2xl border border-retro-primary/30 neon-border">
-                        <h4 class="text-lg font-bold text-white mb-4">Hardware Focus: L298N Motor Driver</h4>
-                        <table class="w-full text-sm text-left"><thead class="bg-white/10 text-white"><tr><th class="p-2">Symptom</th><th class="p-2">Solution</th></tr></thead><tbody class="text-slate-400 divide-y divide-white/10"><tr><td class="p-2 font-mono text-xs">Motor buzzes, no spin</td><td class="p-2">Batteries are dead (verify with multimeter) or PWM speed is too low (< 100).</td></tr><tr><td class="p-2 font-mono text-xs">Arduino resets on move</td><td class="p-2">Brownout. Use <strong>separate power supplies</strong>.</td></tr></tbody></table>
-                    </div>
+
+                    <details class="bg-retro-card border border-white/10 rounded-xl overflow-hidden group">
+                        <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <span class="px-3 py-1 bg-red-500/20 text-red-400 text-xs font-mono rounded">WEEK 22</span>
+                                <h3 class="text-lg font-bold text-white">Hardware: L298N Driver</h3>
+                            </div>
+                            <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 border-t border-white/10 bg-black/20">
+                            <div class="bg-red-500/10 border border-red-500/50 p-4 rounded-lg mb-4">
+                                <h4 class="font-bold text-red-400 flex items-center gap-2"><i data-lucide="alert-triangle" class="w-4 h-4"></i> SAFETY CRITICAL</h4>
+                                <p class="text-sm text-red-200 mt-1">1. Never connect 12V Battery to Arduino 5V.<br>2. <strong>ALWAYS</strong> connect Battery GND to Arduino GND (Shared Ground).</p>
+                            </div>
+                            
+                            <h4 class="font-bold text-white mb-2">Wiring Diagram Logic</h4>
+                            <div class="code-vault mb-4">
+<div class="code-content">// Arduino C++ Setup for L298N
+int IN1 = 8;
+int IN2 = 9;
+
+void setup() {
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+}
+
+void loop() {
+  // Move Forward
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  delay(2000);
+  
+  // Stop
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  delay(1000);
+}</div>
+                                <button class="absolute top-2 right-2 text-xs bg-white/10 hover:bg-white/20 text-white px-2 py-1 rounded" onclick="copyCode(this)">COPY</button>
+                            </div>
+                        </div>
+                    </details>
+                    
+                    <details class="bg-retro-card border border-white/10 rounded-xl overflow-hidden group">
+                        <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-mono rounded">WEEK 1-4</span>
+                                <h3 class="text-lg font-bold text-white">Python: The Rosetta Stone</h3>
+                            </div>
+                            <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 border-t border-white/10 bg-black/20">
+                            <p class="text-slate-400 mb-4">Map Scratch concepts directly to Python syntax.</p>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-bold text-white mb-2">Variables</h4>
+                                    <div class="code-vault"><div class="code-content">name = "Juan"
+age = 12
+print(f"I am {name}")</div></div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-2">Conditionals</h4>
+                                    <div class="code-vault"><div class="code-content">if age >= 18:
+    print("Welcome")
+else:
+    print("Stop")</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
                 </div>
             `,
             'band4': `
-                <div class="space-y-8">
-                     <div class="bg-retro-card p-6 rounded-2xl border border-white/10">
-                        <h3 class="text-xl font-display font-bold text-white mb-2">Band IV: Deep Tech & Sovereignty</h3>
-                        <p class="text-slate-400">We treat the students as "Junior Full Stack Engineers". The focus is on <strong>Data Science (Pandas)</strong> and <strong>IoT (ESP32)</strong> to solve local problems.</p>
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-retro-primary/20 to-retro-card p-6 rounded-2xl border border-white/10">
+                        <h2 class="text-2xl font-display font-bold text-white">Band IV: Deployment Guide</h2>
+                        <p class="text-slate-300 mt-2">Professional Grade. Data Science & IoT.</p>
                     </div>
-                    <div class="bg-retro-card p-6 rounded-2xl border border-white/10">
-                        <h4 class="font-bold text-white mb-4">ESP32 & IoT Troubleshooting</h4>
-                        <table class="w-full text-sm text-left"><thead class="bg-white/5 text-white"><tr><th class="p-3">Error</th><th class="p-3">Solution</th></tr></thead><tbody class="text-slate-400 divide-y divide-white/10"><tr><td class="p-3 font-mono text-xs">"Timed out waiting for packet header"</td><td class="p-3">Hold the <strong>BOOT</strong> button on the board when you see "Connecting...".</td></tr><tr><td class="p-3 font-mono text-xs">WiFi connects but no data</td><td class="p-3">Check the <strong>API Key</strong> for ThingSpeak.</td></tr></tbody></table>
-                    </div>
+
+                    <details class="bg-retro-card border border-white/10 rounded-xl overflow-hidden group">
+                        <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-mono rounded">WEEK 4</span>
+                                <h3 class="text-lg font-bold text-white">Data Science: Pandas Cleaning</h3>
+                            </div>
+                            <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 border-t border-white/10 bg-black/20">
+                            <h4 class="text-retro-secondary font-bold text-sm uppercase mb-2">Lesson Goal</h4>
+                            <p class="text-slate-400 mb-4">"Garbage In, Garbage Out". Teach them to handle missing data before graphing.</p>
+                            <div class="code-vault">
+                                <div class="code-content">
+import pandas as pd
+
+# Load Data
+df = pd.read_csv('colombia_data.csv')
+
+# Check for Empty Cells
+print(df.isnull().sum())
+
+# Fix: Fill empty ages with the average
+mean_age = df['age'].mean()
+df['age'].fillna(mean_age, inplace=True)
+
+# Fix: Drop rows with no name
+df.dropna(subset=['name'], inplace=True)</div>
+                                <button class="absolute top-2 right-2 text-xs bg-white/10 hover:bg-white/20 text-white px-2 py-1 rounded" onclick="copyCode(this)">COPY</button>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="bg-retro-card border border-white/10 rounded-xl overflow-hidden group">
+                         <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-mono rounded">WEEK 11</span>
+                                <h3 class="text-lg font-bold text-white">IoT: Connecting ESP32 to WiFi</h3>
+                            </div>
+                            <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 border-t border-white/10 bg-black/20">
+                            <div class="bg-white/5 p-4 rounded-lg mb-4 border border-white/10">
+                                <p class="text-sm text-slate-300"><strong>Troubleshoot:</strong> If upload fails, hold the <strong>BOOT</strong> button on the ESP32.</p>
+                            </div>
+                            <div class="code-vault">
+                                <div class="code-content">
+#include <WiFi.h>
+
+const char* ssid = "School_WiFi";
+const char* password = "password123";
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.println("Connecting...");
+  }
+  
+  Serial.println("Connected! IP Address:");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+    // Sensor logic goes here
+}</div>
+                                <button class="absolute top-2 right-2 text-xs bg-white/10 hover:bg-white/20 text-white px-2 py-1 rounded" onclick="copyCode(this)">COPY</button>
+                            </div>
+                        </div>
+                    </details>
                 </div>
             `
         };
 
-        // --- CHART & RENDER LOGIC ---
+        // --- RENDER FUNCTIONS ---
         function init() {
             lucide.createIcons();
             renderDashboardChart();
@@ -474,37 +543,6 @@
             lucide.createIcons();
         }
 
-        let rdChart = null;
-        function renderDashboardChart() {
-            const ctx = document.getElementById('rdChart');
-            if(!ctx) return;
-            if (rdChart) rdChart.destroy();
-            rdChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Colombia', 'EU', 'USA'],
-                    datasets: [{
-                        label: '% GDP Investment in R&D',
-                        data: [0.1, 2.5, 3.4],
-                        backgroundColor: ['#333333', '#00f3ff', '#ff00ff'], // Gray for CO to show "void"
-                        borderColor: ['#ff3333', '#00f3ff', '#ff00ff'], // Red border for CO
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: { 
-                        x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#64748b' } },
-                        y: { grid: { display: false }, ticks: { color: 'white', font: { family: 'Rajdhani', size: 14 } } }
-                    }
-                }
-            });
-        }
-
-        // ... (Existing renderBand, renderTeacher, renderCurriculumChart functions remain same as previous iteration) ...
         function renderBand(key) {
             const data = curriculumData[key];
             document.getElementById('band-header').innerHTML = `<h2 class="text-3xl font-display font-bold text-white mb-2">${data.title}</h2><div class="text-retro-primary font-bold uppercase tracking-widest text-sm mb-4">${data.subtitle}</div><p class="text-slate-400 leading-relaxed">${data.desc}</p>`;
@@ -530,7 +568,7 @@
             document.getElementById('teacher-content').innerHTML = teacherDeepContent[key];
             document.querySelectorAll('.teacher-tab').forEach(t => { t.classList.remove('active', 'bg-retro-primary', 'text-white'); t.classList.add('text-slate-400'); });
             const activeTab = document.getElementById(`t-btn-${key}`);
-            activeTab.classList.add('active', 'bg-retro-primary', 'text-white');
+            activeTab.classList.add('active', 'text-white'); // Removed duplicate class
             activeTab.classList.remove('text-slate-400');
             lucide.createIcons();
         }
@@ -540,6 +578,48 @@
             const ctx = document.getElementById('curriculumChart').getContext('2d');
             if (currentChart) currentChart.destroy();
             currentChart = new Chart(ctx, { type: 'doughnut', data: { labels: ['Logic/Code', 'Hardware', 'Soft Skills'], datasets: [{ data: data, backgroundColor: ['#7000ff', '#00f3ff', '#ff00ff'], borderWidth: 0, hoverOffset: 4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: '#94a3b8', font: {family: 'Inter', size: 10}, boxWidth: 10 } } }, cutout: '75%' } });
+        }
+
+        let rdChart = null;
+        function renderDashboardChart() {
+            const ctx = document.getElementById('rdChart');
+            if(!ctx) return;
+            if (rdChart) rdChart.destroy();
+            rdChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Colombia', 'EU', 'USA'],
+                    datasets: [{
+                        label: '% GDP Investment in R&D',
+                        data: [0.1, 2.5, 3.4],
+                        backgroundColor: ['#333333', '#00f3ff', '#ff00ff'],
+                        borderColor: ['#ff3333', '#00f3ff', '#ff00ff'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { 
+                        x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#64748b' } },
+                        y: { grid: { display: false }, ticks: { color: 'white', font: { family: 'Rajdhani', size: 14 } } }
+                    }
+                }
+            });
+        }
+        
+        function copyCode(btn) {
+            const code = btn.previousElementSibling.innerText;
+            navigator.clipboard.writeText(code);
+            const originalText = btn.innerText;
+            btn.innerText = "COPIED";
+            btn.classList.add("text-retro-success");
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove("text-retro-success");
+            }, 2000);
         }
 
         init();
