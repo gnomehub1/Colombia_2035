@@ -32,6 +32,7 @@
                     boxShadow: {
                         'neon': '0 0 5px theme("colors.retro.primary"), 0 0 20px theme("colors.retro.primary")',
                         'neon-sec': '0 0 5px theme("colors.retro.secondary"), 0 0 20px theme("colors.retro.secondary")',
+                        'neon-red': '0 0 5px theme("colors.retro.warning"), 0 0 20px theme("colors.retro.warning")',
                     }
                 }
             }
@@ -60,6 +61,7 @@
             font-family: 'Share Tech Mono', monospace;
             position: relative;
             overflow: hidden;
+            margin-top: 10px;
         }
         .code-vault::before {
             content: "CODE VAULT // V.1.0";
@@ -74,6 +76,11 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         details summary::-webkit-details-marker { display: none; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00f3ff; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col font-sans overflow-x-hidden selection:bg-retro-primary selection:text-white">
@@ -121,14 +128,16 @@
                         <div class="text-center">
                             <div class="text-xs text-slate-500 font-mono uppercase">Innovation Inputs</div>
                             <div class="text-4xl font-display font-bold text-retro-secondary">RANK 71</div>
+                            <div class="text-[10px] text-slate-400 mt-1">Spend, Infra</div>
                         </div>
                         <div class="h-12 w-px bg-white/20"></div>
                         <div class="text-center">
                             <div class="text-xs text-slate-500 font-mono uppercase">Innovation Outputs</div>
                             <div class="text-4xl font-display font-bold text-retro-warning">RANK 72</div>
+                            <div class="text-[10px] text-slate-400 mt-1">Patents, Goods</div>
                         </div>
                     </div>
-                    <p class="text-sm text-slate-400"><strong>1:1 Stagnation Ratio.</strong> Investment is dissipated by friction before it becomes value.</p>
+                    [cite_start]<p class="text-sm text-slate-400"><strong>1:1 Stagnation Ratio.</strong> Investment is dissipated by friction before it becomes value[cite: 1, 1571].</p>
                 </div>
 
                 <div class="bg-retro-card border border-retro-warning/30 p-8 rounded-2xl relative shadow-neon-red">
@@ -138,12 +147,68 @@
                             <div class="text-xs text-slate-500 font-mono uppercase">Total Patents (2023)</div>
                             <div class="text-6xl font-display font-extrabold text-retro-warning tracking-tighter">266</div>
                             <div class="text-xs text-red-400 mt-1 font-mono">CRITICAL DEFICIT</div>
+                            <p class="text-[10px] text-slate-500 mt-2">vs 300,000+ in USA</p>
                         </div>
                         <div class="w-2/3">
                             <div class="text-xs text-slate-500 font-mono uppercase mb-2">R&D Investment (% GDP)</div>
                             <div class="h-32 relative"><canvas id="rdChart"></canvas></div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="bg-retro-card border border-white/10 rounded-2xl overflow-hidden mb-8 grid md:grid-cols-2">
+                <div class="p-8 border-b md:border-b-0 md:border-r border-white/10 relative">
+                    <div class="absolute inset-0 bg-retro-secondary/5"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-display font-bold text-white">BOGOTÁ</h3>
+                            <span class="px-2 py-1 bg-retro-secondary/20 text-retro-secondary text-xs font-mono rounded">ONLINE</span>
+                        </div>
+                        <div class="text-4xl font-mono font-bold text-white mb-1">IBD 0.239</div>
+                        <p class="text-sm text-slate-400 mb-4">Digital Maturity comparable to Southern Europe. [cite_start]High connectivity, fiber access[cite: 1609].</p>
+                        <div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
+                            <div class="bg-retro-secondary h-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 relative">
+                    <div class="absolute inset-0 bg-retro-warning/5"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-display font-bold text-white">VICHADA</h3>
+                            <span class="px-2 py-1 bg-retro-warning/20 text-retro-warning text-xs font-mono rounded animate-pulse">CONNECTION ERROR</span>
+                        </div>
+                        <div class="text-4xl font-mono font-bold text-white mb-1">IBD 0.698</div>
+                        <p class="text-sm text-slate-400 mb-4">Comparable to Least Developed Nations. [cite_start]3.5% of disconnect is due to "Lack of Interest"[cite: 1610, 1618].</p>
+                        <div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
+                            <div class="bg-retro-warning h-full" style="width: 15%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-retro-card to-retro-accent/10 border border-white/10 p-8 rounded-2xl flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/3 text-center md:text-left">
+                    <h2 class="text-xl font-display font-bold text-white mb-2 uppercase tracking-widest">4. The Hemorrhage</h2>
+                    <div class="text-5xl font-display font-bold text-white mb-1">100%</div>
+                    <div class="text-sm font-mono text-retro-primary uppercase">Turnover Rate</div>
+                </div>
+                <div class="md:w-2/3">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="flex-1 bg-white/5 p-4 rounded-lg text-center border border-white/5">
+                            <div class="text-xs text-slate-500 uppercase">Education</div>
+                            <div class="text-white font-bold">Local Cost</div>
+                        </div>
+                        <i data-lucide="arrow-right" class="text-slate-500"></i>
+                        <div class="flex-1 bg-white/5 p-4 rounded-lg text-center border border-white/5">
+                            <div class="text-xs text-slate-500 uppercase">Value Capture</div>
+                            <div class="text-retro-primary font-bold">Foreign IP</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-400">
+                        [cite_start]<strong>Salary Arbitrage:</strong> Talent works remotely for USD/EUR, preventing local IP accumulation[cite: 1633].
+                    </p>
                 </div>
             </div>
             
@@ -166,7 +231,11 @@
                 <div class="lg:col-span-2 space-y-6">
                     <div id="band-header" class="bg-retro-card border border-retro-primary/30 p-8 rounded-2xl relative overflow-hidden"></div>
                     <div class="bg-retro-card border border-white/10 rounded-2xl overflow-hidden">
-                         <div id="syllabus-content" class="divide-y divide-white/5"></div>
+                        <div class="bg-white/5 px-6 py-4 border-b border-white/10 flex justify-between items-center">
+                            <h3 class="font-display font-bold text-retro-secondary uppercase tracking-widest">Academic Architecture</h3>
+                            <span class="text-xs font-mono text-slate-500">40 WEEKS / 80 HOURS</span>
+                        </div>
+                        <div id="syllabus-content" class="divide-y divide-white/5"></div>
                     </div>
                 </div>
                 <div class="space-y-6">
@@ -208,12 +277,76 @@
     </main>
 
     <script>
-        // --- DATA STORE ---
+        // --- RESTORED CURRICULUM DATA ---
         const curriculumData = {
-            'band1': { title: "Band I: Early Foundations", subtitle: "Embodied Cognition (K-2)", desc: "Addressing the 'Efficiency Paradox' by starting with logic, not screens.", stack: [{name: "Cubetto", type: "Hardware", icon: "box"}, {name: "Unplugged", type: "Analog", icon: "file-text"}], chart: [60, 30, 10], syllabus: [{term: "Term 1", weeks: "1-10", desc: "The Body as Machine"}, {term: "Term 2", weeks: "11-20", desc: "Tangible Coding (Cubetto)"}] },
-            'band2': { title: "Band II: The Logic Builders", subtitle: "Visual Abstraction (3-5)", desc: "Moving from physical intuition to formal logic structures.", stack: [{name: "Scratch", type: "Software", icon: "code"}, {name: "Micro:bit", type: "Hardware", icon: "cpu"}], chart: [50, 40, 10], syllabus: [{term: "Term 1", weeks: "1-10", desc: "Creative Computing (Scratch)"}, {term: "Term 3", weeks: "21-30", desc: "Physical Computing (Micro:bit)"}] },
-            'band3': { title: "Band III: Syntax & Systems", subtitle: "The Cognitive Bridge (6-8)", desc: "Crossing from blocks to Python and Electronics.", stack: [{name: "Python", type: "Language", icon: "hash"}, {name: "Arduino", type: "Hardware", icon: "zap"}], chart: [40, 40, 20], syllabus: [{term: "Term 1", weeks: "1-10", desc: "The Rosetta Stone (Python)"}, {term: "Term 3", weeks: "21-30", desc: "Robotics Engineering"}] },
-            'band4': { title: "Band IV: Innovation Engine", subtitle: "Deep Tech (9-11)", desc: "Pre-professional Full Stack & IoT.", stack: [{name: "ESP32", type: "IoT", icon: "wifi"}, {name: "Pandas", type: "Data", icon: "bar-chart-2"}], chart: [30, 30, 40], syllabus: [{term: "Term 1", weeks: "1-10", desc: "Data Science"}, {term: "Term 2", weeks: "11-20", desc: "IoT Networks"}] }
+            'band1': {
+                title: "Band I: Early Foundations",
+                subtitle: "Embodied Cognition (K-2)",
+                [cite_start]desc: "Addressing the 'Efficiency Paradox' by starting with logic, not screens[cite: 1469]. [cite_start]We utilize the 'Low Floor, High Ceiling' strategy with unplugged activities to teach algorithms through physical movement[cite: 1263].",
+                stack: [
+                    {name: "Cubetto/Bee-Bot", type: "Hardware", icon: "box"},
+                    {name: "Unplugged Kits", type: "Analog", icon: "file-text"},
+                    {name: "TPR English", type: "Methodology", icon: "mic"}
+                ],
+                chart: [60, 30, 10], 
+                syllabus: [
+                    {term: "Term 1: The Body as Machine", weeks: "Weeks 1-10", desc: "<strong>Weeks 1-2:</strong> 'The Robot Teacher' (Literal instructions). <br><strong>Weeks 3-4:</strong> Sequencing (Morning Routine). <br><strong>Weeks 5-6:</strong> 'Simon Says Code' (TPR English). [cite_start]<br><strong>Weeks 9-10:</strong> Capstone 'The Human Program'[cite: 1332]."},
+                    {term: "Term 2: Tangible Coding", weeks: "Weeks 11-20", desc: "<strong>Week 11:</strong> Hardware Anatomy (Input vs Output). <br><strong>Week 13:</strong> 'First Voyage' (A to B). <br><strong>Week 17:</strong> Functions ('The Blue Block'). [cite_start]<br><strong>Week 20:</strong> Robot Theatre (Storytelling)[cite: 1381]."},
+                    {term: "Term 3: Mechanics 101", weeks: "Weeks 21-30", desc: "<strong>Week 21:</strong> Gears & Rotation. <br><strong>Week 23:</strong> Torque vs Speed ('The Hill Climber'). <br><strong>Week 27:</strong> Friction & Surfaces. [cite_start]<br><strong>Week 30:</strong> The Distance Run Challenge[cite: 1422]."},
+                    {term: "Term 4: Digital Transition", weeks: "Weeks 31-40", desc: "<strong>Week 31:</strong> Graph Paper Programming (X/Y Grids). <br><strong>Week 33:</strong> Intro to ScratchJr ('Hello Cat'). <br><strong>Week 37:</strong> Loops & Parallelism. [cite_start]<br><strong>Week 40:</strong> 'My Community' Animated Story[cite: 1461]."}
+                ]
+            },
+            'band2': {
+                title: "Band II: The Logic Builders",
+                subtitle: "Visual Abstraction (3-5)",
+                [cite_start]desc: "Moving from physical intuition to formal logic structures[cite: 488]. [cite_start]Countering the 'Motivation Gap' by building games and local sensor solutions[cite: 475].",
+                stack: [
+                    {name: "Scratch (MIT)", type: "Software", icon: "code"},
+                    {name: "BBC Micro:bit", type: "Hardware", icon: "cpu"},
+                    {name: "MakeCode", type: "IDE", icon: "terminal"}
+                ],
+                chart: [50, 40, 10],
+                syllabus: [
+                    {term: "Term 1: Creative Computing", weeks: "Weeks 1-10", desc: "<strong>Week 1:</strong> Cartesian Plane (X,Y). <br><strong>Week 3:</strong> Geometric Art (Loops/Angles). <br><strong>Week 5:</strong> The Chatbot (Conditionals). [cite_start]<br><strong>Week 6:</strong> Variables ('The Scorekeeper')[cite: 598]."},
+                    {term: "Term 2: Game Design", weeks: "Weeks 11-20", desc: "<strong>Week 11:</strong> Physics 101 (Gravity variables). <br><strong>Week 14:</strong> State Machines (Game Over screens). [cite_start]<br><strong>Week 17:</strong> Debugging Challenges ('Broken Code Museum')[cite: 693]."},
+                    {term: "Term 3: Physical Computing", weeks: "Weeks 21-30", desc: "<strong>Week 21:</strong> Intro to Micro:bit. <br><strong>Week 23:</strong> Step Counter (Accelerometer). <br><strong>Week 25:</strong> Radio/Wireless ('Secret Messages'). [cite_start]<br><strong>Week 27:</strong> Servo Motors ('Waving Robot')[cite: 765]."},
+                    {term: "Term 4: Smart Agro Intro", weeks: "Weeks 31-40", desc: "<strong>Week 31:</strong> The Soil Moisture Project (Using Nails). <br><strong>Week 35:</strong> Automated Watering Logic. [cite_start]<br><strong>Week 39:</strong> Innovation Fair (Local Solutions)[cite: 835]."}
+                ]
+            },
+            'band3': {
+                title: "Band III: Syntax & Systems",
+                subtitle: "The Cognitive Bridge (6-8)",
+                [cite_start]desc: "Crossing the 'Valley of Death' from blocks to Python[cite: 4]. Heavy focus on Electronics (Arduino) and Robotics integration. Addressing the 'Shallow Tech' trap.",
+                stack: [
+                    {name: "Python (Mu)", type: "Language", icon: "hash"},
+                    {name: "Arduino Uno", type: "Hardware", icon: "zap"},
+                    {name: "L298N Driver", type: "Component", icon: "settings"}
+                ],
+                chart: [40, 40, 20],
+                syllabus: [
+                    {term: "Term 1: The Rosetta Stone", weeks: "Weeks 1-10", desc: "<strong>Week 1:</strong> Mu Editor Setup. <br><strong>Week 2:</strong> Variables (Typed). <br><strong>Week 5:</strong> Loops (While/For). <br><strong>Week 9:</strong> Turtle Graphics (Visual Feedback). [cite_start]<br><strong>Week 10:</strong> Text Adventure Capstone[cite: 136]."},
+                    {term: "Term 2: Electronics", weeks: "Weeks 11-20", desc: "<strong>Week 11:</strong> Physics of Flow (Ohm's Law). <br><strong>Week 12:</strong> Breadboarding (Safety). <br><strong>Week 16:</strong> Digital Input (Buttons/Pull-down). [cite_start]<br><strong>Week 20:</strong> Traffic Light Controller[cite: 219]."},
+                    {term: "Term 3: Robotics Engineering", weeks: "Weeks 21-30", desc: "<strong>Week 21:</strong> Chassis Assembly. <br><strong>Week 22:</strong> L298N H-Bridge Logic. <br><strong>Week 24:</strong> Ultrasonic Sensor (Echolocation). [cite_start]<br><strong>Week 28:</strong> The Avoidance Algorithm[cite: 281]."},
+                    {term: "Term 4: E-Waste Salvage", weeks: "Weeks 31-40", desc: "<strong>Week 31:</strong> E-Waste Crisis & Teardown safety. <br><strong>Week 33:</strong> Stepper Motors (DVD Drives). <br><strong>Week 36:</strong> The 'Franken-Plotter' CNC. [cite_start]<br><strong>Week 40:</strong> Sustainability Fair[cite: 369]."}
+                ]
+            },
+            'band4': {
+                title: "Band IV: Innovation Engine",
+                subtitle: "Deep Tech & Sovereignty (9-11)",
+                desc: "Pre-professional incubation. [cite_start]Students operate as Junior Full Stack Engineers, using Data Science to analyze local reality and IoT to automate it[cite: 1740].",
+                stack: [
+                    {name: "ESP32", type: "IoT", icon: "wifi"},
+                    {name: "Pandas/Python", type: "Data Science", icon: "bar-chart-2"},
+                    {name: "Lean Canvas", type: "Business", icon: "briefcase"}
+                ],
+                chart: [30, 30, 40],
+                syllabus: [
+                    {term: "Term 1: Data Science", weeks: "Weeks 1-10", desc: "<strong>Week 1:</strong> Data Ethics & Sovereignty. <br><strong>Week 3:</strong> Intro to Pandas (Cleaning Data). <br><strong>Week 7:</strong> Correlation vs Causation. [cite_start]<br><strong>Week 8:</strong> Analyzing Colombian Datasets (Datos.gov.co)[cite: 1841]."},
+                    {term: "Term 2: IoT Networks", weeks: "Weeks 11-20", desc: "<strong>Week 11:</strong> ESP32 Setup. <br><strong>Week 13:</strong> Cloud Dashboards (ThingSpeak). <br><strong>Week 15:</strong> Automation Logic (Edge Computing). [cite_start]<br><strong>Week 20:</strong> 'Connected Ecosystem' Capstone[cite: 1958]."},
+                    {term: "Term 3: Applied Engineering", weeks: "Weeks 21-30", desc: "<strong>Week 21:</strong> Industrial Mechanisms (Funnels). <br><strong>Week 22:</strong> Color Sensor Physics (TCS3200). <br><strong>Week 26:</strong> Sorting Algorithms. [cite_start]<br><strong>Week 30:</strong> The Coffee Sorter Challenge[cite: 2040]."},
+                    {term: "Term 4: The Startup", weeks: "Weeks 31-40", desc: "<strong>Week 31:</strong> Ideation ('Problem not Solution'). <br><strong>Week 33:</strong> Lean Canvas. <br><strong>Week 37:</strong> Pitch Deck (English). [cite_start]<br><strong>Week 40:</strong> Demo Day[cite: 2117]."}
+                ]
+            }
         };
 
         const teacherDeepContent = {
@@ -224,11 +357,11 @@
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
                             <h3 class="text-xl font-bold text-retro-primary mb-3">1. You are the CTO</h3>
-                            <p class="text-slate-400 mb-4 leading-relaxed">You are not the "Sage on the Stage." You are the "Guide on the Side." Use the video repository for technical lectures. Your job is to unblock students.</p>
+                            [cite_start]<p class="text-slate-400 mb-4 leading-relaxed">You are not the "Sage on the Stage." You are the "Guide on the Side." Use the video repository for technical lectures. Your job is to unblock students[cite: 26].</p>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-retro-secondary mb-3">2. Grade the Failure</h3>
-                            <p class="text-slate-400 mb-4 leading-relaxed">If a robot fails but the student documents <em>why</em>, they get an A. If it works but they can't explain it, they get a C. This builds <strong>Antifragility</strong>.</p>
+                            [cite_start]<p class="text-slate-400 mb-4 leading-relaxed">If a robot fails but the student documents <em>why</em>, they get an A. If it works but they can't explain it, they get a C. This builds <strong>Antifragility</strong>[cite: 14].</p>
                         </div>
                     </div>
                 </div>
@@ -244,7 +377,7 @@
                         <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
                             <div class="flex items-center gap-4">
                                 <span class="px-3 py-1 bg-retro-primary/20 text-retro-primary text-xs font-mono rounded">WEEK 1-2</span>
-                                <h3 class="text-lg font-bold text-white">Activity: The Robot Teacher</h3>
+                                [cite_start]<h3 class="text-lg font-bold text-white">Activity: The Robot Teacher [cite: 1300]</h3>
                             </div>
                             <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
                         </summary>
@@ -253,7 +386,7 @@
                                 <div>
                                     <h4 class="text-retro-secondary font-bold text-sm uppercase mb-2">Teacher Script (Read Aloud)</h4>
                                     <div class="bg-white/5 p-4 rounded-lg border-l-4 border-retro-secondary italic text-slate-300">
-                                        "I am a robot. I have no brain. I only do exactly what you say. If you tell me to 'pick up the bread' but don't tell me to 'open my hand' first, I will crush it."
+                                        [cite_start]"I am a robot. I have no brain. I only do exactly what you say. If you tell me to 'pick up the bread' but don't tell me to 'open my hand' first, I will crush it." [cite: 1305]
                                     </div>
                                 </div>
                                 <div>
@@ -271,7 +404,7 @@
                          <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
                             <div class="flex items-center gap-4">
                                 <span class="px-3 py-1 bg-retro-primary/20 text-retro-primary text-xs font-mono rounded">WEEK 5-6</span>
-                                <h3 class="text-lg font-bold text-white">Activity: Simon Says Code (TPR)</h3>
+                                [cite_start]<h3 class="text-lg font-bold text-white">Activity: Simon Says Code (TPR) [cite: 1318]</h3>
                             </div>
                             <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
                         </summary>
@@ -300,13 +433,13 @@
                         <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
                             <div class="flex items-center gap-4">
                                 <span class="px-3 py-1 bg-retro-secondary/20 text-retro-secondary text-xs font-mono rounded">WEEK 1</span>
-                                <h3 class="text-lg font-bold text-white">Concept: The Cartesian Plane</h3>
+                                [cite_start]<h3 class="text-lg font-bold text-white">Concept: The Cartesian Plane [cite: 510]</h3>
                             </div>
                             <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
                         </summary>
                         <div class="p-6 border-t border-white/10 bg-black/20">
                             <h4 class="text-retro-secondary font-bold text-sm uppercase mb-2">Teacher Analogy</h4>
-                            <p class="text-slate-400 mb-4">"The Stage is a map. The center is 0,0. To go Right, X gets bigger. To go Left, X gets smaller (Negative)."</p>
+                            [cite_start]<p class="text-slate-400 mb-4">"The Stage is a map. The center is 0,0. To go Right, X gets bigger. To go Left, X gets smaller (Negative)." [cite: 521]</p>
                             <div class="code-vault">
                                 <div class="code-content">
 // Scratch Logic Block
@@ -322,7 +455,7 @@ Glide 1 sec to X: -240 Y: -180 (Bottom Left)</div>
                          <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
                             <div class="flex items-center gap-4">
                                 <span class="px-3 py-1 bg-retro-warning/20 text-retro-warning text-xs font-mono rounded">WEEK 31</span>
-                                <h3 class="text-lg font-bold text-white">Project: Soil Moisture (Nails)</h3>
+                                [cite_start]<h3 class="text-lg font-bold text-white">Project: Soil Moisture (Nails) [cite: 808]</h3>
                             </div>
                             <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
                         </summary>
@@ -334,12 +467,12 @@ Glide 1 sec to X: -240 Y: -180 (Bottom Left)</div>
                                     <ul class="text-sm text-slate-400 space-y-1">
                                         <li>Nail 1 -> <strong>3V</strong></li>
                                         <li>Nail 2 -> <strong>Pin 1</strong></li>
-                                        <li>Insert into Soil.</li>
+                                        [cite_start]<li>Insert into Soil[cite: 816].</li>
                                     </ul>
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-white mb-2">Logic</h4>
-                                    <p class="text-sm text-slate-400">Water conducts electricity. Wet = High Number. Dry = Low Number.</p>
+                                    <p class="text-sm text-slate-400">Water conducts electricity. Wet = High Number. [cite_start]Dry = Low Number[cite: 812].</p>
                                 </div>
                             </div>
                             <div class="code-vault">
@@ -370,14 +503,14 @@ forever {
                         <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
                             <div class="flex items-center gap-4">
                                 <span class="px-3 py-1 bg-red-500/20 text-red-400 text-xs font-mono rounded">WEEK 22</span>
-                                <h3 class="text-lg font-bold text-white">Hardware: L298N Driver</h3>
+                                [cite_start]<h3 class="text-lg font-bold text-white">Hardware: L298N Driver [cite: 242]</h3>
                             </div>
                             <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
                         </summary>
                         <div class="p-6 border-t border-white/10 bg-black/20">
                             <div class="bg-red-500/10 border border-red-500/50 p-4 rounded-lg mb-4">
                                 <h4 class="font-bold text-red-400 flex items-center gap-2"><i data-lucide="alert-triangle" class="w-4 h-4"></i> SAFETY CRITICAL</h4>
-                                <p class="text-sm text-red-200 mt-1">1. Never connect 12V Battery to Arduino 5V.<br>2. <strong>ALWAYS</strong> connect Battery GND to Arduino GND (Shared Ground).</p>
+                                <p class="text-sm text-red-200 mt-1">1. Never connect 12V Battery to Arduino 5V.<br>2. [cite_start]<strong>ALWAYS</strong> connect Battery GND to Arduino GND (Shared Ground)[cite: 240, 248].</p>
                             </div>
                             
                             <h4 class="font-bold text-white mb-2">Wiring Diagram Logic</h4>
@@ -411,7 +544,7 @@ void loop() {
                         <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
                             <div class="flex items-center gap-4">
                                 <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-mono rounded">WEEK 1-4</span>
-                                <h3 class="text-lg font-bold text-white">Python: The Rosetta Stone</h3>
+                                [cite_start]<h3 class="text-lg font-bold text-white">Python: The Rosetta Stone [cite: 10, 31]</h3>
                             </div>
                             <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
                         </summary>
@@ -447,13 +580,13 @@ else:
                         <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
                             <div class="flex items-center gap-4">
                                 <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-mono rounded">WEEK 4</span>
-                                <h3 class="text-lg font-bold text-white">Data Science: Pandas Cleaning</h3>
+                                [cite_start]<h3 class="text-lg font-bold text-white">Data Science: Pandas Cleaning [cite: 1800]</h3>
                             </div>
                             <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
                         </summary>
                         <div class="p-6 border-t border-white/10 bg-black/20">
                             <h4 class="text-retro-secondary font-bold text-sm uppercase mb-2">Lesson Goal</h4>
-                            <p class="text-slate-400 mb-4">"Garbage In, Garbage Out". Teach them to handle missing data before graphing.</p>
+                            <p class="text-slate-400 mb-4">"Garbage In, Garbage Out". [cite_start]Teach them to handle missing data before graphing[cite: 1808].</p>
                             <div class="code-vault">
                                 <div class="code-content">
 import pandas as pd
@@ -479,13 +612,13 @@ df.dropna(subset=['name'], inplace=True)</div>
                          <summary class="p-6 cursor-pointer hover:bg-white/5 flex justify-between items-center">
                             <div class="flex items-center gap-4">
                                 <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-mono rounded">WEEK 11</span>
-                                <h3 class="text-lg font-bold text-white">IoT: Connecting ESP32 to WiFi</h3>
+                                [cite_start]<h3 class="text-lg font-bold text-white">IoT: Connecting ESP32 to WiFi [cite: 1877]</h3>
                             </div>
                             <i data-lucide="chevron-down" class="text-slate-500 group-open:rotate-180 transition"></i>
                         </summary>
                         <div class="p-6 border-t border-white/10 bg-black/20">
                             <div class="bg-white/5 p-4 rounded-lg mb-4 border border-white/10">
-                                <p class="text-sm text-slate-300"><strong>Troubleshoot:</strong> If upload fails, hold the <strong>BOOT</strong> button on the ESP32.</p>
+                                [cite_start]<p class="text-sm text-slate-300"><strong>Troubleshoot:</strong> If upload fails, hold the <strong>BOOT</strong> button on the ESP32[cite: 2160].</p>
                             </div>
                             <div class="code-vault">
                                 <div class="code-content">
@@ -518,7 +651,7 @@ void loop() {
             `
         };
 
-        // --- RENDER FUNCTIONS ---
+        // --- CHART & RENDER FUNCTIONS (SAME AS BEFORE) ---
         function init() {
             lucide.createIcons();
             renderDashboardChart();
@@ -543,6 +676,36 @@ void loop() {
             lucide.createIcons();
         }
 
+        let rdChart = null;
+        function renderDashboardChart() {
+            const ctx = document.getElementById('rdChart');
+            if(!ctx) return;
+            if (rdChart) rdChart.destroy();
+            rdChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Colombia', 'EU', 'USA'],
+                    datasets: [{
+                        label: '% GDP Investment in R&D',
+                        data: [0.1, 2.5, 3.4],
+                        backgroundColor: ['#333333', '#00f3ff', '#ff00ff'], // Gray for CO
+                        borderColor: ['#ff3333', '#00f3ff', '#ff00ff'], // Red border for CO
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { 
+                        x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#64748b' } },
+                        y: { grid: { display: false }, ticks: { color: 'white', font: { family: 'Rajdhani', size: 14 } } }
+                    }
+                }
+            });
+        }
+        
         function renderBand(key) {
             const data = curriculumData[key];
             document.getElementById('band-header').innerHTML = `<h2 class="text-3xl font-display font-bold text-white mb-2">${data.title}</h2><div class="text-retro-primary font-bold uppercase tracking-widest text-sm mb-4">${data.subtitle}</div><p class="text-slate-400 leading-relaxed">${data.desc}</p>`;
@@ -568,7 +731,7 @@ void loop() {
             document.getElementById('teacher-content').innerHTML = teacherDeepContent[key];
             document.querySelectorAll('.teacher-tab').forEach(t => { t.classList.remove('active', 'bg-retro-primary', 'text-white'); t.classList.add('text-slate-400'); });
             const activeTab = document.getElementById(`t-btn-${key}`);
-            activeTab.classList.add('active', 'text-white'); // Removed duplicate class
+            activeTab.classList.add('active', 'text-white'); 
             activeTab.classList.remove('text-slate-400');
             lucide.createIcons();
         }
@@ -580,36 +743,6 @@ void loop() {
             currentChart = new Chart(ctx, { type: 'doughnut', data: { labels: ['Logic/Code', 'Hardware', 'Soft Skills'], datasets: [{ data: data, backgroundColor: ['#7000ff', '#00f3ff', '#ff00ff'], borderWidth: 0, hoverOffset: 4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: '#94a3b8', font: {family: 'Inter', size: 10}, boxWidth: 10 } } }, cutout: '75%' } });
         }
 
-        let rdChart = null;
-        function renderDashboardChart() {
-            const ctx = document.getElementById('rdChart');
-            if(!ctx) return;
-            if (rdChart) rdChart.destroy();
-            rdChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Colombia', 'EU', 'USA'],
-                    datasets: [{
-                        label: '% GDP Investment in R&D',
-                        data: [0.1, 2.5, 3.4],
-                        backgroundColor: ['#333333', '#00f3ff', '#ff00ff'],
-                        borderColor: ['#ff3333', '#00f3ff', '#ff00ff'],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: { 
-                        x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#64748b' } },
-                        y: { grid: { display: false }, ticks: { color: 'white', font: { family: 'Rajdhani', size: 14 } } }
-                    }
-                }
-            });
-        }
-        
         function copyCode(btn) {
             const code = btn.previousElementSibling.innerText;
             navigator.clipboard.writeText(code);
