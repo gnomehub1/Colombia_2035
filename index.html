@@ -299,11 +299,12 @@
 
     <script>
         // --- DATA STORE ---
+// --- DATA STORE UPDATE (BAND I FOCUSED) ---
         const curriculumData = {
             'band1': {
                 title: "Band I: Early Foundations",
-                subtitle: "Embodied Cognition (K-2)",
-                desc: "Addressing the 'Efficiency Paradox' by starting with logic, not screens. We utilize the 'Low Floor, High Ceiling' strategy with unplugged activities and screen-less robots (Cubetto) to teach algorithms, loops, and debugging through physical movement.",
+                subtitle: "Embodied Cognition (Grades K-2)",
+                desc: "Addressing the 'Efficiency Paradox' by starting with logic, not screens. We utilize the 'Low Floor, High Ceiling' strategy with unplugged activities and screen-less robots to teach algorithms, loops, and debugging through physical movement.",
                 stack: [
                     {name: "Cubetto/Bee-Bot", type: "Hardware", icon: "box"},
                     {name: "Unplugged Kits", type: "Analog", icon: "file-text"},
@@ -311,10 +312,26 @@
                 ],
                 chart: [60, 30, 10], // Logic, Phys, Tech
                 syllabus: [
-                    {term: "Term 1: The Body as Machine", weeks: "1-10", desc: "<strong>Weeks 1-2:</strong> 'The Robot Teacher' - learning literal instructions. <br><strong>Weeks 5-6:</strong> 'Simon Says Code' - linking English TPR to logic. <br><strong>Weeks 9-10:</strong> 'The Human Program' capstone."},
-                    {term: "Term 2: Tangible Coding", weeks: "11-20", desc: "<strong>Weeks 13-14:</strong> Linearity & The First Voyage. <br><strong>Weeks 17-18:</strong> Functions ('The Blue Block' backpack analogy). <br><strong>Weeks 19-20:</strong> 'Narrative Map' storytelling project."},
-                    {term: "Term 3: Mechanics 101", weeks: "21-30", desc: "<strong>Weeks 21-22:</strong> Gears & Rotation (LEGO/Recycled). <br><strong>Weeks 23-24:</strong> Torque vs Speed ('The Hill Climber'). <br><strong>Weeks 29-30:</strong> Recycled Engineering Challenge."},
-                    {term: "Term 4: Digital Transition", weeks: "31-40", desc: "<strong>Weeks 31-32:</strong> Graph Paper Programming. <br><strong>Weeks 33-34:</strong> Intro to ScratchJr. <br><strong>Week 40:</strong> 'My Community' animated story capstone."}
+                    {
+                        term: "Term 1: The Body as Machine", 
+                        weeks: "Weeks 1-10", 
+                        desc: "<strong class='text-retro-secondary'>Focus: Unplugged Logic</strong><br>• W1-2: Literalism ('The Robot Teacher')<br>• W3-4: Sequencing (Timeline Bugs)<br>• W5-6: TPR English ('Simon Says Code')<br>• W7-8: Spatial Logic (Floor Grid)<br>• W9-10: Capstone ('The Human Program')"
+                    },
+                    {
+                        term: "Term 2: Tangible Coding", 
+                        weeks: "Weeks 11-20", 
+                        desc: "<strong class='text-retro-secondary'>Focus: Screen-less Robotics</strong><br>• W11-12: I/O Anatomy (Buttons vs. Screens)<br>• W13-14: The Queue (Planning vs. Action)<br>• W15-16: Relative Direction (Left vs. Right)<br>• W17-18: Functions ('The Backpack')<br>• W19-20: Capstone ('The Narrative Map')"
+                    },
+                    {
+                        term: "Term 3: Mechanics 101", 
+                        weeks: "Weeks 21-30", 
+                        desc: "<strong class='text-retro-secondary'>Focus: Physics & Engineering</strong><br>• W21-22: Gears (Transmission)<br>• W23-24: Torque vs. Speed ('The Hill Climber')<br>• W25-26: Levers ('The Catapult')<br>• W27-28: Friction ('Surface Science')<br>• W29-30: Capstone ('The Engineering Challenge')"
+                    },
+                    {
+                        term: "Term 4: Digital Transition", 
+                        weeks: "Weeks 31-40", 
+                        desc: "<strong class='text-retro-secondary'>Focus: Intro to ScratchJr</strong><br>• W31-32: Graph Paper Programming (2D Grids)<br>• W33-34: Interface Mapping (Blocks to Screens)<br>• W35-36: Events ('Start on Tap')<br>• W37-38: Loops ('The Dance Party')<br>• W39-40: Capstone ('My Community' Animation)"
+                    }
                 ]
             },
             'band2': {
@@ -370,19 +387,227 @@
             }
         };
 
-        const teacherDeepContent = {
-            'general': `
-                <div class="bg-retro-card p-8 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-retro-primary/10 blur-[80px]"></div>
-                    <h2 class="text-3xl font-display font-bold text-white mb-6">Pedagogical <span class="text-retro-secondary">Strategy</span></h2>
+const teacherDeepContent = {
+            'general': teacherDeepContent['general'], // Keep existing general tab
+            'band1': `
+                <div class="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    
+                    <div class="relative bg-retro-card border border-retro-primary/30 p-8 rounded-2xl overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-primary font-bold select-none group-hover:opacity-20 transition">01</div>
+                        <h2 class="text-3xl font-display font-bold text-white mb-2">TERM 1: The Body as Machine</h2>
+                        <div class="inline-block px-3 py-1 bg-retro-primary/20 text-retro-primary text-xs font-mono rounded-full mb-4">WEEKS 1-10</div>
+                        <p class="text-slate-400 max-w-3xl"><strong>Goal:</strong> Establish "Cognitive Sovereignty" without screens. The student is the computer; the teacher is the user. We strip away the "magic" of tech and focus on the <em>logic</em> of instructions.</p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-12 gap-6">
+                        <div class="lg:col-span-3">
+                            <div class="bg-white/5 p-4 rounded-xl border-l-4 border-retro-secondary h-full">
+                                <h4 class="text-retro-secondary font-bold text-lg mb-1">Weeks 1-2</h4>
+                                <div class="text-sm text-slate-400 font-mono mb-4">Literalism & Algorithms</div>
+                                <div class="text-xs text-slate-500 uppercase tracking-widest">Key Concept</div>
+                                <p class="text-white text-sm">Computers are dumb. They do exactly what you say, even if it's wrong.</p>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-9 bg-retro-card border border-white/10 p-6 rounded-xl">
+                            <h3 class="font-display font-bold text-white mb-4 flex items-center gap-2"><i data-lucide="play-circle" class="text-retro-secondary"></i> Activity: The Robot Teacher</h3>
+                            
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div class="bg-black/30 p-4 rounded-lg">
+                                    <div class="text-retro-primary font-bold text-xs uppercase mb-2">Setup</div>
+                                    <p class="text-sm text-slate-400">You are the Robot. You have no brain. Students must tell you to "Put on a jacket".</p>
+                                </div>
+                                <div class="bg-black/30 p-4 rounded-lg">
+                                    <div class="text-retro-warning font-bold text-xs uppercase mb-2">The "Bug"</div>
+                                    <p class="text-sm text-slate-400">If a student says "Pick up the jacket," pick it up with your elbows or drop it immediately. Show them that <strong>vagueness fails</strong>.</p>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-white/5 rounded border border-white/5">
+                                <div class="text-xs text-slate-500 font-mono mb-2 uppercase">Teacher Script</div>
+                                [cite_start]<p class="text-slate-300 italic">"I am a robot. I have no brain. If you don't tell me to 'Stop pouring the water', I will pour until the room is flooded." [cite: 78]</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-12 gap-6">
+                        <div class="lg:col-span-3">
+                            <div class="bg-white/5 p-4 rounded-xl border-l-4 border-retro-accent h-full">
+                                <h4 class="text-retro-accent font-bold text-lg mb-1">Weeks 3-6</h4>
+                                <div class="text-sm text-slate-400 font-mono mb-4">Sequencing & TPR</div>
+                                <div class="text-xs text-slate-500 uppercase tracking-widest">Key Concept</div>
+                                <p class="text-white text-sm">Order matters (Sequencing) and English is the language of code.</p>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-9 bg-retro-card border border-white/10 p-6 rounded-xl space-y-6">
+                            
+                            <div>
+                                <h3 class="font-display font-bold text-white mb-2 flex items-center gap-2"><i data-lucide="layers" class="text-retro-accent"></i> Activity: Timeline Bugs</h3>
+                                <p class="text-sm text-slate-400 mb-2">Use printed cards (Wake Up, Brush Teeth, Shoes, Socks).</p>
+                                <ul class="list-disc list-inside text-sm text-slate-400 space-y-1">
+                                    <li><strong>The Trap:</strong> Ask "What happens if we put 'Shoes' BEFORE 'Socks'?"</li>
+                                    [cite_start]<li><strong>Vocabulary:</strong> Introduce the word <strong>"Bug"</strong> (mistake) and <strong>"Debug"</strong> (fix). [cite: 86]</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="h-px bg-white/10"></div>
+
+                            <div>
+                                <h3 class="font-display font-bold text-white mb-2 flex items-center gap-2"><i data-lucide="mic" class="text-retro-accent"></i> Activity: Simon Says Code</h3>
+                                <p class="text-sm text-slate-400 mb-2">Link physical movement to Technical English.</p>
+                                <div class="grid grid-cols-2 gap-4 text-sm">
+                                    <div class="bg-retro-accent/10 p-3 rounded border border-retro-accent/30 text-center">
+                                        <div class="text-retro-accent font-bold">"Function Jump!"</div>
+                                        <div class="text-slate-500 text-xs">Students Jump</div>
+                                    </div>
+                                    <div class="bg-retro-accent/10 p-3 rounded border border-retro-accent/30 text-center">
+                                        <div class="text-retro-accent font-bold">"Loop Spin!"</div>
+                                        <div class="text-slate-500 text-xs">Students spin 3 times</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                     <div class="grid lg:grid-cols-12 gap-6">
+                        <div class="lg:col-span-3">
+                            <div class="bg-white/5 p-4 rounded-xl border-l-4 border-white h-full">
+                                <h4 class="text-white font-bold text-lg mb-1">Weeks 7-10</h4>
+                                <div class="text-sm text-slate-400 font-mono mb-4">Spatial Logic Capstone</div>
+                                <div class="text-xs text-slate-500 uppercase tracking-widest">Key Concept</div>
+                                <p class="text-white text-sm">Mapping 3D movement to 2D coordinates.</p>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-9 bg-retro-card border border-white/10 p-6 rounded-xl">
+                             <h3 class="font-display font-bold text-white mb-4 flex items-center gap-2"><i data-lucide="map" class="text-white"></i> The Floor Grid</h3>
+                             <p class="text-sm text-slate-400 mb-4">Create a 5x5 grid on the floor with masking tape. Place "obstacles" (Traffic, River).</p>
+                             
+                             <div class="bg-black/30 p-4 rounded-lg border border-white/5 mb-4">
+                                <div class="flex gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-retro-primary/20 flex items-center justify-center text-retro-primary font-bold">A</div>
+                                    <div>
+                                        <div class="text-white font-bold text-sm">Role: The Coder</div>
+                                        <p class="text-slate-400 text-xs">Stands outside the grid. Gives oral commands: "Forward 2, Right Turn."</p>
+                                    </div>
+                                </div>
+                                <div class="h-px bg-white/10 my-3"></div>
+                                <div class="flex gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-retro-secondary/20 flex items-center justify-center text-retro-secondary font-bold">B</div>
+                                    <div>
+                                        <div class="text-white font-bold text-sm">Role: The Robot</div>
+                                        <p class="text-slate-400 text-xs">Stands inside. Moves ONLY when commanded. If they crash into an obstacle, the team must "Debug".</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="text-right">
+                                <span class="text-xs font-mono text-retro-warning">[Assessment: Does the team fix errors without fighting?]</span>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="relative bg-retro-card border border-retro-secondary/30 p-8 rounded-2xl overflow-hidden mt-12 group">
+                        <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-secondary font-bold select-none group-hover:opacity-20 transition">02</div>
+                        <h2 class="text-3xl font-display font-bold text-white mb-2">TERM 2: Tangible Coding</h2>
+                        <div class="inline-block px-3 py-1 bg-retro-secondary/20 text-retro-secondary text-xs font-mono rounded-full mb-4">WEEKS 11-20</div>
+                        <p class="text-slate-400 max-w-3xl"><strong>Hardware:</strong> Cubetto, Bee-Bot, or Blue-Bot. <br><strong>Goal:</strong> Transfer logic from the body to an external agent. Introduce "Functions" and "Queues".</p>
+                    </div>
+
+                    <div class="bg-retro-card border border-white/10 p-6 rounded-xl">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/3">
+                                <h3 class="font-display font-bold text-retro-secondary text-xl mb-2">The "Queue" Concept</h3>
+                                <p class="text-sm text-slate-400">Young children are impulsive. They want to push the robot immediately.</p>
+                            </div>
+                            <div class="md:w-2/3">
+                                <div class="bg-white/5 p-4 rounded-lg border-l-4 border-retro-secondary">
+                                    <h4 class="font-bold text-white text-sm mb-2">Teacher Strategy: "Think, Then Press"</h4>
+                                    [cite_start]<p class="text-sm text-slate-300 mb-2">"The robot doesn't move until you press the Blue Button (Go). You must build the whole line of instructions first." [cite: 135]</p>
+                                    <p class="text-xs text-slate-500 mt-2"><strong>Why?</strong> This teaches delayed gratification and planning.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <div class="bg-retro-card border border-white/10 p-6 rounded-xl">
+                            <h3 class="font-bold text-white mb-2">Weeks 15-16: The Left/Right Problem</h3>
+                            <p class="text-sm text-slate-400 mb-4">When the robot faces the student, "Left" is "Right". This confuses everyone.</p>
+                            <div class="bg-retro-secondary/10 p-4 rounded text-center">
+                                <div class="font-mono text-retro-secondary font-bold mb-1">SOLUTION: PILOT VIEW</div>
+                                <p class="text-xs text-slate-300">Have students stand BEHIND the robot to align their perspective. [cite_start]Use stickers on the robot's left side and the student's left hand. [cite: 143]</p>
+                            </div>
+                        </div>
+                        <div class="bg-retro-card border border-white/10 p-6 rounded-xl">
+                            <h3 class="font-bold text-white mb-2">Weeks 17-18: The Backpack (Functions)</h3>
+                            <p class="text-sm text-slate-400 mb-4">How do we explain a Function to a 6-year-old?</p>
+                            <div class="bg-retro-primary/10 p-4 rounded text-center">
+                                <div class="font-mono text-retro-primary font-bold mb-1">ANALOGY: THE BACKPACK</div>
+                                [cite_start]<p class="text-xs text-slate-300">"A Function is a backpack. You put a sequence (Step-Turn-Step) INSIDE the backpack. Now, you just carry the backpack (Blue Block) instead of holding 3 things." [cite: 149]</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative bg-retro-card border border-retro-warning/30 p-8 rounded-2xl overflow-hidden mt-12 group">
+                        <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-warning font-bold select-none group-hover:opacity-20 transition">03</div>
+                        <h2 class="text-3xl font-display font-bold text-white mb-2">TERM 3: Mechanical Engineering</h2>
+                        <div class="inline-block px-3 py-1 bg-retro-warning/20 text-retro-warning text-xs font-mono rounded-full mb-4">WEEKS 21-30</div>
+                        <p class="text-slate-400 max-w-3xl"><strong>Hardware:</strong> LEGO Simple Machines OR Recycled Materials (Cardboard/Caps). <br><strong>Goal:</strong> Reconnect logic with physics. Understanding torque, gears, and friction.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-white/5 p-5 rounded-xl flex gap-4 items-start">
+                            <div class="p-3 bg-retro-warning/20 rounded text-retro-warning"><i data-lucide="settings" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Weeks 21-22: Gears ("Friends Holding Hands")</h4>
+                                <p class="text-sm text-slate-400 mt-1"><strong>Concept:</strong> Transmission. [cite_start]If I turn the first gear clockwise, the neighbor turns counter-clockwise. [cite: 171]</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 p-5 rounded-xl flex gap-4 items-start">
+                            <div class="p-3 bg-retro-warning/20 rounded text-retro-warning"><i data-lucide="truck" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Weeks 23-24: Torque ("The Hill Climber")</h4>
+                                <p class="text-sm text-slate-400 mt-1"><strong>Experiment:</strong> Build a LEGO car. Try to drive up a ramp using a BIG gear driving a SMALL gear (Speed). It fails. Switch to SMALL driving BIG (Torque). [cite_start]<br><span class="text-retro-warning italic">"Trucks in the Andes need power gears, not speed gears." [cite: 180]</span></p>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 p-5 rounded-xl flex gap-4 items-start">
+                            <div class="p-3 bg-retro-warning/20 rounded text-retro-warning"><i data-lucide="move" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Weeks 27-28: Friction ("Surface Science")</h4>
+                                <p class="text-sm text-slate-400 mt-1"><strong>Activity:</strong> Roll a toy car down a ramp onto Tile, Carpet, and Sandpaper. Measure the distance. [cite_start]Explain that "Friction is the floor grabbing the wheels." [cite: 194]</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative bg-retro-card border border-retro-accent/30 p-8 rounded-2xl overflow-hidden mt-12 group">
+                        <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-accent font-bold select-none group-hover:opacity-20 transition">04</div>
+                        <h2 class="text-3xl font-display font-bold text-white mb-2">TERM 4: Digital Transition</h2>
+                        <div class="inline-block px-3 py-1 bg-retro-accent/20 text-retro-accent text-xs font-mono rounded-full mb-4">WEEKS 31-40</div>
+                        <p class="text-slate-400 max-w-3xl"><strong>Hardware:</strong> Tablets (ScratchJr) OR Graph Paper. <br><strong>Goal:</strong> Move from physical space to the screen. Mapping "Green Blocks" (Cubetto) to "Blue Blocks" (Scratch).</p>
+                    </div>
+
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
-                            <h3 class="text-xl font-bold text-retro-primary mb-3">1. The Flipped Classroom</h3>
-                            <p class="text-slate-400 mb-4 leading-relaxed"><strong>The "Teacher Skills Gap" Reality:</strong> You are not expected to be a Senior Developer. Your role is "CTO of the Classroom" and "Facilitator." The technical lectures are delivered via the National Repository videos. Your job is to manage the <em>process</em>, facilitate debugging, and model resilience.</p>
+                            <h3 class="font-bold text-white mb-4 text-lg">Weeks 31-32: Graph Paper Programming</h3>
+                            <p class="text-sm text-slate-400 mb-4">Don't jump straight to tablets. Use paper first.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3 text-sm text-slate-300">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-retro-accent shrink-0"></i>
+                                    <span><strong>Paper Pixels:</strong> Students write code using symbols (→, ←, ↑, ↓, Fill).</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-sm text-slate-300">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-retro-accent shrink-0"></i>
+                                    <span><strong>Partner Mode:</strong> One writes, one "acts" as the computer filling in squares. [cite_start]If the drawing is wrong, fix the code. [cite: 211]</span>
+                                </li>
+                            </ul>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-retro-secondary mb-3">2. Assessment: Failure as Data</h3>
-                            <p class="text-slate-400 mb-4 leading-relaxed">We are shifting from "Did you finish?" to "How did you engineer it?". <strong>The Failure Log:</strong> Students receive higher grades for documenting a bug and how they fixed it than for a perfect code that they copied. This builds <em>Antifragility</em>.</p>
+                            <h3 class="font-bold text-white mb-4 text-lg">Weeks 37-38: The Loop</h3>
+                            <p class="text-sm text-slate-400 mb-4">Introducing efficiency in code.</p>
+                            <div class="bg-black/40 p-4 rounded-lg border border-white/5">
+                                <div class="text-xs text-slate-500 uppercase mb-1">Activity: The Dance Party</div>
+                                <p class="text-sm text-white font-mono mb-2">BAD CODE: Move-Jump-Move-Jump-Move-Jump</p>
+                                <p class="text-sm text-retro-accent font-mono">GOOD CODE: [Repeat 3] (Move-Jump)</p>
+                                [cite_start]<p class="text-xs text-slate-400 mt-2">Explain that the orange block saves us from doing boring work. [cite: 231]</p>
+                            </div>
                         </div>
                     </div>
                 </div>
