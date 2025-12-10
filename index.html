@@ -194,7 +194,7 @@
                         <div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
                             <div class="bg-retro-warning h-full" style="width: 15%"></div>
                         </div>
-                        <p class="text-xs text-retro-warning mt-2 font-mono">[!] Motivation Gap: 3.5% of divide is driven by "Lack of Interest"[cite: 2040].</p>
+                        <p class="text-xs text-retro-warning mt-2 font-mono">[!] Motivation Gap: 3.5% of divide is driven by "Lack of Interest".</p>
                     </div>
                 </div>
             </div>
@@ -218,7 +218,7 @@
                         </div>
                     </div>
                     <p class="text-sm text-slate-400">
-                        <strong>Salary Arbitrage:</strong> Our "Best and Brightest" work remotely for USD/EUR. While this brings cash, it prevents the accumulation of intellectual property within Colombian firms[cite: 2068].
+                        <strong>Salary Arbitrage:</strong> Our "Best and Brightest" work remotely for USD/EUR. While this brings cash, it prevents the accumulation of intellectual property within Colombian firms.
                     </p>
                 </div>
             </div>
@@ -297,561 +297,561 @@
 
     </main>
 
-<script>
-    // --- DATA STORE ---
-    const curriculumData = {
-        'band1': {
-            title: "Band I: Early Foundations",
-            subtitle: "Embodied Cognition (Grades K-2)",
-            [cite_start]desc: "Addressing the 'Efficiency Paradox' by starting with logic, not screens. We utilize the 'Low Floor, High Ceiling' strategy with unplugged activities and screen-less robots to teach algorithms, loops, and debugging through physical movement[cite: 6, 17].",
-            stack: [
-                {name: "Cubetto/Bee-Bot", type: "Hardware", icon: "box"},
-                {name: "Unplugged Kits", type: "Analog", icon: "file-text"},
-                {name: "TPR English", type: "Methodology", icon: "mic"}
-            ],
-            chart: [60, 30, 10], // Logic, Phys, Tech
-            syllabus: [
-                {
-                    term: "Term 1: The Body as Machine", 
-                    weeks: "Weeks 1-10", 
-                    [cite_start]desc: "<strong class='text-retro-secondary'>Focus: Unplugged Logic</strong><br>• W1-2: Literalism ('The Robot Teacher') [cite: 73][cite_start]<br>• W3-4: Sequencing (Timeline Bugs) [cite: 82][cite_start]<br>• W5-6: TPR English ('Simon Says Code') [cite: 91][cite_start]<br>• W7-8: Spatial Logic (Floor Grid) [cite: 98][cite_start]<br>• W9-10: Capstone ('The Human Program') [cite: 105]"
-                },
-                {
-                    term: "Term 2: Tangible Coding", 
-                    weeks: "Weeks 11-20", 
-                    [cite_start]desc: "<strong class='text-retro-secondary'>Focus: Screen-less Robotics</strong><br>• W11-12: I/O Anatomy (Buttons vs. Screens) [cite: 122][cite_start]<br>• W13-14: The Queue (Planning vs. Action) [cite: 131][cite_start]<br>• W15-16: Relative Direction (Left vs. Right) [cite: 138][cite_start]<br>• W17-18: Functions ('The Backpack') [cite: 148][cite_start]<br>• W19-20: Capstone ('The Narrative Map') [cite: 154]"
-                },
-                {
-                    term: "Term 3: Mechanics 101", 
-                    weeks: "Weeks 21-30", 
-                    [cite_start]desc: "<strong class='text-retro-secondary'>Focus: Physics & Engineering</strong><br>• W21-22: Gears (Transmission) [cite: 167][cite_start]<br>• W23-24: Torque vs. Speed ('The Hill Climber') [cite: 174][cite_start]<br>• W25-26: Levers ('The Catapult') [cite: 181][cite_start]<br>• W27-28: Friction ('Surface Science') [cite: 188][cite_start]<br>• W29-30: Capstone ('The Engineering Challenge') [cite: 195]"
-                },
-                {
-                    term: "Term 4: Digital Transition", 
-                    weeks: "Weeks 31-40", 
-                    [cite_start]desc: "<strong class='text-retro-secondary'>Focus: Intro to ScratchJr</strong><br>• W31-32: Graph Paper Programming (2D Grids) [cite: 206][cite_start]<br>• W33-34: Interface Mapping (Blocks to Screens) [cite: 214][cite_start]<br>• W35-36: Events ('Start on Tap') [cite: 221][cite_start]<br>• W37-38: Loops ('The Dance Party') [cite: 228][cite_start]<br>• W39-40: Capstone ('My Community' Animation) [cite: 234]"
-                }
-            ]
-        },
-        'band2': {
-            title: "Band II: The Logic Builders",
-            subtitle: "Visual Abstraction (3-5)",
-            desc: "Moving from physical intuition to formal logic structures. Countering the 'Motivation Gap' by building games and local sensor solutions. This band introduces variables, Cartesian coordinates, and basic IoT concepts.",
-            stack: [
-                {name: "Scratch (MIT)", type: "Software", icon: "code"},
-                {name: "BBC Micro:bit", type: "Hardware", icon: "cpu"},
-                {name: "MakeCode", type: "IDE", icon: "terminal"}
-            ],
-            chart: [50, 40, 10],
-            syllabus: [
-                {term: "Term 1: Creative Computing", weeks: "1-10", desc: "<strong>Week 1:</strong> The Cartesian Plane (X,Y). <br><strong>Week 6:</strong> Variables ('The Scorekeeper'). <br><strong>Week 8:</strong> Sensing & Collision Detection."},
-                {term: "Term 2: Game Design", weeks: "11-20", desc: "<strong>Week 11:</strong> Physics 101 (Gravity simulation). <br><strong>Week 14:</strong> State Machines (Game states). <br><strong>Week 17:</strong> Debugging 'The Broken Code Museum'."},
-                {term: "Term 3: Physical Computing", weeks: "21-30", desc: "<strong>Week 21:</strong> Intro to Micro:bit. <br><strong>Week 23:</strong> Accelerometer (Step Counter). <br><strong>Week 27:</strong> Servo Motors ('The Waving Robot')."},
-                {term: "Term 4: Smart Agro/City", weeks: "31-40", desc: "<strong>Week 31:</strong> Soil Moisture Sensor (Nails). <br><strong>Week 35:</strong> Automated Systems (The Water Loop). <br><strong>Week 40:</strong> Innovation Fair Capstone."}
-            ]
-        },
-        'band3': {
-            title: "Band III: Syntax & Systems",
-            subtitle: "The Cognitive Bridge (6-8)",
-            desc: "Crossing the 'Valley of Death' from blocks to Python. Heavy focus on Systems Engineering, component-level electronics (Arduino), and E-waste salvage. Addressing the 'Shallow Tech' trap.",
-            stack: [
-                {name: "Python (Mu)", type: "Language", icon: "hash"},
-                {name: "Arduino Uno", type: "Hardware", icon: "zap"},
-                {name: "L298N Driver", type: "Component", icon: "settings"}
-            ],
-            chart: [40, 40, 20],
-            syllabus: [
-                {term: "Term 1: The Rosetta Stone", weeks: "1-10", desc: "<strong>Week 1:</strong> Intro to Mu Editor. <br><strong>Week 2:</strong> Variables (Typed). <br><strong>Week 7:</strong> Functions ('The Recipe'). <br><strong>Week 10:</strong> Text Adventure Capstone."},
-                {term: "Term 2: Electronics", weeks: "11-20", desc: "<strong>Week 11:</strong> Ohm's Law & Water Analogy. <br><strong>Week 12:</strong> Breadboarding Safety. <br><strong>Week 20:</strong> Traffic Light Controller."},
-                {term: "Term 3: Robotics", weeks: "21-30", desc: "<strong>Week 22:</strong> L298N H-Bridge. <br><strong>Week 24:</strong> Ultrasonic Sensors (Echolocation). <br><strong>Week 28:</strong> Obstacle Avoidance Algorithm."},
-                {term: "Term 4: E-Waste Salvage", weeks: "31-40", desc: "<strong>Week 31:</strong> E-Waste & Circular Economy. <br><strong>Week 33:</strong> Stepper Motors (DVD Drives). <br><strong>Week 36:</strong> The 'Franken-Plotter' CNC."}
-            ]
-        },
-        'band4': {
-            title: "Band IV: Innovation Engine",
-            subtitle: "Deep Tech & Sovereignty (9-11)",
-            desc: "Pre-professional incubation. Students operate as Junior Full Stack Engineers, using Data Science (Pandas) to analyze local reality and IoT (ESP32) to automate it. Culminates in a Lean Canvas startup pitch.",
-            stack: [
-                {name: "ESP32", type: "IoT", icon: "wifi"},
-                {name: "Pandas/Python", type: "Data Science", icon: "bar-chart-2"},
-                {name: "Lean Canvas", type: "Business", icon: "briefcase"}
-            ],
-            chart: [30, 30, 40],
-            syllabus: [
-                {term: "Term 1: Data Science", weeks: "1-10", desc: "<strong>Week 1:</strong> Data Ethics. <br><strong>Week 3:</strong> Intro to Pandas. <br><strong>Week 4:</strong> Data Cleaning (Handling Nulls). <br><strong>Week 8:</strong> Analyzing Colombian Datasets."},
-                {term: "Term 2: IoT Networks", weeks: "11-20", desc: "<strong>Week 11:</strong> ESP32 Setup. <br><strong>Week 13:</strong> Cloud Dashboards (ThingSpeak). <br><strong>Week 15:</strong> Edge Computing Logic. <br><strong>Week 20:</strong> 'Connected Ecosystem'."},
-                {term: "Term 3: Applied Eng", weeks: "21-30", desc: "<strong>Week 21:</strong> Mechanisms. <br><strong>Week 22:</strong> Color Sensor Physics (TCS3200). <br><strong>Week 26:</strong> Sorting Algorithms. <br><strong>Week 30:</strong> Industrial Sorter."},
-                {term: "Term 4: Startup", weeks: "31-40", desc: "<strong>Week 31:</strong> Ideation ('Problem not Solution'). <br><strong>Week 33:</strong> Lean Canvas. <br><strong>Week 37:</strong> English Pitch Deck. <br><strong>Week 40:</strong> Demo Day."}
-            ]
-        }
-    };
+    <script>
+        // --- DATA STORE ---
+        const curriculumData = {
+            'band1': {
+                title: "Band I: Early Foundations",
+                subtitle: "Embodied Cognition (Grades K-2)",
+                desc: "Addressing the 'Efficiency Paradox' by starting with logic, not screens. We utilize the 'Low Floor, High Ceiling' strategy with unplugged activities and screen-less robots to teach algorithms, loops, and debugging through physical movement.",
+                stack: [
+                    {name: "Cubetto/Bee-Bot", type: "Hardware", icon: "box"},
+                    {name: "Unplugged Kits", type: "Analog", icon: "file-text"},
+                    {name: "TPR English", type: "Methodology", icon: "mic"}
+                ],
+                chart: [60, 30, 10], // Logic, Phys, Tech
+                syllabus: [
+                    {
+                        term: "Term 1: The Body as Machine", 
+                        weeks: "Weeks 1-10", 
+                        desc: "<strong class='text-retro-secondary'>Focus: Unplugged Logic</strong><br>• W1-2: Literalism ('The Robot Teacher')<br>• W3-4: Sequencing (Timeline Bugs)<br>• W5-6: TPR English ('Simon Says Code')<br>• W7-8: Spatial Logic (Floor Grid)<br>• W9-10: Capstone ('The Human Program')"
+                    },
+                    {
+                        term: "Term 2: Tangible Coding", 
+                        weeks: "Weeks 11-20", 
+                        desc: "<strong class='text-retro-secondary'>Focus: Screen-less Robotics</strong><br>• W11-12: I/O Anatomy (Buttons vs. Screens)<br>• W13-14: The Queue (Planning vs. Action)<br>• W15-16: Relative Direction (Left vs. Right)<br>• W17-18: Functions ('The Backpack')<br>• W19-20: Capstone ('The Narrative Map')"
+                    },
+                    {
+                        term: "Term 3: Mechanics 101", 
+                        weeks: "Weeks 21-30", 
+                        desc: "<strong class='text-retro-secondary'>Focus: Physics & Engineering</strong><br>• W21-22: Gears (Transmission)<br>• W23-24: Torque vs. Speed ('The Hill Climber')<br>• W25-26: Levers ('The Catapult')<br>• W27-28: Friction ('Surface Science')<br>• W29-30: Capstone ('The Engineering Challenge')"
+                    },
+                    {
+                        term: "Term 4: Digital Transition", 
+                        weeks: "Weeks 31-40", 
+                        desc: "<strong class='text-retro-secondary'>Focus: Intro to ScratchJr</strong><br>• W31-32: Graph Paper Programming (2D Grids)<br>• W33-34: Interface Mapping (Blocks to Screens)<br>• W35-36: Events ('Start on Tap')<br>• W37-38: Loops ('The Dance Party')<br>• W39-40: Capstone ('My Community' Animation)"
+                    }
+                ]
+            },
+            'band2': {
+                title: "Band II: The Logic Builders",
+                subtitle: "Visual Abstraction (3-5)",
+                desc: "Moving from physical intuition to formal logic structures. Countering the 'Motivation Gap' by building games and local sensor solutions. This band introduces variables, Cartesian coordinates, and basic IoT concepts.",
+                stack: [
+                    {name: "Scratch (MIT)", type: "Software", icon: "code"},
+                    {name: "BBC Micro:bit", type: "Hardware", icon: "cpu"},
+                    {name: "MakeCode", type: "IDE", icon: "terminal"}
+                ],
+                chart: [50, 40, 10],
+                syllabus: [
+                    {term: "Term 1: Creative Computing", weeks: "1-10", desc: "<strong>Week 1:</strong> The Cartesian Plane (X,Y). <br><strong>Week 6:</strong> Variables ('The Scorekeeper'). <br><strong>Week 8:</strong> Sensing & Collision Detection."},
+                    {term: "Term 2: Game Design", weeks: "11-20", desc: "<strong>Week 11:</strong> Physics 101 (Gravity simulation). <br><strong>Week 14:</strong> State Machines (Game states). <br><strong>Week 17:</strong> Debugging 'The Broken Code Museum'."},
+                    {term: "Term 3: Physical Computing", weeks: "21-30", desc: "<strong>Week 21:</strong> Intro to Micro:bit. <br><strong>Week 23:</strong> Accelerometer (Step Counter). <br><strong>Week 27:</strong> Servo Motors ('The Waving Robot')."},
+                    {term: "Term 4: Smart Agro/City", weeks: "31-40", desc: "<strong>Week 31:</strong> Soil Moisture Sensor (Nails). <br><strong>Week 35:</strong> Automated Systems (The Water Loop). <br><strong>Week 40:</strong> Innovation Fair Capstone."}
+                ]
+            },
+            'band3': {
+                title: "Band III: Syntax & Systems",
+                subtitle: "The Cognitive Bridge (6-8)",
+                desc: "Crossing the 'Valley of Death' from blocks to Python. Heavy focus on Systems Engineering, component-level electronics (Arduino), and E-waste salvage. Addressing the 'Shallow Tech' trap.",
+                stack: [
+                    {name: "Python (Mu)", type: "Language", icon: "hash"},
+                    {name: "Arduino Uno", type: "Hardware", icon: "zap"},
+                    {name: "L298N Driver", type: "Component", icon: "settings"}
+                ],
+                chart: [40, 40, 20],
+                syllabus: [
+                    {term: "Term 1: The Rosetta Stone", weeks: "1-10", desc: "<strong>Week 1:</strong> Intro to Mu Editor. <br><strong>Week 2:</strong> Variables (Typed). <br><strong>Week 7:</strong> Functions ('The Recipe'). <br><strong>Week 10:</strong> Text Adventure Capstone."},
+                    {term: "Term 2: Electronics", weeks: "11-20", desc: "<strong>Week 11:</strong> Ohm's Law & Water Analogy. <br><strong>Week 12:</strong> Breadboarding Safety. <br><strong>Week 20:</strong> Traffic Light Controller."},
+                    {term: "Term 3: Robotics", weeks: "21-30", desc: "<strong>Week 22:</strong> L298N H-Bridge. <br><strong>Week 24:</strong> Ultrasonic Sensors (Echolocation). <br><strong>Week 28:</strong> Obstacle Avoidance Algorithm."},
+                    {term: "Term 4: E-Waste Salvage", weeks: "31-40", desc: "<strong>Week 31:</strong> E-Waste & Circular Economy. <br><strong>Week 33:</strong> Stepper Motors (DVD Drives). <br><strong>Week 36:</strong> The 'Franken-Plotter' CNC."}
+                ]
+            },
+            'band4': {
+                title: "Band IV: Innovation Engine",
+                subtitle: "Deep Tech & Sovereignty (9-11)",
+                desc: "Pre-professional incubation. Students operate as Junior Full Stack Engineers, using Data Science (Pandas) to analyze local reality and IoT (ESP32) to automate it. Culminates in a Lean Canvas startup pitch.",
+                stack: [
+                    {name: "ESP32", type: "IoT", icon: "wifi"},
+                    {name: "Pandas/Python", type: "Data Science", icon: "bar-chart-2"},
+                    {name: "Lean Canvas", type: "Business", icon: "briefcase"}
+                ],
+                chart: [30, 30, 40],
+                syllabus: [
+                    {term: "Term 1: Data Science", weeks: "1-10", desc: "<strong>Week 1:</strong> Data Ethics. <br><strong>Week 3:</strong> Intro to Pandas. <br><strong>Week 4:</strong> Data Cleaning (Handling Nulls). <br><strong>Week 8:</strong> Analyzing Colombian Datasets."},
+                    {term: "Term 2: IoT Networks", weeks: "11-20", desc: "<strong>Week 11:</strong> ESP32 Setup. <br><strong>Week 13:</strong> Cloud Dashboards (ThingSpeak). <br><strong>Week 15:</strong> Edge Computing Logic. <br><strong>Week 20:</strong> 'Connected Ecosystem'."},
+                    {term: "Term 3: Applied Eng", weeks: "21-30", desc: "<strong>Week 21:</strong> Mechanisms. <br><strong>Week 22:</strong> Color Sensor Physics (TCS3200). <br><strong>Week 26:</strong> Sorting Algorithms. <br><strong>Week 30:</strong> Industrial Sorter."},
+                    {term: "Term 4: Startup", weeks: "31-40", desc: "<strong>Week 31:</strong> Ideation ('Problem not Solution'). <br><strong>Week 33:</strong> Lean Canvas. <br><strong>Week 37:</strong> English Pitch Deck. <br><strong>Week 40:</strong> Demo Day."}
+                ]
+            }
+        };
 
-    const teacherDeepContent = {
-        'general': `
-            <div class="bg-retro-card p-8 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-retro-primary/10 blur-[80px]"></div>
-                <h2 class="text-3xl font-display font-bold text-white mb-6">Pedagogical <span class="text-retro-secondary">Strategy</span></h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-bold text-retro-primary mb-3">1. The Flipped Classroom</h3>
-                        <p class="text-slate-400 mb-4 leading-relaxed"><strong>The "Teacher Skills Gap" Reality:</strong> You are not expected to be a Senior Developer. Your role is "CTO of the Classroom" and "Facilitator." The technical lectures are delivered via the National Repository videos. Your job is to manage the <em>process</em>, facilitate debugging, and model resilience.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-retro-secondary mb-3">2. Assessment: Failure as Data</h3>
-                        <p class="text-slate-400 mb-4 leading-relaxed">We are shifting from "Did you finish?" to "How did you engineer it?". <strong>The Failure Log:</strong> Students receive higher grades for documenting a bug and how they fixed it than for a perfect code that they copied. This builds <em>Antifragility</em>.</p>
-                    </div>
-                </div>
-            </div>
-        `,
-        'band1': `
-            <div class="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                
-                <div class="relative bg-retro-card border border-retro-primary/30 p-8 rounded-2xl overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-primary font-bold select-none group-hover:opacity-20 transition">01</div>
-                    <h2 class="text-3xl font-display font-bold text-white mb-2">TERM 1: The Body as Machine</h2>
-                    <div class="inline-block px-3 py-1 bg-retro-primary/20 text-retro-primary text-xs font-mono rounded-full mb-4">WEEKS 1-10</div>
-                    <p class="text-slate-400 max-w-3xl"><strong>Goal:</strong> Establish "Cognitive Sovereignty" without screens. The student is the computer; the teacher is the user. [cite_start]We strip away the "magic" of tech and focus on the <em>logic</em> of instructions[cite: 1, 14].</p>
-                    <div class="mt-4 flex gap-2">
-                         [cite_start]<a href="https://code.org/curriculum/docs/k-5/complete_LessStandards.pdf" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-primary hover:bg-white/10 transition rounded">[cite: 7] Unplugged Plans</a>
-                         [cite_start]<a href="https://learn.k20center.ou.edu/lesson/1037/pdf" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-primary hover:bg-white/10 transition rounded">[cite: 9] Robot Teacher Guide</a>
-                    </div>
-                </div>
-
-                <div class="grid lg:grid-cols-12 gap-6">
-                    <div class="lg:col-span-3">
-                        <div class="bg-white/5 p-4 rounded-xl border-l-4 border-retro-secondary h-full">
-                            <h4 class="text-retro-secondary font-bold text-lg mb-1">Weeks 1-2</h4>
-                            <div class="text-sm text-slate-400 font-mono mb-4">Literalism & Algorithms</div>
-                            <div class="text-xs text-slate-500 uppercase tracking-widest">Activity</div>
-                            <p class="text-white text-sm font-bold">"The Robot Teacher"</p>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-9 bg-retro-card border border-white/10 p-6 rounded-xl">
-                        <div class="grid md:grid-cols-2 gap-6 mb-6">
-                            <div class="bg-black/30 p-4 rounded-lg">
-                                <div class="text-retro-primary font-bold text-xs uppercase mb-2">Setup</div>
-                                <p class="text-sm text-slate-400">Teacher acts as "Robot". Students must instruct you to perform a simple task (e.g., Put on a jacket). [cite_start]<a href="https://learn.k20center.ou.edu/lesson/1037/pdf" target="_blank" class="text-retro-secondary underline text-xs">[cite: 9]</a></p>
-                            </div>
-                            <div class="bg-black/30 p-4 rounded-lg">
-                                <div class="text-retro-warning font-bold text-xs uppercase mb-2">Execution</div>
-                                <p class="text-sm text-slate-400">If they say "Pick it up," pick it up with your elbows. Show that vagueness fails. Force them to refine: "Open hand. Move hand to bread."</p>
-                            </div>
-                        </div>
-                        <div class="p-4 bg-white/5 rounded border border-white/5">
-                            <div class="text-xs text-slate-500 font-mono mb-2 uppercase">Teacher Script</div>
-                            [cite_start]<p class="text-slate-300 italic">"I am a robot. I have no brain. I only do exactly what you say. If you don't tell me to stop pouring the water, I will pour until the room is flooded." [cite: 78]</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid lg:grid-cols-12 gap-6">
-                    <div class="lg:col-span-3">
-                        <div class="bg-white/5 p-4 rounded-xl border-l-4 border-retro-accent h-full">
-                            <h4 class="text-retro-accent font-bold text-lg mb-1">Weeks 3-6</h4>
-                            <div class="text-sm text-slate-400 font-mono mb-4">Sequencing & TPR</div>
-                            <div class="text-xs text-slate-500 uppercase tracking-widest">Key Concept</div>
-                            <p class="text-white text-sm">Order matters (Sequencing) and English is the language of code.</p>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-9 bg-retro-card border border-white/10 p-6 rounded-xl space-y-6">
+        const teacherDeepContent = {
+            'general': `
+                <div class="bg-retro-card p-8 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-retro-primary/10 blur-[80px]"></div>
+                    <h2 class="text-3xl font-display font-bold text-white mb-6">Pedagogical <span class="text-retro-secondary">Strategy</span></h2>
+                    <div class="grid md:grid-cols-2 gap-8">
                         <div>
-                            <h3 class="font-display font-bold text-white mb-2 flex items-center gap-2"><i data-lucide="layers" class="text-retro-accent"></i> W3-4: Timeline Bugs</h3>
-                            [cite_start]<p class="text-sm text-slate-400 mb-2">Use printed cards (Wake Up, Brush Teeth, Shoes, Socks)[cite: 83].</p>
-                            <ul class="list-disc list-inside text-sm text-slate-400 space-y-1">
-                                <li><strong>The Trap:</strong> Ask "What happens if we put 'Shoes' BEFORE 'Socks'?"</li>
-                                <li><strong>Vocabulary:</strong> Introduce "Bug" (mistake) and "Debug" (fix).</li>
-                                [cite_start]<li><a href="https://digitalfirstnetwork.eu/wp-content/uploads/2025/09/D4.2-Competencies-map-for-informatics-teachers-in-primary-school.pdf" target="_blank" class="text-retro-secondary text-xs">[cite: 10] Digital Competencies Map</a></li>
+                            <h3 class="text-xl font-bold text-retro-primary mb-3">1. The Flipped Classroom</h3>
+                            <p class="text-slate-400 mb-4 leading-relaxed"><strong>The "Teacher Skills Gap" Reality:</strong> You are not expected to be a Senior Developer. Your role is "CTO of the Classroom" and "Facilitator." The technical lectures are delivered via the National Repository videos. Your job is to manage the <em>process</em>, facilitate debugging, and model resilience.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-retro-secondary mb-3">2. Assessment: Failure as Data</h3>
+                            <p class="text-slate-400 mb-4 leading-relaxed">We are shifting from "Did you finish?" to "How did you engineer it?". <strong>The Failure Log:</strong> Students receive higher grades for documenting a bug and how they fixed it than for a perfect code that they copied. This builds <em>Antifragility</em>.</p>
+                        </div>
+                    </div>
+                </div>
+            `,
+            'band1': `
+                <div class="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    
+                    <div class="relative bg-retro-card border border-retro-primary/30 p-8 rounded-2xl overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-primary font-bold select-none group-hover:opacity-20 transition">01</div>
+                        <h2 class="text-3xl font-display font-bold text-white mb-2">TERM 1: The Body as Machine</h2>
+                        <div class="inline-block px-3 py-1 bg-retro-primary/20 text-retro-primary text-xs font-mono rounded-full mb-4">WEEKS 1-10</div>
+                        <p class="text-slate-400 max-w-3xl"><strong>Goal:</strong> Establish "Cognitive Sovereignty" without screens. The student is the computer; the teacher is the user. We strip away the "magic" of tech and focus on the <em>logic</em> of instructions.</p>
+                        <div class="mt-4 flex gap-2">
+                             <a href="https://code.org/curriculum/docs/k-5/complete_LessStandards.pdf" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-primary hover:bg-white/10 transition rounded"> Unplugged Plans</a>
+                             <a href="https://learn.k20center.ou.edu/lesson/1037/pdf" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-primary hover:bg-white/10 transition rounded"> Robot Teacher Guide</a>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-12 gap-6">
+                        <div class="lg:col-span-3">
+                            <div class="bg-white/5 p-4 rounded-xl border-l-4 border-retro-secondary h-full">
+                                <h4 class="text-retro-secondary font-bold text-lg mb-1">Weeks 1-2</h4>
+                                <div class="text-sm text-slate-400 font-mono mb-4">Literalism & Algorithms</div>
+                                <div class="text-xs text-slate-500 uppercase tracking-widest">Activity</div>
+                                <p class="text-white text-sm font-bold">"The Robot Teacher"</p>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-9 bg-retro-card border border-white/10 p-6 rounded-xl">
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div class="bg-black/30 p-4 rounded-lg">
+                                    <div class="text-retro-primary font-bold text-xs uppercase mb-2">Setup</div>
+                                    <p class="text-sm text-slate-400">Teacher acts as "Robot". Students must instruct you to perform a simple task (e.g., Put on a jacket). <a href="https://learn.k20center.ou.edu/lesson/1037/pdf" target="_blank" class="text-retro-secondary underline text-xs">[Source]</a></p>
+                                </div>
+                                <div class="bg-black/30 p-4 rounded-lg">
+                                    <div class="text-retro-warning font-bold text-xs uppercase mb-2">Execution</div>
+                                    <p class="text-sm text-slate-400">If they say "Pick it up," pick it up with your elbows. Show that vagueness fails. Force them to refine: "Open hand. Move hand to bread."</p>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-white/5 rounded border border-white/5">
+                                <div class="text-xs text-slate-500 font-mono mb-2 uppercase">Teacher Script</div>
+                                <p class="text-slate-300 italic">"I am a robot. I have no brain. I only do exactly what you say. If you don't tell me to stop pouring the water, I will pour until the room is flooded."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-12 gap-6">
+                        <div class="lg:col-span-3">
+                            <div class="bg-white/5 p-4 rounded-xl border-l-4 border-retro-accent h-full">
+                                <h4 class="text-retro-accent font-bold text-lg mb-1">Weeks 3-6</h4>
+                                <div class="text-sm text-slate-400 font-mono mb-4">Sequencing & TPR</div>
+                                <div class="text-xs text-slate-500 uppercase tracking-widest">Key Concept</div>
+                                <p class="text-white text-sm">Order matters (Sequencing) and English is the language of code.</p>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-9 bg-retro-card border border-white/10 p-6 rounded-xl space-y-6">
+                            <div>
+                                <h3 class="font-display font-bold text-white mb-2 flex items-center gap-2"><i data-lucide="layers" class="text-retro-accent"></i> W3-4: Timeline Bugs</h3>
+                                <p class="text-sm text-slate-400 mb-2">Use printed cards (Wake Up, Brush Teeth, Shoes, Socks).</p>
+                                <ul class="list-disc list-inside text-sm text-slate-400 space-y-1">
+                                    <li><strong>The Trap:</strong> Ask "What happens if we put 'Shoes' BEFORE 'Socks'?"</li>
+                                    <li><strong>Vocabulary:</strong> Introduce "Bug" (mistake) and "Debug" (fix).</li>
+                                    <li><a href="https://digitalfirstnetwork.eu/wp-content/uploads/2025/09/D4.2-Competencies-map-for-informatics-teachers-in-primary-school.pdf" target="_blank" class="text-retro-secondary text-xs"> Digital Competencies Map</a></li>
+                                </ul>
+                            </div>
+                            <div class="h-px bg-white/10"></div>
+                            <div>
+                                <h3 class="font-display font-bold text-white mb-2 flex items-center gap-2"><i data-lucide="mic" class="text-retro-accent"></i> W5-6: Simon Says Code</h3>
+                                <p class="text-sm text-slate-400 mb-2">Link physical movement to Technical English. <a href="https://www.theteachertoolkit.com/index.php/tool/total-physical-response-tpr" target="_blank" class="text-retro-secondary text-xs"> TPR Toolkit</a></p>
+                                <div class="grid grid-cols-2 gap-4 text-sm">
+                                    <div class="bg-retro-accent/10 p-3 rounded border border-retro-accent/30 text-center">
+                                        <div class="text-retro-accent font-bold">"Function Jump!"</div>
+                                        <div class="text-slate-500 text-xs">Students Jump</div>
+                                    </div>
+                                    <div class="bg-retro-accent/10 p-3 rounded border border-retro-accent/30 text-center">
+                                        <div class="text-retro-accent font-bold">"Loop Spin!"</div>
+                                        <div class="text-slate-500 text-xs">Students spin 3 times</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-12 gap-6">
+                        <div class="lg:col-span-3">
+                            <div class="bg-white/5 p-4 rounded-xl border-l-4 border-white h-full">
+                                <h4 class="text-white font-bold text-lg mb-1">Weeks 7-10</h4>
+                                <div class="text-sm text-slate-400 font-mono mb-4">Spatial Logic Capstone</div>
+                                <div class="text-xs text-slate-500 uppercase tracking-widest">Key Concept</div>
+                                <p class="text-white text-sm">Mapping 3D movement to 2D coordinates.</p>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-9 bg-retro-card border border-white/10 p-6 rounded-xl">
+                             <h3 class="font-display font-bold text-white mb-4 flex items-center gap-2"><i data-lucide="map" class="text-white"></i> The Floor Grid</h3>
+                             <div class="bg-black/30 p-4 rounded-lg border border-white/5 mb-4">
+                                <div class="flex gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-retro-primary/20 flex items-center justify-center text-retro-primary font-bold">A</div>
+                                    <div>
+                                        <div class="text-white font-bold text-sm">Role: The Coder</div>
+                                        <p class="text-slate-400 text-xs">Stands outside the 5x5 tape grid. Gives oral commands: "Forward 2, Right Turn". <a href="https://learningmole.com/the-electric-maze/" target="_blank" class="text-retro-secondary underline"> Electric Maze</a></p>
+                                    </div>
+                                </div>
+                                <div class="h-px bg-white/10 my-3"></div>
+                                <div class="flex gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-retro-secondary/20 flex items-center justify-center text-retro-secondary font-bold">B</div>
+                                    <div>
+                                        <div class="text-white font-bold text-sm">Role: The Robot</div>
+                                        <p class="text-slate-400 text-xs">Stands inside. Moves ONLY when commanded. If they crash into an obstacle, the team must "Debug".</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="p-4 bg-retro-warning/10 rounded border border-retro-warning/20">
+                                 <div class="font-bold text-retro-warning text-xs mb-1 uppercase">Capstone: The Human Program (W9-10)</div>
+                                 <p class="text-sm text-slate-300">Small groups design an obstacle course. They write code using large paper arrows. Another group runs the code. <a href="https://microcredentials.digitalpromise.org/explore/unplugged-computational-thinking" target="_blank" class="text-xs underline"> Unplugged CT</a></p>
+                                 <div class="text-xs text-slate-400 mt-2"><strong>Assessment Rubric:</strong> Did the team fix errors without frustration? (Resilience)</div>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="relative bg-retro-card border border-retro-secondary/30 p-8 rounded-2xl overflow-hidden mt-12 group">
+                        <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-secondary font-bold select-none group-hover:opacity-20 transition">02</div>
+                        <h2 class="text-3xl font-display font-bold text-white mb-2">TERM 2: Tangible Coding</h2>
+                        <div class="inline-block px-3 py-1 bg-retro-secondary/20 text-retro-secondary text-xs font-mono rounded-full mb-4">WEEKS 11-20</div>
+                        <p class="text-slate-400 max-w-3xl"><strong>Hardware:</strong> Cubetto, Bee-Bot, or Blue-Bot. <br><strong>Goal:</strong> Transfer logic from the body to an external agent. Introduce "Functions" and "Queues".</p>
+                        <div class="mt-4 flex gap-2">
+                             <a href="https://primotoys.com/cubetto-user-manual/" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-secondary hover:bg-white/10 transition rounded"> Cubetto Manual</a>
+                             <a href="https://resources.terrapinlogo.com/curriculum/beebot-lessons" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-secondary hover:bg-white/10 transition rounded"> Bee-Bot Lessons</a>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <div class="bg-retro-card border border-white/10 p-6 rounded-xl">
+                            <h3 class="font-bold text-white mb-2">W11-12: Hardware Anatomy</h3>
+                            <p class="text-sm text-slate-400 mb-4">Demystify the "black box". <a href="https://resources.terrapinlogo.com/curriculum/beebot-lessons" target="_blank" class="text-retro-secondary text-xs"></a></p>
+                            <div class="space-y-2 text-sm text-slate-300">
+                                 <p>• <strong>Output:</strong> Wheels.</p>
+                                 <p>• <strong>Input:</strong> Buttons.</p>
+                                 <p>• <strong>Teacher Inquiry:</strong> "Where are the robot's eyes? Does it see like us?"</p>
+                            </div>
+                        </div>
+                        <div class="bg-retro-card border border-white/10 p-6 rounded-xl">
+                            <h3 class="font-bold text-white mb-2">W13-14: Linearity & The Queue</h3>
+                            <div class="bg-white/5 p-4 rounded-lg border-l-4 border-retro-secondary">
+                                 <h4 class="font-bold text-white text-sm mb-1">Teacher Strategy: "Think, Then Press"</h4>
+                                 <p class="text-sm text-slate-300 italic">"The robot doesn't move until you press the Blue Button (Go). You must build the whole line of instructions first."</p>
+                                 <p class="text-xs text-slate-500 mt-2"><strong>Why?</strong> Teaches delayed gratification and planning. <a href="https://ebin.pub/teaching-coding-in-k-12-schools-research-and-application-3031219694-9783031219696.html" target="_blank" class="text-retro-secondary underline"></a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-12 gap-6">
+                        <div class="lg:col-span-4 bg-retro-card border border-white/10 p-6 rounded-xl">
+                            <h3 class="font-bold text-white mb-2">W15-16: Left vs Right</h3>
+                            <p class="text-sm text-slate-400 mb-4">When robot faces student, Left is Right. <a href="https://www.researchgate.net/publication/342675951_Exploring_the_Role_of_Perspective_Taking_in_Educational_Child-Robot_Interaction" target="_blank" class="text-retro-secondary text-xs"> Perspective Taking</a></p>
+                            <div class="bg-retro-secondary/10 p-3 rounded text-center">
+                                <div class="font-mono text-retro-secondary font-bold mb-1">PILOT VIEW</div>
+                                <p class="text-xs text-slate-300">Have students stand BEHIND the robot. Use stickers on robot's left side and student's left hand.</p>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-4 bg-retro-card border border-white/10 p-6 rounded-xl">
+                            <h3 class="font-bold text-white mb-2">W17-18: Functions</h3>
+                            <p class="text-sm text-slate-400 mb-4">Analogy: <strong>"The Backpack"</strong></p>
+                            <p class="text-xs text-slate-300">"A Function is a backpack. You put a sequence (Step-Turn-Step) INSIDE. Now, just carry the backpack (Blue Block) instead of holding 3 things." <a href="https://primotoys.com/cubetto-user-manual/" target="_blank" class="text-retro-secondary underline"></a></p>
+                        </div>
+                        <div class="lg:col-span-4 bg-retro-card border border-white/10 p-6 rounded-xl">
+                            <h3 class="font-bold text-white mb-2">W19-20: Narrative Map</h3>
+                            <p class="text-sm text-slate-400 mb-4">Coding + Storytelling.</p>
+                            <p class="text-xs text-slate-300">Program robot to visit House -> Woods -> Grandma. Advanced: Use Function for "Jump over river". <a href="https://www.cajonvalley.net/cms/lib/CA01902277/Centricity/Domain/2200/Level1-ReadersTheater%20Booklet%20Final.pdf" target="_blank" class="text-retro-secondary underline"> Readers Theater</a></p>
+                        </div>
+                    </div>
+
+                    <div class="relative bg-retro-card border border-retro-warning/30 p-8 rounded-2xl overflow-hidden mt-12 group">
+                        <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-warning font-bold select-none group-hover:opacity-20 transition">03</div>
+                        <h2 class="text-3xl font-display font-bold text-white mb-2">TERM 3: Mechanical Engineering</h2>
+                        <div class="inline-block px-3 py-1 bg-retro-warning/20 text-retro-warning text-xs font-mono rounded-full mb-4">WEEKS 21-30</div>
+                        <p class="text-slate-400 max-w-3xl"><strong>Hardware:</strong> LEGO Simple Machines OR Recycled Materials. <br><strong>Goal:</strong> Reconnect logic with physics. Understanding torque, gears, and friction.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-white/5 p-5 rounded-xl flex gap-4 items-start">
+                            <div class="p-3 bg-retro-warning/20 rounded text-retro-warning"><i data-lucide="settings" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">W21-22: Gears ("Friends Holding Hands")</h4>
+                                <p class="text-sm text-slate-400 mt-1">Create a line of gears. If Driver turns clockwise, Follower turns counter-clockwise. <a href="https://www.questacon.edu.au/learn-and-play/activities/cardboard-cogs" target="_blank" class="text-retro-warning underline text-xs"> Cardboard Cogs</a></p>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 p-5 rounded-xl flex gap-4 items-start">
+                            <div class="p-3 bg-retro-warning/20 rounded text-retro-warning"><i data-lucide="truck" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">W23-24: Torque ("The Hill Climber")</h4>
+                                <p class="text-sm text-slate-400 mt-1"><strong>Experiment:</strong> Build a LEGO car. Try to drive up a ramp using a BIG gear driving a SMALL gear (Speed). It fails. Switch to SMALL driving BIG (Torque). <a href="https://education.lego.com/en-us/lessons/sm/gears/" target="_blank" class="text-retro-warning underline text-xs"> LEGO Gears</a></p>
+                            </div>
+                        </div>
+                         <div class="bg-white/5 p-5 rounded-xl flex gap-4 items-start">
+                            <div class="p-3 bg-retro-warning/20 rounded text-retro-warning"><i data-lucide="hammer" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">W25-26: Levers ("The Catapult")</h4>
+                                <p class="text-sm text-slate-400 mt-1"><strong>Objective:</strong> Force multipliers. Build a simple lever using a ruler and pencil (fulcrum). Move the fulcrum closer to the load to make lifting easier. <a href="https://inventorsoftomorrow.com/2021/10/13/levers-simple-machines-for-kids/" target="_blank" class="text-retro-warning underline text-xs"> Levers for Kids</a></p>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 p-5 rounded-xl flex gap-4 items-start">
+                            <div class="p-3 bg-retro-warning/20 rounded text-retro-warning"><i data-lucide="move" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">W27-28: Friction ("The Slide")</h4>
+                                <p class="text-sm text-slate-400 mt-1">Roll toy car down ramp onto Tile, Carpet, and Sandpaper. Measure distance. "Friction is the floor grabbing the wheels." <a href="https://rubytuesdaybooks.com/wp-content/uploads/forcesMagnets_page8.pdf" target="_blank" class="text-retro-warning underline text-xs"> Friction</a></p>
+                            </div>
+                        </div>
+                        <div class="bg-retro-warning/5 p-5 rounded-xl border border-retro-warning/20">
+                             <h4 class="font-bold text-white text-sm mb-2">W29-30 Capstone: Engineering Challenge</h4>
+                             <p class="text-sm text-slate-300">Build a vehicle using recycled materials that travels furthest. Must debug mechanics (e.g., wheels rubbing).</p>
+                        </div>
+                    </div>
+
+                    <div class="relative bg-retro-card border border-retro-accent/30 p-8 rounded-2xl overflow-hidden mt-12 group">
+                        <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-accent font-bold select-none group-hover:opacity-20 transition">04</div>
+                        <h2 class="text-3xl font-display font-bold text-white mb-2">TERM 4: Digital Transition</h2>
+                        <div class="inline-block px-3 py-1 bg-retro-accent/20 text-retro-accent text-xs font-mono rounded-full mb-4">WEEKS 31-40</div>
+                        <p class="text-slate-400 max-w-3xl"><strong>Hardware:</strong> Tablets (ScratchJr) OR Graph Paper. <br><strong>Goal:</strong> Move from physical space to the screen. Mapping "Green Blocks" (Cubetto) to "Blue Blocks" (Scratch).</p>
+                        <div class="mt-4 flex gap-2">
+                             <a href="https://www.scratchjr.org/teach" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-accent hover:bg-white/10 transition rounded"> Teach ScratchJr</a>
+                             <a href="https://ct4edu.org/graph-paper-programming/" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-accent hover:bg-white/10 transition rounded"> Graph Paper Prog</a>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="font-bold text-white mb-4 text-lg">W31-32: Graph Paper Programming</h3>
+                            <p class="text-sm text-slate-400 mb-4">Don't jump straight to tablets. Use paper first.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3 text-sm text-slate-300">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-retro-accent shrink-0"></i>
+                                    <span><strong>Paper Pixels:</strong> Students write code using symbols (→, ←, ↑, ↓, Fill). <a href="https://ct4edu.org/graph-paper-programming/" target="_blank" class="text-retro-accent text-xs"></a></span>
+                                </li>
+                                <li class="flex items-start gap-3 text-sm text-slate-300">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-retro-accent shrink-0"></i>
+                                    <span><strong>Partner Mode:</strong> One writes, one acts as computer. If drawing is wrong, fix code.</span>
+                                </li>
                             </ul>
                         </div>
-                        <div class="h-px bg-white/10"></div>
                         <div>
-                            <h3 class="font-display font-bold text-white mb-2 flex items-center gap-2"><i data-lucide="mic" class="text-retro-accent"></i> W5-6: Simon Says Code</h3>
-                            <p class="text-sm text-slate-400 mb-2">Link physical movement to Technical English. [cite_start]<a href="https://www.theteachertoolkit.com/index.php/tool/total-physical-response-tpr" target="_blank" class="text-retro-secondary text-xs">[cite: 12] TPR Toolkit</a></p>
-                            <div class="grid grid-cols-2 gap-4 text-sm">
-                                <div class="bg-retro-accent/10 p-3 rounded border border-retro-accent/30 text-center">
-                                    <div class="text-retro-accent font-bold">"Function Jump!"</div>
-                                    <div class="text-slate-500 text-xs">Students Jump</div>
-                                </div>
-                                <div class="bg-retro-accent/10 p-3 rounded border border-retro-accent/30 text-center">
-                                    <div class="text-retro-accent font-bold">"Loop Spin!"</div>
-                                    <div class="text-slate-500 text-xs">Students spin 3 times</div>
-                                </div>
+                             <h3 class="font-bold text-white mb-4 text-lg">W33-34: Intro to ScratchJr</h3>
+                             <div class="bg-white/5 p-4 rounded-lg border-l-4 border-retro-accent">
+                                 <h4 class="font-bold text-white text-sm mb-1">Hello Cat</h4>
+                                 <p class="text-sm text-slate-300">Familiarization with digital workspace. Drag Blue (Motion) blocks to make cat move. Relate Blue Blocks to Cubetto's Green Blocks. <a href="http://www.etwinning.gr/images/ms2017/CodingScratchJrPatras.pdf" target="_blank" class="text-retro-accent underline text-xs"> Coding in K-2</a></p>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 mt-6">
+                        <div>
+                            <h3 class="font-bold text-white mb-4 text-lg">W35-36: Events & Triggers</h3>
+                            <div class="bg-black/40 p-4 rounded-lg border border-white/5">
+                                <div class="text-xs text-slate-500 uppercase mb-1">Activity: Start on Tap</div>
+                                <p class="text-sm text-white font-mono mb-2">Concept: Cause and Effect</p>
+                                <p class="text-sm text-slate-400">Use Yellow (Trigger) blocks. "Start on Green Flag" vs "Start on Tap". Make character jump only when touched. <a href="https://www.scratchjr.org/teach" target="_blank" class="text-retro-accent underline text-xs"> ScratchJr Teach</a></p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white mb-4 text-lg">W37-38: The Loop (Efficiency)</h3>
+                            <div class="bg-black/40 p-4 rounded-lg border border-white/5">
+                                <div class="text-xs text-slate-500 uppercase mb-1">Activity: The Dance Party</div>
+                                <p class="text-sm text-white font-mono mb-2">BAD CODE: Move-Jump-Move-Jump</p>
+                                <p class="text-sm text-retro-accent font-mono">GOOD CODE: [Repeat 2] (Move-Jump)</p>
+                                <p class="text-xs text-slate-400 mt-2">Explain that the orange block saves us from doing boring work. <a href="https://sites.google.com/sfusd.edu/k-2cs/orange/unit-3-scratchjr/17-getting-loopy" target="_blank" class="text-retro-accent underline text-xs"> Getting Loopy</a></p>
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/10 mt-6">
+                        <h3 class="font-bold text-white mb-2">W39-40 Capstone: "My Community"</h3>
+                        <p class="text-sm text-slate-400">Create an animated story about a problem (trash, roads). Must use 2 characters, 1 Loop, 1 Event. <a href="https://www.sfusd.edu/departments/computer-science-department/computer-science-curriculum/k-2-computer-science-curriculum/k-2-computer-science-curriculum-orange/k-2-computer-science-orange-unit-3-scratch-jr" target="_blank" class="text-retro-accent underline text-xs"> Unit 3 Scratch Jr</a></p>
+                    </div>
                 </div>
+            `,
+            'band2': `
+                <div class="space-y-8">
+                    <div class="bg-retro-card p-6 rounded-2xl border border-white/10">
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Band II Strategy: Visual Abstraction</h3>
+                        <p class="text-slate-400">We move from the body to the screen. The core challenge here is the <strong>Efficiency Paradox</strong>: preventing "Digital Literacy" (passive consumption) and enforcing "Computational Fluency" (creation).</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                        <h4 class="text-retro-secondary font-bold mb-4">Critical Project: The Soil Moisture Sensor (Week 31)</h4>
+                        <p class="text-sm text-slate-400 mb-4">Designed for the <strong>Rural Context</strong>. Instead of buying expensive sensors, we use the physics of conductivity.</p>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div class="bg-black/20 p-3 rounded"><div class="font-bold text-white mb-1">Hardware</div><div class="text-slate-400">2 Galvanized Nails, Micro:bit, Alligator Clips.</div></div>
+                            <div class="bg-black/20 p-3 rounded"><div class="font-bold text-white mb-1">Logic</div><div class="text-slate-400">Water conducts electricity. Wet soil = High Signal. Dry soil = Low Signal.</div></div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            'band3': `
+                 <div class="space-y-8">
+                    <div class="bg-gradient-to-r from-retro-card to-retro-bg p-6 rounded-2xl border border-white/10">
+                        <h3 class="text-xl font-display font-bold text-white mb-2">The Rosetta Stone Method</h3>
+                        <p class="text-slate-400">Transitioning to Python is scary. We use the "Rosetta Stone" approach: explicitly mapping a known Scratch Block to its Python equivalent line-by-line.</p>
+                    </div>
+                    <div class="bg-retro-card p-6 rounded-2xl border border-retro-primary/30 neon-border">
+                        <h4 class="text-lg font-bold text-white mb-4">Hardware Focus: L298N Motor Driver</h4>
+                        <table class="w-full text-sm text-left"><thead class="bg-white/10 text-white"><tr><th class="p-2">Symptom</th><th class="p-2">Solution</th></tr></thead><tbody class="text-slate-400 divide-y divide-white/10"><tr><td class="p-2 font-mono text-xs">Motor buzzes, no spin</td><td class="p-2">Batteries are dead (verify with multimeter) or PWM speed is too low (< 100).</td></tr><tr><td class="p-2 font-mono text-xs">Arduino resets on move</td><td class="p-2">Brownout. Use <strong>separate power supplies</strong>.</td></tr></tbody></table>
+                    </div>
+                </div>
+            `,
+            'band4': `
+                <div class="space-y-8">
+                     <div class="bg-retro-card p-6 rounded-2xl border border-white/10">
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Band IV: Deep Tech & Sovereignty</h3>
+                        <p class="text-slate-400">We treat the students as "Junior Full Stack Engineers". The focus is on <strong>Data Science (Pandas)</strong> and <strong>IoT (ESP32)</strong> to solve local problems.</p>
+                    </div>
+                    <div class="bg-retro-card p-6 rounded-2xl border border-white/10">
+                        <h4 class="font-bold text-white mb-4">ESP32 & IoT Troubleshooting</h4>
+                        <table class="w-full text-sm text-left"><thead class="bg-white/5 text-white"><tr><th class="p-3">Error</th><th class="p-3">Solution</th></tr></thead><tbody class="text-slate-400 divide-y divide-white/10"><tr><td class="p-3 font-mono text-xs">"Timed out waiting for packet header"</td><td class="p-3">Hold the <strong>BOOT</strong> button on the board when you see "Connecting...".</td></tr><tr><td class="p-3 font-mono text-xs">WiFi connects but no data</td><td class="p-3">Check the <strong>API Key</strong> for ThingSpeak.</td></tr></tbody></table>
+                    </div>
+                </div>
+            `
+        };
 
-                <div class="grid lg:grid-cols-12 gap-6">
-                    <div class="lg:col-span-3">
-                        <div class="bg-white/5 p-4 rounded-xl border-l-4 border-white h-full">
-                            <h4 class="text-white font-bold text-lg mb-1">Weeks 7-10</h4>
-                            <div class="text-sm text-slate-400 font-mono mb-4">Spatial Logic Capstone</div>
-                            <div class="text-xs text-slate-500 uppercase tracking-widest">Key Concept</div>
-                            <p class="text-white text-sm">Mapping 3D movement to 2D coordinates.</p>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-9 bg-retro-card border border-white/10 p-6 rounded-xl">
-                         <h3 class="font-display font-bold text-white mb-4 flex items-center gap-2"><i data-lucide="map" class="text-white"></i> The Floor Grid</h3>
-                         <div class="bg-black/30 p-4 rounded-lg border border-white/5 mb-4">
-                            <div class="flex gap-4">
-                                <div class="w-12 h-12 rounded-full bg-retro-primary/20 flex items-center justify-center text-retro-primary font-bold">A</div>
-                                <div>
-                                    <div class="text-white font-bold text-sm">Role: The Coder</div>
-                                    <p class="text-slate-400 text-xs">Stands outside the 5x5 tape grid. Gives oral commands: "Forward 2, Right Turn". [cite_start]<a href="https://learningmole.com/the-electric-maze/" target="_blank" class="text-retro-secondary underline">[cite: 13] Electric Maze</a></p>
-                                </div>
-                            </div>
-                            <div class="h-px bg-white/10 my-3"></div>
-                            <div class="flex gap-4">
-                                <div class="w-12 h-12 rounded-full bg-retro-secondary/20 flex items-center justify-center text-retro-secondary font-bold">B</div>
-                                <div>
-                                    <div class="text-white font-bold text-sm">Role: The Robot</div>
-                                    <p class="text-slate-400 text-xs">Stands inside. Moves ONLY when commanded. If they crash into an obstacle, the team must "Debug".</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="p-4 bg-retro-warning/10 rounded border border-retro-warning/20">
-                             <div class="font-bold text-retro-warning text-xs mb-1 uppercase">Capstone: The Human Program (W9-10)</div>
-                             <p class="text-sm text-slate-300">Small groups design an obstacle course. They write code using large paper arrows. Another group runs the code. [cite_start]<a href="https://microcredentials.digitalpromise.org/explore/unplugged-computational-thinking" target="_blank" class="text-xs underline">[cite: 14] Unplugged CT</a></p>
-                             <div class="text-xs text-slate-400 mt-2"><strong>Assessment Rubric:</strong> Did the team fix errors without frustration? (Resilience)</div>
-                         </div>
-                    </div>
-                </div>
+        // --- CHART & RENDER LOGIC ---
+        function init() {
+            lucide.createIcons();
+            renderDashboardChart();
+            renderBand('band1');
+            renderTeacher('general');
+        }
 
-                <div class="relative bg-retro-card border border-retro-secondary/30 p-8 rounded-2xl overflow-hidden mt-12 group">
-                    <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-secondary font-bold select-none group-hover:opacity-20 transition">02</div>
-                    <h2 class="text-3xl font-display font-bold text-white mb-2">TERM 2: Tangible Coding</h2>
-                    <div class="inline-block px-3 py-1 bg-retro-secondary/20 text-retro-secondary text-xs font-mono rounded-full mb-4">WEEKS 11-20</div>
-                    <p class="text-slate-400 max-w-3xl"><strong>Hardware:</strong> Cubetto, Bee-Bot, or Blue-Bot. <br><strong>Goal:</strong> Transfer logic from the body to an external agent. Introduce "Functions" and "Queues".</p>
-                    <div class="mt-4 flex gap-2">
-                         [cite_start]<a href="https://primotoys.com/cubetto-user-manual/" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-secondary hover:bg-white/10 transition rounded">[cite: 18] Cubetto Manual</a>
-                         [cite_start]<a href="https://resources.terrapinlogo.com/curriculum/beebot-lessons" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-secondary hover:bg-white/10 transition rounded">[cite: 15] Bee-Bot Lessons</a>
-                    </div>
-                </div>
-
-                <div class="grid lg:grid-cols-2 gap-6">
-                    <div class="bg-retro-card border border-white/10 p-6 rounded-xl">
-                        <h3 class="font-bold text-white mb-2">W11-12: Hardware Anatomy</h3>
-                        <p class="text-sm text-slate-400 mb-4">Demystify the "black box". [cite_start]<a href="https://resources.terrapinlogo.com/curriculum/beebot-lessons" target="_blank" class="text-retro-secondary text-xs">[cite: 15]</a></p>
-                        <div class="space-y-2 text-sm text-slate-300">
-                             <p>• <strong>Output:</strong> Wheels.</p>
-                             <p>• <strong>Input:</strong> Buttons.</p>
-                             <p>• <strong>Teacher Inquiry:</strong> "Where are the robot's eyes? Does it see like us?"</p>
-                        </div>
-                    </div>
-                    <div class="bg-retro-card border border-white/10 p-6 rounded-xl">
-                        <h3 class="font-bold text-white mb-2">W13-14: Linearity & The Queue</h3>
-                        <div class="bg-white/5 p-4 rounded-lg border-l-4 border-retro-secondary">
-                             <h4 class="font-bold text-white text-sm mb-1">Teacher Strategy: "Think, Then Press"</h4>
-                             <p class="text-sm text-slate-300 italic">"The robot doesn't move until you press the Blue Button (Go). You must build the whole line of instructions first."</p>
-                             <p class="text-xs text-slate-500 mt-2"><strong>Why?</strong> Teaches delayed gratification and planning. [cite_start]<a href="https://ebin.pub/teaching-coding-in-k-12-schools-research-and-application-3031219694-9783031219696.html" target="_blank" class="text-retro-secondary underline">[cite: 16]</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid lg:grid-cols-12 gap-6">
-                    <div class="lg:col-span-4 bg-retro-card border border-white/10 p-6 rounded-xl">
-                        <h3 class="font-bold text-white mb-2">W15-16: Left vs Right</h3>
-                        <p class="text-sm text-slate-400 mb-4">When robot faces student, Left is Right. [cite_start]<a href="https://www.researchgate.net/publication/342675951_Exploring_the_Role_of_Perspective_Taking_in_Educational_Child-Robot_Interaction" target="_blank" class="text-retro-secondary text-xs">[cite: 17] Perspective Taking</a></p>
-                        <div class="bg-retro-secondary/10 p-3 rounded text-center">
-                            <div class="font-mono text-retro-secondary font-bold mb-1">PILOT VIEW</div>
-                            <p class="text-xs text-slate-300">Have students stand BEHIND the robot. Use stickers on robot's left side and student's left hand.</p>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-4 bg-retro-card border border-white/10 p-6 rounded-xl">
-                        <h3 class="font-bold text-white mb-2">W17-18: Functions</h3>
-                        <p class="text-sm text-slate-400 mb-4">Analogy: <strong>"The Backpack"</strong></p>
-                        <p class="text-xs text-slate-300">"A Function is a backpack. You put a sequence (Step-Turn-Step) INSIDE. Now, just carry the backpack (Blue Block) instead of holding 3 things." [cite_start]<a href="https://primotoys.com/cubetto-user-manual/" target="_blank" class="text-retro-secondary underline">[cite: 18]</a></p>
-                    </div>
-                    <div class="lg:col-span-4 bg-retro-card border border-white/10 p-6 rounded-xl">
-                        <h3 class="font-bold text-white mb-2">W19-20: Narrative Map</h3>
-                        <p class="text-sm text-slate-400 mb-4">Coding + Storytelling.</p>
-                        <p class="text-xs text-slate-300">Program robot to visit House -> Woods -> Grandma. Advanced: Use Function for "Jump over river". [cite_start]<a href="https://www.cajonvalley.net/cms/lib/CA01902277/Centricity/Domain/2200/Level1-ReadersTheater%20Booklet%20Final.pdf" target="_blank" class="text-retro-secondary underline">[cite: 19] Readers Theater</a></p>
-                    </div>
-                </div>
-
-                <div class="relative bg-retro-card border border-retro-warning/30 p-8 rounded-2xl overflow-hidden mt-12 group">
-                    <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-warning font-bold select-none group-hover:opacity-20 transition">03</div>
-                    <h2 class="text-3xl font-display font-bold text-white mb-2">TERM 3: Mechanical Engineering</h2>
-                    <div class="inline-block px-3 py-1 bg-retro-warning/20 text-retro-warning text-xs font-mono rounded-full mb-4">WEEKS 21-30</div>
-                    <p class="text-slate-400 max-w-3xl"><strong>Hardware:</strong> LEGO Simple Machines OR Recycled Materials. <br><strong>Goal:</strong> Reconnect logic with physics. Understanding torque, gears, and friction.</p>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="bg-white/5 p-5 rounded-xl flex gap-4 items-start">
-                        <div class="p-3 bg-retro-warning/20 rounded text-retro-warning"><i data-lucide="settings" class="w-6 h-6"></i></div>
-                        <div>
-                            <h4 class="font-bold text-white">W21-22: Gears ("Friends Holding Hands")</h4>
-                            <p class="text-sm text-slate-400 mt-1">Create a line of gears. If Driver turns clockwise, Follower turns counter-clockwise. [cite_start]<a href="https://www.questacon.edu.au/learn-and-play/activities/cardboard-cogs" target="_blank" class="text-retro-warning underline text-xs">[cite: 20] Cardboard Cogs</a></p>
-                        </div>
-                    </div>
-                    <div class="bg-white/5 p-5 rounded-xl flex gap-4 items-start">
-                        <div class="p-3 bg-retro-warning/20 rounded text-retro-warning"><i data-lucide="truck" class="w-6 h-6"></i></div>
-                        <div>
-                            <h4 class="font-bold text-white">W23-24: Torque ("The Hill Climber")</h4>
-                            <p class="text-sm text-slate-400 mt-1"><strong>Experiment:</strong> Build a LEGO car. Try to drive up a ramp using a BIG gear driving a SMALL gear (Speed). It fails. Switch to SMALL driving BIG (Torque). [cite_start]<a href="https://education.lego.com/en-us/lessons/sm/gears/" target="_blank" class="text-retro-warning underline text-xs">[cite: 21] LEGO Gears</a></p>
-                        </div>
-                    </div>
-                     <div class="bg-white/5 p-5 rounded-xl flex gap-4 items-start">
-                        <div class="p-3 bg-retro-warning/20 rounded text-retro-warning"><i data-lucide="hammer" class="w-6 h-6"></i></div>
-                        <div>
-                            <h4 class="font-bold text-white">W25-26: Levers ("The Catapult")</h4>
-                            <p class="text-sm text-slate-400 mt-1"><strong>Objective:</strong> Force multipliers. Build a simple lever using a ruler and pencil (fulcrum). Move the fulcrum closer to the load to make lifting easier. [cite_start]<a href="https://inventorsoftomorrow.com/2021/10/13/levers-simple-machines-for-kids/" target="_blank" class="text-retro-warning underline text-xs">[cite: 22] Levers for Kids</a></p>
-                        </div>
-                    </div>
-                    <div class="bg-white/5 p-5 rounded-xl flex gap-4 items-start">
-                        <div class="p-3 bg-retro-warning/20 rounded text-retro-warning"><i data-lucide="move" class="w-6 h-6"></i></div>
-                        <div>
-                            <h4 class="font-bold text-white">W27-28: Friction ("The Slide")</h4>
-                            <p class="text-sm text-slate-400 mt-1">Roll toy car down ramp onto Tile, Carpet, and Sandpaper. Measure distance. "Friction is the floor grabbing the wheels." [cite_start]<a href="https://rubytuesdaybooks.com/wp-content/uploads/forcesMagnets_page8.pdf" target="_blank" class="text-retro-warning underline text-xs">[cite: 23] Friction</a></p>
-                        </div>
-                    </div>
-                    <div class="bg-retro-warning/5 p-5 rounded-xl border border-retro-warning/20">
-                         <h4 class="font-bold text-white text-sm mb-2">W29-30 Capstone: Engineering Challenge</h4>
-                         <p class="text-sm text-slate-300">Build a vehicle using recycled materials that travels furthest. Must debug mechanics (e.g., wheels rubbing).</p>
-                    </div>
-                </div>
-
-                <div class="relative bg-retro-card border border-retro-accent/30 p-8 rounded-2xl overflow-hidden mt-12 group">
-                    <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-accent font-bold select-none group-hover:opacity-20 transition">04</div>
-                    <h2 class="text-3xl font-display font-bold text-white mb-2">TERM 4: Digital Transition</h2>
-                    <div class="inline-block px-3 py-1 bg-retro-accent/20 text-retro-accent text-xs font-mono rounded-full mb-4">WEEKS 31-40</div>
-                    <p class="text-slate-400 max-w-3xl"><strong>Hardware:</strong> Tablets (ScratchJr) OR Graph Paper. <br><strong>Goal:</strong> Move from physical space to the screen. Mapping "Green Blocks" (Cubetto) to "Blue Blocks" (Scratch).</p>
-                    <div class="mt-4 flex gap-2">
-                         [cite_start]<a href="https://www.scratchjr.org/teach" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-accent hover:bg-white/10 transition rounded">[cite: 26] Teach ScratchJr</a>
-                         [cite_start]<a href="https://ct4edu.org/graph-paper-programming/" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-accent hover:bg-white/10 transition rounded">[cite: 24] Graph Paper Prog</a>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="font-bold text-white mb-4 text-lg">W31-32: Graph Paper Programming</h3>
-                        <p class="text-sm text-slate-400 mb-4">Don't jump straight to tablets. Use paper first.</p>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3 text-sm text-slate-300">
-                                <i data-lucide="check-circle" class="w-5 h-5 text-retro-accent shrink-0"></i>
-                                <span><strong>Paper Pixels:</strong> Students write code using symbols (→, ←, ↑, ↓, Fill). [cite_start]<a href="https://ct4edu.org/graph-paper-programming/" target="_blank" class="text-retro-accent text-xs">[cite: 24]</a></span>
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-slate-300">
-                                <i data-lucide="check-circle" class="w-5 h-5 text-retro-accent shrink-0"></i>
-                                <span><strong>Partner Mode:</strong> One writes, one acts as computer. If drawing is wrong, fix code.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                         <h3 class="font-bold text-white mb-4 text-lg">W33-34: Intro to ScratchJr</h3>
-                         <div class="bg-white/5 p-4 rounded-lg border-l-4 border-retro-accent">
-                             <h4 class="font-bold text-white text-sm mb-1">Hello Cat</h4>
-                             <p class="text-sm text-slate-300">Familiarization with digital workspace. Drag Blue (Motion) blocks to make cat move. Relate Blue Blocks to Cubetto's Green Blocks. [cite_start]<a href="http://www.etwinning.gr/images/ms2017/CodingScratchJrPatras.pdf" target="_blank" class="text-retro-accent underline text-xs">[cite: 25] Coding in K-2</a></p>
-                         </div>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 mt-6">
-                    <div>
-                        <h3 class="font-bold text-white mb-4 text-lg">W35-36: Events & Triggers</h3>
-                        <div class="bg-black/40 p-4 rounded-lg border border-white/5">
-                            <div class="text-xs text-slate-500 uppercase mb-1">Activity: Start on Tap</div>
-                            <p class="text-sm text-white font-mono mb-2">Concept: Cause and Effect</p>
-                            <p class="text-sm text-slate-400">Use Yellow (Trigger) blocks. "Start on Green Flag" vs "Start on Tap". Make character jump only when touched. [cite_start]<a href="https://www.scratchjr.org/teach" target="_blank" class="text-retro-accent underline text-xs">[cite: 26] ScratchJr Teach</a></p>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-white mb-4 text-lg">W37-38: The Loop (Efficiency)</h3>
-                        <div class="bg-black/40 p-4 rounded-lg border border-white/5">
-                            <div class="text-xs text-slate-500 uppercase mb-1">Activity: The Dance Party</div>
-                            <p class="text-sm text-white font-mono mb-2">BAD CODE: Move-Jump-Move-Jump</p>
-                            <p class="text-sm text-retro-accent font-mono">GOOD CODE: [Repeat 2] (Move-Jump)</p>
-                            <p class="text-xs text-slate-400 mt-2">Explain that the orange block saves us from doing boring work. [cite_start]<a href="https://sites.google.com/sfusd.edu/k-2cs/orange/unit-3-scratchjr/17-getting-loopy" target="_blank" class="text-retro-accent underline text-xs">[cite: 27] Getting Loopy</a></p>
-                        </div>
-                    </div>
-                </div>
+        function switchView(viewName) {
+            ['dashboard', 'curriculum', 'teacher'].forEach(v => {
+                const el = document.getElementById(`view-${v}`);
+                const btn = document.getElementById(`nav-${v}`);
                 
-                <div class="bg-white/5 p-6 rounded-xl border border-white/10 mt-6">
-                    <h3 class="font-bold text-white mb-2">W39-40 Capstone: "My Community"</h3>
-                    <p class="text-sm text-slate-400">Create an animated story about a problem (trash, roads). Must use 2 characters, 1 Loop, 1 Event. [cite_start]<a href="https://www.sfusd.edu/departments/computer-science-department/computer-science-curriculum/k-2-computer-science-curriculum/k-2-computer-science-curriculum-orange/k-2-computer-science-orange-unit-3-scratch-jr" target="_blank" class="text-retro-accent underline text-xs">[cite: 28] Unit 3 Scratch Jr</a></p>
-                </div>
-            </div>
-        `,
-        'band2': `
-            <div class="space-y-8">
-                <div class="bg-retro-card p-6 rounded-2xl border border-white/10">
-                    <h3 class="text-xl font-display font-bold text-white mb-2">Band II Strategy: Visual Abstraction</h3>
-                    <p class="text-slate-400">We move from the body to the screen. The core challenge here is the <strong>Efficiency Paradox</strong>: preventing "Digital Literacy" (passive consumption) and enforcing "Computational Fluency" (creation).</p>
-                </div>
-                <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                    <h4 class="text-retro-secondary font-bold mb-4">Critical Project: The Soil Moisture Sensor (Week 31)</h4>
-                    <p class="text-sm text-slate-400 mb-4">Designed for the <strong>Rural Context</strong>. Instead of buying expensive sensors, we use the physics of conductivity.</p>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="bg-black/20 p-3 rounded"><div class="font-bold text-white mb-1">Hardware</div><div class="text-slate-400">2 Galvanized Nails, Micro:bit, Alligator Clips.</div></div>
-                        <div class="bg-black/20 p-3 rounded"><div class="font-bold text-white mb-1">Logic</div><div class="text-slate-400">Water conducts electricity. Wet soil = High Signal. Dry soil = Low Signal.</div></div>
-                    </div>
-                </div>
-            </div>
-        `,
-        'band3': `
-             <div class="space-y-8">
-                <div class="bg-gradient-to-r from-retro-card to-retro-bg p-6 rounded-2xl border border-white/10">
-                    <h3 class="text-xl font-display font-bold text-white mb-2">The Rosetta Stone Method</h3>
-                    <p class="text-slate-400">Transitioning to Python is scary. We use the "Rosetta Stone" approach: explicitly mapping a known Scratch Block to its Python equivalent line-by-line.</p>
-                </div>
-                <div class="bg-retro-card p-6 rounded-2xl border border-retro-primary/30 neon-border">
-                    <h4 class="text-lg font-bold text-white mb-4">Hardware Focus: L298N Motor Driver</h4>
-                    <table class="w-full text-sm text-left"><thead class="bg-white/10 text-white"><tr><th class="p-2">Symptom</th><th class="p-2">Solution</th></tr></thead><tbody class="text-slate-400 divide-y divide-white/10"><tr><td class="p-2 font-mono text-xs">Motor buzzes, no spin</td><td class="p-2">Batteries are dead (verify with multimeter) or PWM speed is too low (< 100).</td></tr><tr><td class="p-2 font-mono text-xs">Arduino resets on move</td><td class="p-2">Brownout. Use <strong>separate power supplies</strong>.</td></tr></tbody></table>
-                </div>
-            </div>
-        `,
-        'band4': `
-            <div class="space-y-8">
-                 <div class="bg-retro-card p-6 rounded-2xl border border-white/10">
-                    <h3 class="text-xl font-display font-bold text-white mb-2">Band IV: Deep Tech & Sovereignty</h3>
-                    <p class="text-slate-400">We treat the students as "Junior Full Stack Engineers". The focus is on <strong>Data Science (Pandas)</strong> and <strong>IoT (ESP32)</strong> to solve local problems.</p>
-                </div>
-                <div class="bg-retro-card p-6 rounded-2xl border border-white/10">
-                    <h4 class="font-bold text-white mb-4">ESP32 & IoT Troubleshooting</h4>
-                    <table class="w-full text-sm text-left"><thead class="bg-white/5 text-white"><tr><th class="p-3">Error</th><th class="p-3">Solution</th></tr></thead><tbody class="text-slate-400 divide-y divide-white/10"><tr><td class="p-3 font-mono text-xs">"Timed out waiting for packet header"</td><td class="p-3">Hold the <strong>BOOT</strong> button on the board when you see "Connecting...".</td></tr><tr><td class="p-3 font-mono text-xs">WiFi connects but no data</td><td class="p-3">Check the <strong>API Key</strong> for ThingSpeak.</td></tr></tbody></table>
-                </div>
-            </div>
-        `
-    };
-
-    // --- CHART & RENDER LOGIC ---
-    function init() {
-        lucide.createIcons();
-        renderDashboardChart();
-        renderBand('band1');
-        renderTeacher('general');
-    }
-
-    function switchView(viewName) {
-        ['dashboard', 'curriculum', 'teacher'].forEach(v => {
-            const el = document.getElementById(`view-${v}`);
-            const btn = document.getElementById(`nav-${v}`);
-            
-            if (v === viewName) {
-                // Show view
-                el.classList.remove('hidden');
-                // Activate button
-                btn.classList.add('active');
-                btn.classList.remove('text-slate-400');
-                
-                if(viewName === 'dashboard') renderDashboardChart();
-            } else {
-                // Hide view
-                el.classList.add('hidden');
-                // Deactivate button
-                btn.classList.remove('active');
-                btn.classList.add('text-slate-400');
-            }
-        });
-        lucide.createIcons();
-    }
-
-    let rdChart = null;
-    function renderDashboardChart() {
-        const ctx = document.getElementById('rdChart');
-        if(!ctx) return;
-        if (rdChart) rdChart.destroy();
-        rdChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Colombia', 'EU', 'USA'],
-                datasets: [{
-                    label: '% GDP Investment in R&D',
-                    data: [0.1, 2.5, 3.4],
-                    backgroundColor: ['#333333', '#00f3ff', '#ff00ff'], 
-                    borderColor: ['#ff3333', '#00f3ff', '#ff00ff'], 
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                indexAxis: 'y',
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { 
-                    x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#64748b' } },
-                    y: { grid: { display: false }, ticks: { color: 'white', font: { family: 'Rajdhani', size: 14 } } }
+                if (v === viewName) {
+                    // Show view
+                    el.classList.remove('hidden');
+                    // Activate button
+                    btn.classList.add('active');
+                    btn.classList.remove('text-slate-400');
+                    
+                    if(viewName === 'dashboard') renderDashboardChart();
+                } else {
+                    // Hide view
+                    el.classList.add('hidden');
+                    // Deactivate button
+                    btn.classList.remove('active');
+                    btn.classList.add('text-slate-400');
                 }
-            }
-        });
-    }
+            });
+            lucide.createIcons();
+        }
 
-    function renderBand(key) {
-        const data = curriculumData[key];
-        document.getElementById('band-header').innerHTML = `<h2 class="text-3xl font-display font-bold text-white mb-2">${data.title}</h2><div class="text-retro-primary font-bold uppercase tracking-widest text-sm mb-4">${data.subtitle}</div><p class="text-slate-400 leading-relaxed">${data.desc}</p>`;
-        
-        const sylContainer = document.getElementById('syllabus-content');
-        sylContainer.innerHTML = '';
-        data.syllabus.forEach(item => {
-            sylContainer.innerHTML += `<div class="p-6 hover:bg-white/5 transition duration-200"><div class="flex justify-between items-baseline mb-2"><h4 class="font-bold text-white text-base">${item.term}</h4><span class="text-xs font-mono text-retro-secondary">${item.weeks}</span></div><p class="text-sm text-slate-400 leading-relaxed">${item.desc}</p></div>`;
-        });
+        let rdChart = null;
+        function renderDashboardChart() {
+            const ctx = document.getElementById('rdChart');
+            if(!ctx) return;
+            if (rdChart) rdChart.destroy();
+            rdChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Colombia', 'EU', 'USA'],
+                    datasets: [{
+                        label: '% GDP Investment in R&D',
+                        data: [0.1, 2.5, 3.4],
+                        backgroundColor: ['#333333', '#00f3ff', '#ff00ff'], 
+                        borderColor: ['#ff3333', '#00f3ff', '#ff00ff'], 
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { 
+                        x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#64748b' } },
+                        y: { grid: { display: false }, ticks: { color: 'white', font: { family: 'Rajdhani', size: 14 } } }
+                    }
+                }
+            });
+        }
 
-        const stackContainer = document.getElementById('stack-container');
-        stackContainer.innerHTML = '';
-        data.stack.forEach(s => {
-            stackContainer.innerHTML += `<div class="flex items-center gap-4 p-3 bg-white/5 rounded border border-white/5 hover:border-retro-secondary/50 transition"><div class="p-2 bg-retro-bg rounded-lg text-retro-secondary"><i data-lucide="${s.icon}" class="w-5 h-5"></i></div><div><div class="font-bold text-sm text-white">${s.name}</div><div class="text-[10px] text-slate-500 uppercase tracking-wider">${s.type}</div></div></div>`;
-        });
+        function renderBand(key) {
+            const data = curriculumData[key];
+            document.getElementById('band-header').innerHTML = `<h2 class="text-3xl font-display font-bold text-white mb-2">${data.title}</h2><div class="text-retro-primary font-bold uppercase tracking-widest text-sm mb-4">${data.subtitle}</div><p class="text-slate-400 leading-relaxed">${data.desc}</p>`;
+            
+            const sylContainer = document.getElementById('syllabus-content');
+            sylContainer.innerHTML = '';
+            data.syllabus.forEach(item => {
+                sylContainer.innerHTML += `<div class="p-6 hover:bg-white/5 transition duration-200"><div class="flex justify-between items-baseline mb-2"><h4 class="font-bold text-white text-base">${item.term}</h4><span class="text-xs font-mono text-retro-secondary">${item.weeks}</span></div><p class="text-sm text-slate-400 leading-relaxed">${item.desc}</p></div>`;
+            });
 
-        document.querySelectorAll('.band-btn').forEach(b => b.classList.remove('active', 'text-white'));
-        const activeBtn = document.getElementById(`btn-${key}`);
-        activeBtn.classList.add('active', 'text-white');
-        activeBtn.classList.remove('text-slate-400');
-        
-        renderChart(data.chart);
-        lucide.createIcons();
-    }
+            const stackContainer = document.getElementById('stack-container');
+            stackContainer.innerHTML = '';
+            data.stack.forEach(s => {
+                stackContainer.innerHTML += `<div class="flex items-center gap-4 p-3 bg-white/5 rounded border border-white/5 hover:border-retro-secondary/50 transition"><div class="p-2 bg-retro-bg rounded-lg text-retro-secondary"><i data-lucide="${s.icon}" class="w-5 h-5"></i></div><div><div class="font-bold text-sm text-white">${s.name}</div><div class="text-[10px] text-slate-500 uppercase tracking-wider">${s.type}</div></div></div>`;
+            });
 
-    function renderTeacher(key) {
-        document.getElementById('teacher-content').innerHTML = teacherDeepContent[key];
-        
-        document.querySelectorAll('.teacher-tab').forEach(t => { 
-            t.classList.remove('active', 'bg-retro-primary', 'text-white'); 
-            t.classList.add('text-slate-400'); 
-        });
-        
-        const activeTab = document.getElementById(`t-btn-${key}`);
-        activeTab.classList.add('active', 'bg-retro-primary', 'text-white');
-        activeTab.classList.remove('text-slate-400');
-        
-        lucide.createIcons();
-    }
+            document.querySelectorAll('.band-btn').forEach(b => b.classList.remove('active', 'text-white'));
+            const activeBtn = document.getElementById(`btn-${key}`);
+            activeBtn.classList.add('active', 'text-white');
+            activeBtn.classList.remove('text-slate-400');
+            
+            renderChart(data.chart);
+            lucide.createIcons();
+        }
 
-    let currentChart = null;
-    function renderChart(data) {
-        const ctx = document.getElementById('curriculumChart');
-        if(!ctx) return;
-        
-        if (currentChart) currentChart.destroy();
-        currentChart = new Chart(ctx, { 
-            type: 'doughnut', 
-            data: { 
-                labels: ['Logic/Code', 'Hardware', 'Soft Skills'], 
-                datasets: [{ 
-                    data: data, 
-                    backgroundColor: ['#7000ff', '#00f3ff', '#ff00ff'], 
-                    borderWidth: 0, 
-                    hoverOffset: 4 
-                }] 
-            }, 
-            options: { 
-                responsive: true, 
-                maintainAspectRatio: false, 
-                plugins: { 
-                    legend: { 
-                        position: 'right', 
-                        labels: { 
-                            color: '#94a3b8', 
-                            font: {family: 'Inter', size: 10}, 
-                            boxWidth: 10 
-                        } 
-                    } 
+        function renderTeacher(key) {
+            document.getElementById('teacher-content').innerHTML = teacherDeepContent[key];
+            
+            document.querySelectorAll('.teacher-tab').forEach(t => { 
+                t.classList.remove('active', 'bg-retro-primary', 'text-white'); 
+                t.classList.add('text-slate-400'); 
+            });
+            
+            const activeTab = document.getElementById(`t-btn-${key}`);
+            activeTab.classList.add('active', 'bg-retro-primary', 'text-white');
+            activeTab.classList.remove('text-slate-400');
+            
+            lucide.createIcons();
+        }
+
+        let currentChart = null;
+        function renderChart(data) {
+            const ctx = document.getElementById('curriculumChart');
+            if(!ctx) return;
+            
+            if (currentChart) currentChart.destroy();
+            currentChart = new Chart(ctx, { 
+                type: 'doughnut', 
+                data: { 
+                    labels: ['Logic/Code', 'Hardware', 'Soft Skills'], 
+                    datasets: [{ 
+                        data: data, 
+                        backgroundColor: ['#7000ff', '#00f3ff', '#ff00ff'], 
+                        borderWidth: 0, 
+                        hoverOffset: 4 
+                    }] 
                 }, 
-                cutout: '75%' 
-            } 
-        });
-    }
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    plugins: { 
+                        legend: { 
+                            position: 'right', 
+                            labels: { 
+                                color: '#94a3b8', 
+                                font: {family: 'Inter', size: 10}, 
+                                boxWidth: 10 
+                            } 
+                        } 
+                    }, 
+                    cutout: '75%' 
+                } 
+            });
+        }
 
-    init();
-</script>
+        init();
+    </script>
 </body>
 </html>
