@@ -97,13 +97,29 @@
                         <div class="text-[10px] text-retro-primary tracking-[0.3em] uppercase neon-text-p">Colombia 2035 Roadmap</div>
                     </div>
                 </div>
-                <div class="flex space-x-2 md:space-x-8">
-                    <button onclick="switchView('dashboard')" id="nav-dashboard" class="nav-btn active px-1 md:px-2 py-2 text-xs md:text-sm font-display font-bold tracking-wide transition-all uppercase">Crisis Dashboard</button>
-                    <button onclick="switchView('curriculum')" id="nav-curriculum" class="nav-btn px-1 md:px-2 py-2 text-xs md:text-sm font-display font-bold tracking-wide transition-all uppercase">Curriculum</button>
-                    <button onclick="switchView('teacher')" id="nav-teacher" class="nav-btn px-1 md:px-2 py-2 text-xs md:text-sm font-display font-bold tracking-wide transition-all uppercase flex items-center gap-2">
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="switchView('dashboard')" id="nav-dashboard" class="nav-btn active px-2 py-2 text-sm font-display font-bold tracking-wide transition-all uppercase">Crisis Dashboard</button>
+                    <button onclick="switchView('curriculum')" id="nav-curriculum" class="nav-btn px-2 py-2 text-sm font-display font-bold tracking-wide transition-all uppercase">Curriculum</button>
+                    <button onclick="switchView('teacher')" id="nav-teacher" class="nav-btn px-2 py-2 text-sm font-display font-bold tracking-wide transition-all uppercase flex items-center gap-2">
                         Teacher's Hub <span class="h-2 w-2 rounded-full bg-retro-primary animate-pulse"></span>
                     </button>
                 </div>
+
+                <!-- Mobile Hamburger Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-white hover:text-retro-secondary transition-colors">
+                    <i id="hamburger-icon" data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 py-4 space-y-2">
+                <button onclick="switchView('dashboard'); toggleMobileMenu();" class="mobile-nav-btn w-full text-left px-4 py-3 text-sm font-display font-bold tracking-wide transition-all uppercase hover:bg-white/5 rounded-lg">Crisis Dashboard</button>
+                <button onclick="switchView('curriculum'); toggleMobileMenu();" class="mobile-nav-btn w-full text-left px-4 py-3 text-sm font-display font-bold tracking-wide transition-all uppercase hover:bg-white/5 rounded-lg">Curriculum</button>
+                <button onclick="switchView('teacher'); toggleMobileMenu();" class="mobile-nav-btn w-full text-left px-4 py-3 text-sm font-display font-bold tracking-wide transition-all uppercase hover:bg-white/5 rounded-lg flex items-center gap-2">
+                    Teacher's Hub <span class="h-2 w-2 rounded-full bg-retro-primary animate-pulse"></span>
+                </button>
             </div>
         </div>
     </nav>
@@ -112,16 +128,16 @@
 
         <div id="view-dashboard" class="fade-in">
             
-            <div class="text-center mb-12">
+            <div class="text-center mb-8 md:mb-12">
                 <div class="inline-block px-3 py-1 bg-retro-warning/10 border border-retro-warning/50 rounded-full text-retro-warning text-xs font-mono mb-4 tracking-widest neon-text-w">SYSTEM DIAGNOSTIC: CRITICAL</div>
-                <h1 class="text-5xl md:text-6xl font-display font-extrabold text-white mb-4">THE SOVEREIGN <span class="text-transparent bg-clip-text bg-gradient-to-r from-retro-warning to-retro-primary">BREACH</span></h1>
-                <p class="text-lg text-slate-400 max-w-3xl mx-auto">
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-display font-extrabold text-white mb-4">THE SOVEREIGN <span class="text-transparent bg-clip-text bg-gradient-to-r from-retro-warning to-retro-primary">BREACH</span></h1>
+                <p class="text-sm md:text-lg text-slate-400 max-w-3xl mx-auto px-4">
                     Colombia is not merely "developing." It is trapped in a structural <strong>Efficiency Paradox</strong> where investments are dissipated by systemic friction. We consume technology; we do not create it.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 mb-8">
-                <div class="bg-retro-card border border-white/10 p-8 rounded-2xl relative overflow-hidden group">
+            <div class="grid md:grid-cols-2 gap-4 md:gap-8 mb-4 md:mb-8">
+                <div class="bg-retro-card border border-white/10 p-4 md:p-6 lg:p-8 rounded-2xl relative overflow-hidden group">
                     <div class="absolute top-0 right-0 p-6 opacity-20"><i data-lucide="settings" class="w-16 h-16 text-retro-secondary spin-slow"></i></div>
                     <h2 class="text-xl font-display font-bold text-white mb-2 uppercase tracking-widest border-b border-white/10 pb-2">1. The Efficiency Paradox</h2>
                     
@@ -147,17 +163,17 @@
                     </div>
                 </div>
 
-                <div class="bg-retro-card border border-retro-warning/30 p-8 rounded-2xl relative overflow-hidden neon-border-red">
-                    <h2 class="text-xl font-display font-bold text-white mb-2 uppercase tracking-widest border-b border-white/10 pb-2">2. The Valley of Death</h2>
-                    
-                    <div class="flex gap-6 mt-6">
-                        <div class="w-1/3">
+                <div class="bg-retro-card border border-retro-warning/30 p-4 md:p-6 lg:p-8 rounded-2xl relative overflow-hidden neon-border-red">
+                    <h2 class="text-base md:text-xl font-display font-bold text-white mb-2 uppercase tracking-widest border-b border-white/10 pb-2">2. The Valley of Death</h2>
+
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-6 mt-6">
+                        <div class="md:w-1/3">
                             <div class="text-xs text-slate-500 font-mono uppercase">Total Patents (2023)</div>
-                            <div class="text-6xl font-display font-extrabold text-retro-warning neon-text-w tracking-tighter">266</div>
+                            <div class="text-4xl md:text-6xl font-display font-extrabold text-retro-warning neon-text-w tracking-tighter">266</div>
                             <div class="text-xs text-red-400 mt-1 font-mono">CRITICAL DEFICIT</div>
                             <p class="text-[10px] text-slate-500 mt-2 leading-tight">A single mid-sized US university produces more patents annually than the entire nation.</p>
                         </div>
-                        <div class="w-2/3">
+                        <div class="md:w-2/3">
                             <div class="text-xs text-slate-500 font-mono uppercase mb-2">R&D Investment (% GDP)</div>
                             <div class="h-32 relative">
                                 <canvas id="rdChart"></canvas>
@@ -167,30 +183,30 @@
                 </div>
             </div>
 
-            <div class="bg-retro-card border border-white/10 rounded-2xl overflow-hidden mb-8 grid md:grid-cols-2">
-                <div class="p-8 border-b md:border-b-0 md:border-r border-white/10 relative">
+            <div class="bg-retro-card border border-white/10 rounded-2xl overflow-hidden mb-4 md:mb-8 grid md:grid-cols-2">
+                <div class="p-4 md:p-6 lg:p-8 border-b md:border-b-0 md:border-r border-white/10 relative">
                     <div class="absolute inset-0 bg-retro-secondary/5"></div>
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-display font-bold text-white">BOGOTÁ</h3>
+                            <h3 class="text-xl md:text-2xl font-display font-bold text-white">BOGOTÁ</h3>
                             <span class="px-2 py-1 bg-retro-secondary/20 text-retro-secondary text-xs font-mono rounded">ONLINE</span>
                         </div>
-                        <div class="text-4xl font-mono font-bold text-white mb-1">IBD 0.239</div>
-                        <p class="text-sm text-slate-400 mb-4">Digital Maturity comparable to Southern Europe. High connectivity, access to fiber, 4G/5G.</p>
+                        <div class="text-3xl md:text-4xl font-mono font-bold text-white mb-1">IBD 0.239</div>
+                        <p class="text-xs md:text-sm text-slate-400 mb-4">Digital Maturity comparable to Southern Europe. High connectivity, access to fiber, 4G/5G.</p>
                         <div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
                             <div class="bg-retro-secondary h-full" style="width: 85%"></div>
                         </div>
                     </div>
                 </div>
-                <div class="p-8 relative">
+                <div class="p-4 md:p-6 lg:p-8 relative">
                     <div class="absolute inset-0 bg-retro-warning/5"></div>
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-display font-bold text-white">VICHADA</h3>
+                            <h3 class="text-xl md:text-2xl font-display font-bold text-white">VICHADA</h3>
                             <span class="px-2 py-1 bg-retro-warning/20 text-retro-warning text-xs font-mono rounded animate-pulse">CONNECTION ERROR</span>
                         </div>
-                        <div class="text-4xl font-mono font-bold text-white mb-1">IBD 0.698</div>
-                        <p class="text-sm text-slate-400 mb-4">Digital Maturity comparable to Least Developed Nations. Structural exclusion.</p>
+                        <div class="text-3xl md:text-4xl font-mono font-bold text-white mb-1">IBD 0.698</div>
+                        <p class="text-xs md:text-sm text-slate-400 mb-4">Digital Maturity comparable to Least Developed Nations. Structural exclusion.</p>
                         <div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
                             <div class="bg-retro-warning h-full" style="width: 15%"></div>
                         </div>
@@ -199,7 +215,7 @@
                 </div>
             </div>
 
-            <div class="bg-gradient-to-r from-retro-card to-retro-accent/10 border border-white/10 p-8 rounded-2xl flex flex-col md:flex-row items-center gap-8">
+            <div class="bg-gradient-to-r from-retro-card to-retro-accent/10 border border-white/10 p-4 md:p-6 lg:p-8 rounded-2xl flex flex-col md:flex-row items-center gap-4 md:gap-8">
                 <div class="md:w-1/3 text-center md:text-left">
                     <h2 class="text-xl font-display font-bold text-white mb-2 uppercase tracking-widest">4. The Hemorrhage</h2>
                     <div class="text-5xl font-display font-bold text-white mb-1">100%</div>
@@ -273,13 +289,15 @@
         </div>
 
         <div id="view-teacher" class="hidden fade-in">
-             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 h-[calc(100vh-140px)]">
-                <div class="lg:col-span-3 h-full overflow-y-auto custom-scroll pr-2">
-                    <div class="bg-retro-card rounded-2xl border border-white/10 overflow-hidden sticky top-0">
-                        <div class="p-5 bg-gradient-to-r from-retro-accent to-retro-card border-b border-white/10">
+             <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 lg:h-[calc(100vh-140px)]">
+                <!-- Mobile: Collapsible Sidebar -->
+                <div class="lg:col-span-3 lg:h-full lg:overflow-y-auto custom-scroll lg:pr-2">
+                    <div class="bg-retro-card rounded-2xl border border-white/10 overflow-hidden sticky top-0 z-10">
+                        <button onclick="toggleTeacherSidebar()" class="w-full p-4 lg:p-5 bg-gradient-to-r from-retro-accent to-retro-card border-b border-white/10 flex items-center justify-between lg:cursor-default">
                             <h3 class="font-display font-bold text-white tracking-widest">GUIDE SELECTOR</h3>
-                        </div>
-                        <nav class="flex flex-col p-2 space-y-1">
+                            <i id="sidebar-toggle-icon" data-lucide="chevron-down" class="w-5 h-5 text-white lg:hidden transition-transform"></i>
+                        </button>
+                        <nav id="teacher-sidebar-nav" class="hidden lg:flex flex-col p-2 space-y-1">
                             <button onclick="renderTeacher('general')" id="t-btn-general" class="teacher-tab active p-3 rounded-lg text-left text-sm font-semibold transition hover:bg-white/5">Methodology & Strategy</button>
                             <div class="h-px bg-white/10 my-2"></div>
                             <button onclick="renderTeacher('band1')" id="t-btn-band1" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white">Band I: K-2 (Embodied)</button>
@@ -289,8 +307,8 @@
                         </nav>
                     </div>
                 </div>
-                <div class="lg:col-span-9 h-full overflow-y-auto custom-scroll pb-20">
-                    <div id="teacher-content" class="space-y-8"></div>
+                <div class="lg:col-span-9 lg:h-full lg:overflow-y-auto custom-scroll pb-20">
+                    <div id="teacher-content" class="space-y-4 lg:space-y-8"></div>
                 </div>
             </div>
         </div>
@@ -302,55 +320,55 @@
     // 1. THE RENDER ENGINE (The "Oven")
     // ==========================================
     function buildTeacherHTML(termData) {
-        let html = `<div class="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">`;
-        
+        let html = `<div class="space-y-6 lg:space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">`;
+
         termData.forEach((term, index) => {
             html += `
-                <div class="relative bg-retro-card border border-retro-${term.color}/30 p-8 rounded-2xl overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-10 opacity-10 font-display text-9xl text-retro-${term.color} font-bold select-none group-hover:opacity-20 transition">0${index + 1}</div>
-                    <h2 class="text-3xl font-display font-bold text-white mb-2">${term.title}</h2>
+                <div class="relative bg-retro-card border border-retro-${term.color}/30 p-4 md:p-6 lg:p-8 rounded-2xl overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 md:p-6 lg:p-10 opacity-10 font-display text-6xl md:text-7xl lg:text-9xl text-retro-${term.color} font-bold select-none group-hover:opacity-20 transition">0${index + 1}</div>
+                    <h2 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">${term.title}</h2>
                     <div class="inline-block px-3 py-1 bg-retro-${term.color}/20 text-retro-${term.color} text-xs font-mono rounded-full mb-4">${term.weeks}</div>
-                    <p class="text-slate-400 max-w-3xl">${term.goal}</p>
+                    <p class="text-slate-400 text-sm md:text-base max-w-3xl">${term.goal}</p>
                 </div>
             `;
 
             term.activities.forEach(act => {
                 html += `
-                    <div class="grid lg:grid-cols-12 gap-6">
+                    <div class="grid lg:grid-cols-12 gap-4 lg:gap-6">
                         <div class="lg:col-span-3">
                             <div class="bg-white/5 p-4 rounded-xl border-l-4 border-retro-${term.color} h-full">
-                                <h4 class="text-retro-${term.color} font-bold text-lg mb-1">${act.week}</h4>
-                                <div class="text-sm text-slate-400 font-mono mb-4">${act.topic}</div>
+                                <h4 class="text-retro-${term.color} font-bold text-base md:text-lg mb-1">${act.week}</h4>
+                                <div class="text-xs md:text-sm text-slate-400 font-mono mb-4">${act.topic}</div>
                                 <div class="text-xs text-slate-500 uppercase tracking-widest">Key Concept</div>
                                 <p class="text-white text-sm">${act.concept}</p>
                             </div>
                         </div>
-                        <div class="lg:col-span-9 bg-retro-card border border-white/10 p-6 rounded-xl">
-                            <h3 class="font-display font-bold text-white mb-4 flex items-center gap-2">
-                                <i data-lucide="${act.icon || 'code'}" class="text-retro-${term.color}"></i> 
+                        <div class="lg:col-span-9 bg-retro-card border border-white/10 p-4 md:p-6 rounded-xl">
+                            <h3 class="font-display font-bold text-white text-base md:text-lg mb-4 flex items-center gap-2">
+                                <i data-lucide="${act.icon || 'code'}" class="text-retro-${term.color} w-5 h-5"></i>
                                 ${act.title}
                             </h3>
-                            
-                            <div class="grid md:grid-cols-2 gap-6 mb-6">
-                                <div class="bg-black/30 p-4 rounded-lg">
+
+                            <div class="grid md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+                                <div class="bg-black/30 p-3 md:p-4 rounded-lg">
                                     <div class="text-retro-primary font-bold text-xs uppercase mb-2">Setup / Activity</div>
-                                    <p class="text-sm text-slate-400">${act.setup}</p>
+                                    <p class="text-xs md:text-sm text-slate-400">${act.setup}</p>
                                 </div>
-                                <div class="bg-black/30 p-4 rounded-lg">
+                                <div class="bg-black/30 p-3 md:p-4 rounded-lg">
                                     <div class="text-retro-warning font-bold text-xs uppercase mb-2">Logic / Execution</div>
-                                    <p class="text-sm text-slate-400">${act.logic}</p>
+                                    <p class="text-xs md:text-sm text-slate-400">${act.logic}</p>
                                 </div>
                             </div>
 
                             ${act.script ? `
-                            <div class="p-4 bg-white/5 rounded border border-white/5 mb-4">
+                            <div class="p-3 md:p-4 bg-white/5 rounded border border-white/5 mb-4">
                                 <div class="text-xs text-slate-500 font-mono mb-2 uppercase">Teacher Script / Insight</div>
-                                <p class="text-slate-300 italic">"${act.script}"</p>
+                                <p class="text-slate-300 text-xs md:text-sm italic">"${act.script}"</p>
                             </div>` : ''}
 
                             <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-white/10">
                                 ${act.refs.map(ref => `
-                                    <a href="${ref.url}" target="_blank" class="px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-${term.color} hover:bg-white/10 transition rounded flex items-center gap-2">
+                                    <a href="${ref.url}" target="_blank" class="px-2 md:px-3 py-1 bg-white/5 border border-white/10 text-xs text-retro-${term.color} hover:bg-white/10 transition rounded flex items-center gap-1 md:gap-2">
                                         <i data-lucide="external-link" class="w-3 h-3"></i> ${ref.name}
                                     </a>
                                 `).join('')}
@@ -2165,6 +2183,36 @@
                 btn.classList.add('text-slate-400');
             }
         });
+        lucide.createIcons();
+    }
+
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+            hamburgerIcon.setAttribute('data-lucide', 'x');
+        } else {
+            mobileMenu.classList.add('hidden');
+            hamburgerIcon.setAttribute('data-lucide', 'menu');
+        }
+        lucide.createIcons();
+    }
+
+    // Toggle Teacher's Hub sidebar on mobile
+    function toggleTeacherSidebar() {
+        const sidebar = document.getElementById('teacher-sidebar-nav');
+        const icon = document.getElementById('sidebar-toggle-icon');
+
+        if (sidebar.classList.contains('hidden')) {
+            sidebar.classList.remove('hidden');
+            icon.style.transform = 'rotate(180deg)';
+        } else {
+            sidebar.classList.add('hidden');
+            icon.style.transform = 'rotate(0deg)';
+        }
         lucide.createIcons();
     }
 
