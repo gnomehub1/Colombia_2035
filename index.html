@@ -99,26 +99,41 @@
                 </div>
 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex space-x-8">
-                    <button onclick="switchView('dashboard')" id="nav-dashboard" class="nav-btn active px-2 py-2 text-sm font-display font-bold tracking-wide transition-all uppercase">Crisis Dashboard</button>
-                    <button onclick="switchView('curriculum')" id="nav-curriculum" class="nav-btn px-2 py-2 text-sm font-display font-bold tracking-wide transition-all uppercase">Curriculum</button>
+                <div class="hidden md:flex items-center space-x-8">
+                    <button onclick="switchView('dashboard')" id="nav-dashboard" class="nav-btn active px-2 py-2 text-sm font-display font-bold tracking-wide transition-all uppercase" data-i18n="nav.dashboard">Crisis Dashboard</button>
+                    <button onclick="switchView('curriculum')" id="nav-curriculum" class="nav-btn px-2 py-2 text-sm font-display font-bold tracking-wide transition-all uppercase" data-i18n="nav.curriculum">Curriculum</button>
                     <button onclick="switchView('teacher')" id="nav-teacher" class="nav-btn px-2 py-2 text-sm font-display font-bold tracking-wide transition-all uppercase flex items-center gap-2">
-                        Teacher's Hub <span class="h-2 w-2 rounded-full bg-retro-primary animate-pulse"></span>
+                        <span data-i18n="nav.teacher">Teacher's Hub</span> <span class="h-2 w-2 rounded-full bg-retro-primary animate-pulse"></span>
+                    </button>
+
+                    <!-- Language Toggle -->
+                    <button onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all group">
+                        <div class="flex items-center gap-2">
+                            <div id="lang-indicator" class="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-red-500 flex items-center justify-center text-white text-xs font-bold shadow-lg">EN</div>
+                            <span id="lang-text" class="text-sm font-mono text-slate-300 group-hover:text-white transition">English</span>
+                        </div>
+                        <i data-lucide="globe" class="w-4 h-4 text-slate-500"></i>
                     </button>
                 </div>
 
-                <!-- Mobile Hamburger Button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-white hover:text-retro-secondary transition-colors">
-                    <i id="hamburger-icon" data-lucide="menu" class="w-6 h-6"></i>
-                </button>
+                <!-- Mobile Menu Toggle & Language -->
+                <div class="md:hidden flex items-center gap-2">
+                    <button onclick="toggleLanguage()" class="flex items-center gap-1 px-2 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/10 transition-all">
+                        <div id="lang-indicator-mobile" class="w-5 h-5 rounded-full bg-gradient-to-br from-blue-500 to-red-500 flex items-center justify-center text-white text-[10px] font-bold shadow-lg">EN</div>
+                        <span id="lang-text-mobile" class="text-xs font-mono text-slate-300">EN</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="p-2 text-white hover:text-retro-secondary transition-colors">
+                        <i id="hamburger-icon" data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
             </div>
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 py-4 space-y-2">
-                <button onclick="switchView('dashboard'); toggleMobileMenu();" class="mobile-nav-btn w-full text-left px-4 py-3 text-sm font-display font-bold tracking-wide transition-all uppercase hover:bg-white/5 rounded-lg">Crisis Dashboard</button>
-                <button onclick="switchView('curriculum'); toggleMobileMenu();" class="mobile-nav-btn w-full text-left px-4 py-3 text-sm font-display font-bold tracking-wide transition-all uppercase hover:bg-white/5 rounded-lg">Curriculum</button>
+                <button onclick="switchView('dashboard'); toggleMobileMenu();" class="mobile-nav-btn w-full text-left px-4 py-3 text-sm font-display font-bold tracking-wide transition-all uppercase hover:bg-white/5 rounded-lg" data-i18n="nav.dashboard">Crisis Dashboard</button>
+                <button onclick="switchView('curriculum'); toggleMobileMenu();" class="mobile-nav-btn w-full text-left px-4 py-3 text-sm font-display font-bold tracking-wide transition-all uppercase hover:bg-white/5 rounded-lg" data-i18n="nav.curriculum">Curriculum</button>
                 <button onclick="switchView('teacher'); toggleMobileMenu();" class="mobile-nav-btn w-full text-left px-4 py-3 text-sm font-display font-bold tracking-wide transition-all uppercase hover:bg-white/5 rounded-lg flex items-center gap-2">
-                    Teacher's Hub <span class="h-2 w-2 rounded-full bg-retro-primary animate-pulse"></span>
+                    <span data-i18n="nav.teacher">Teacher's Hub</span> <span class="h-2 w-2 rounded-full bg-retro-primary animate-pulse"></span>
                 </button>
             </div>
         </div>
@@ -129,9 +144,9 @@
         <div id="view-dashboard" class="fade-in">
             
             <div class="text-center mb-8 md:mb-12">
-                <div class="inline-block px-3 py-1 bg-retro-warning/10 border border-retro-warning/50 rounded-full text-retro-warning text-xs font-mono mb-4 tracking-widest neon-text-w">SYSTEM DIAGNOSTIC: CRITICAL</div>
-                <h1 class="text-3xl md:text-5xl lg:text-6xl font-display font-extrabold text-white mb-4">THE SOVEREIGN <span class="text-transparent bg-clip-text bg-gradient-to-r from-retro-warning to-retro-primary">BREACH</span></h1>
-                <p class="text-sm md:text-lg text-slate-400 max-w-3xl mx-auto px-4">
+                <div class="inline-block px-3 py-1 bg-retro-warning/10 border border-retro-warning/50 rounded-full text-retro-warning text-xs font-mono mb-4 tracking-widest neon-text-w" data-i18n="dashboard.diagnostic">SYSTEM DIAGNOSTIC: CRITICAL</div>
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-display font-extrabold text-white mb-4"><span data-i18n="dashboard.titlePart1">THE SOVEREIGN</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-retro-warning to-retro-primary" data-i18n="dashboard.titlePart2">BREACH</span></h1>
+                <p class="text-sm md:text-lg text-slate-400 max-w-3xl mx-auto px-4" data-i18n-html="dashboard.subtitle">
                     Colombia is not merely "developing." It is trapped in a structural <strong>Efficiency Paradox</strong> where investments are dissipated by systemic friction. We consume technology; we do not create it.
                 </p>
             </div>
@@ -139,42 +154,42 @@
             <div class="grid md:grid-cols-2 gap-4 md:gap-8 mb-4 md:mb-8">
                 <div class="bg-retro-card border border-white/10 p-4 md:p-6 lg:p-8 rounded-2xl relative overflow-hidden group">
                     <div class="absolute top-0 right-0 p-6 opacity-20"><i data-lucide="settings" class="w-16 h-16 text-retro-secondary spin-slow"></i></div>
-                    <h2 class="text-xl font-display font-bold text-white mb-2 uppercase tracking-widest border-b border-white/10 pb-2">1. The Efficiency Paradox</h2>
-                    
+                    <h2 class="text-xl font-display font-bold text-white mb-2 uppercase tracking-widest border-b border-white/10 pb-2" data-i18n="dashboard.paradoxTitle">1. The Efficiency Paradox</h2>
+
                     <div class="flex items-center justify-between mt-6 mb-4">
                         <div class="text-center">
-                            <div class="text-xs text-slate-500 font-mono uppercase">Innovation Inputs</div>
+                            <div class="text-xs text-slate-500 font-mono uppercase" data-i18n="dashboard.innovationInputs">Innovation Inputs</div>
                             <div class="text-4xl font-display font-bold text-retro-secondary neon-text-c">RANK 71</div>
-                            <div class="text-xs text-slate-400 mt-1">Education Spend, Infra</div>
+                            <div class="text-xs text-slate-400 mt-1" data-i18n="dashboard.educationInfra">Education Spend, Infra</div>
                         </div>
                         <div class="h-12 w-px bg-white/20"></div>
                         <div class="text-center">
-                            <div class="text-xs text-slate-500 font-mono uppercase">Innovation Outputs</div>
+                            <div class="text-xs text-slate-500 font-mono uppercase" data-i18n="dashboard.innovationOutputs">Innovation Outputs</div>
                             <div class="text-4xl font-display font-bold text-retro-warning neon-text-w">RANK 72</div>
-                            <div class="text-xs text-slate-400 mt-1">Patents, Creative Goods</div>
+                            <div class="text-xs text-slate-400 mt-1" data-i18n="dashboard.patentsGoods">Patents, Creative Goods</div>
                         </div>
                     </div>
-                    
+
                     <div class="bg-white/5 rounded-lg p-4 border border-white/5">
                         <div class="flex items-center gap-3">
                             <i data-lucide="alert-circle" class="text-retro-warning w-5 h-5"></i>
-                            <p class="text-sm text-slate-300"><strong>1:1 Stagnation Ratio.</strong> In mature economies, $1 of input yields $10 exponential output. In Colombia, friction consumes the investment before it becomes value.</p>
+                            <p class="text-sm text-slate-300" data-i18n-html="dashboard.stagnationText"><strong>1:1 Stagnation Ratio.</strong> In mature economies, $1 of input yields $10 exponential output. In Colombia, friction consumes the investment before it becomes value.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-retro-card border border-retro-warning/30 p-4 md:p-6 lg:p-8 rounded-2xl relative overflow-hidden neon-border-red">
-                    <h2 class="text-base md:text-xl font-display font-bold text-white mb-2 uppercase tracking-widest border-b border-white/10 pb-2">2. The Valley of Death</h2>
+                    <h2 class="text-base md:text-xl font-display font-bold text-white mb-2 uppercase tracking-widest border-b border-white/10 pb-2" data-i18n="dashboard.valleyTitle">2. The Valley of Death</h2>
 
                     <div class="flex flex-col md:flex-row gap-4 md:gap-6 mt-6">
                         <div class="md:w-1/3">
-                            <div class="text-xs text-slate-500 font-mono uppercase">Total Patents (2023)</div>
+                            <div class="text-xs text-slate-500 font-mono uppercase" data-i18n="dashboard.totalPatents">Total Patents (2023)</div>
                             <div class="text-4xl md:text-6xl font-display font-extrabold text-retro-warning neon-text-w tracking-tighter">266</div>
-                            <div class="text-xs text-red-400 mt-1 font-mono">CRITICAL DEFICIT</div>
-                            <p class="text-[10px] text-slate-500 mt-2 leading-tight">A single mid-sized US university produces more patents annually than the entire nation.</p>
+                            <div class="text-xs text-red-400 mt-1 font-mono" data-i18n="dashboard.criticalDeficit">CRITICAL DEFICIT</div>
+                            <p class="text-[10px] text-slate-500 mt-2 leading-tight" data-i18n="dashboard.patentComparison">A single mid-sized US university produces more patents annually than the entire nation.</p>
                         </div>
                         <div class="md:w-2/3">
-                            <div class="text-xs text-slate-500 font-mono uppercase mb-2">R&D Investment (% GDP)</div>
+                            <div class="text-xs text-slate-500 font-mono uppercase mb-2" data-i18n="dashboard.rdInvestment">R&D Investment (% GDP)</div>
                             <div class="h-32 relative">
                                 <canvas id="rdChart"></canvas>
                             </div>
@@ -183,16 +198,25 @@
                 </div>
             </div>
 
-            <div class="bg-retro-card border border-white/10 rounded-2xl overflow-hidden mb-4 md:mb-8 grid md:grid-cols-2">
-                <div class="p-4 md:p-6 lg:p-8 border-b md:border-b-0 md:border-r border-white/10 relative">
-                    <div class="absolute inset-0 bg-retro-secondary/5"></div>
-                    <div class="relative z-10">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl md:text-2xl font-display font-bold text-white">BOGOTÁ</h3>
-                            <span class="px-2 py-1 bg-retro-secondary/20 text-retro-secondary text-xs font-mono rounded">ONLINE</span>
+            <div class="mb-4 md:mb-8">
+                <div class="bg-retro-card border border-white/10 p-4 md:p-6 rounded-t-2xl">
+                    <h2 class="text-xl md:text-2xl font-display font-bold text-white uppercase tracking-widest flex items-center gap-3">
+                        <i data-lucide="map" class="w-6 h-6 text-retro-accent"></i>
+                        <span data-i18n="dashboard.twoColombiasTitle">3. The Two Colombias</span>
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-2 ml-9" data-i18n="dashboard.twoColombiasDesc">Digital divide: A nation fractured between connectivity and exclusion.</p>
+                </div>
+
+                <div class="bg-retro-card border border-white/10 border-t-0 rounded-b-2xl overflow-hidden grid md:grid-cols-2">
+                    <div class="p-4 md:p-6 lg:p-8 border-b md:border-b-0 md:border-r border-white/10 relative">
+                        <div class="absolute inset-0 bg-retro-secondary/5"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl md:text-2xl font-display font-bold text-white">BOGOTÁ</h3>
+                            <span class="px-2 py-1 bg-retro-secondary/20 text-retro-secondary text-xs font-mono rounded" data-i18n="dashboard.online">ONLINE</span>
                         </div>
                         <div class="text-3xl md:text-4xl font-mono font-bold text-white mb-1">IBD 0.239</div>
-                        <p class="text-xs md:text-sm text-slate-400 mb-4">Digital Maturity comparable to Southern Europe. High connectivity, access to fiber, 4G/5G.</p>
+                        <p class="text-xs md:text-sm text-slate-400 mb-4" data-i18n="dashboard.bogotaDesc">Digital Maturity comparable to Southern Europe. High connectivity, access to fiber, 4G/5G.</p>
                         <div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
                             <div class="bg-retro-secondary h-full" style="width: 85%"></div>
                         </div>
@@ -203,46 +227,47 @@
                     <div class="relative z-10">
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-xl md:text-2xl font-display font-bold text-white">VICHADA</h3>
-                            <span class="px-2 py-1 bg-retro-warning/20 text-retro-warning text-xs font-mono rounded animate-pulse">CONNECTION ERROR</span>
+                            <span class="px-2 py-1 bg-retro-warning/20 text-retro-warning text-xs font-mono rounded animate-pulse" data-i18n="dashboard.connectionError">CONNECTION ERROR</span>
                         </div>
                         <div class="text-3xl md:text-4xl font-mono font-bold text-white mb-1">IBD 0.698</div>
-                        <p class="text-xs md:text-sm text-slate-400 mb-4">Digital Maturity comparable to Least Developed Nations. Structural exclusion.</p>
+                        <p class="text-xs md:text-sm text-slate-400 mb-4" data-i18n="dashboard.vichadaDesc">Digital Maturity comparable to Least Developed Nations. Structural exclusion.</p>
                         <div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
                             <div class="bg-retro-warning h-full" style="width: 15%"></div>
                         </div>
-                        <p class="text-xs text-retro-warning mt-2 font-mono">[!] Motivation Gap: 3.5% of divide is driven by "Lack of Interest".</p>
+                        <p class="text-xs text-retro-warning mt-2 font-mono" data-i18n="dashboard.motivationGap">[!] Motivation Gap: 3.5% of divide is driven by "Lack of Interest".</p>
                     </div>
+                </div>
                 </div>
             </div>
 
             <div class="bg-gradient-to-r from-retro-card to-retro-accent/10 border border-white/10 p-4 md:p-6 lg:p-8 rounded-2xl flex flex-col md:flex-row items-center gap-4 md:gap-8">
                 <div class="md:w-1/3 text-center md:text-left">
-                    <h2 class="text-xl font-display font-bold text-white mb-2 uppercase tracking-widest">4. The Hemorrhage</h2>
+                    <h2 class="text-xl font-display font-bold text-white mb-2 uppercase tracking-widest" data-i18n="dashboard.hemorrhageTitle">4. The Hemorrhage</h2>
                     <div class="text-5xl font-display font-bold text-white mb-1">100%</div>
-                    <div class="text-sm font-mono text-retro-primary uppercase">Turnover Rate </div>
+                    <div class="text-sm font-mono text-retro-primary uppercase" data-i18n="dashboard.turnoverRate">Turnover Rate </div>
                 </div>
                 <div class="md:w-2/3">
                     <div class="flex items-center gap-4 mb-3">
                         <div class="flex-1 bg-white/5 p-4 rounded-lg text-center border border-white/5">
-                            <div class="text-xs text-slate-500 uppercase">Education</div>
-                            <div class="text-white font-bold">Local Investment</div>
+                            <div class="text-xs text-slate-500 uppercase" data-i18n="dashboard.education">Education</div>
+                            <div class="text-white font-bold" data-i18n="dashboard.localInvestment">Local Investment</div>
                         </div>
                         <i data-lucide="arrow-right" class="text-slate-500"></i>
                         <div class="flex-1 bg-white/5 p-4 rounded-lg text-center border border-white/5">
-                            <div class="text-xs text-slate-500 uppercase">Value Capture</div>
-                            <div class="text-retro-primary font-bold">Foreign IP</div>
+                            <div class="text-xs text-slate-500 uppercase" data-i18n="dashboard.valueCapture">Value Capture</div>
+                            <div class="text-retro-primary font-bold" data-i18n="dashboard.foreignIP">Foreign IP</div>
                         </div>
                     </div>
-                    <p class="text-sm text-slate-400">
+                    <p class="text-sm text-slate-400" data-i18n-html="dashboard.salaryArbitrage">
                         <strong>Salary Arbitrage:</strong> Our "Best and Brightest" work remotely for USD/EUR. While this brings cash, it prevents the accumulation of intellectual property within Colombian firms.
                     </p>
                 </div>
             </div>
 
             <div class="mt-12 text-center">
-                <p class="text-slate-400 mb-4 font-mono text-sm">SYSTEM REBOOT REQUIRED</p>
+                <p class="text-slate-400 mb-4 font-mono text-sm" data-i18n="dashboard.rebootRequired">SYSTEM REBOOT REQUIRED</p>
                 <button onclick="switchView('curriculum')" class="group relative px-10 py-4 bg-retro-primary/10 hover:bg-retro-primary/20 border border-retro-primary/50 text-retro-primary font-display font-bold text-xl uppercase tracking-widest transition-all rounded-lg overflow-hidden">
-                    Initialize Sovereign Curriculum
+                    <span data-i18n="dashboard.initializeCurriculum">Initialize Sovereign Curriculum</span>
                     <div class="absolute inset-0 w-1 bg-retro-primary group-hover:w-full transition-all duration-300 opacity-20"></div>
                 </button>
             </div>
@@ -294,16 +319,16 @@
                 <div class="lg:col-span-3 lg:h-full lg:overflow-y-auto custom-scroll lg:pr-2">
                     <div class="bg-retro-card rounded-2xl border border-white/10 overflow-hidden sticky top-0 z-10">
                         <button onclick="toggleTeacherSidebar()" class="w-full p-4 lg:p-5 bg-gradient-to-r from-retro-accent to-retro-card border-b border-white/10 flex items-center justify-between lg:cursor-default">
-                            <h3 class="font-display font-bold text-white tracking-widest">GUIDE SELECTOR</h3>
+                            <h3 class="font-display font-bold text-white tracking-widest" data-i18n="teacher.guideSelector">GUIDE SELECTOR</h3>
                             <i id="sidebar-toggle-icon" data-lucide="chevron-down" class="w-5 h-5 text-white lg:hidden transition-transform"></i>
                         </button>
                         <nav id="teacher-sidebar-nav" class="hidden lg:flex flex-col p-2 space-y-1">
-                            <button onclick="renderTeacher('general')" id="t-btn-general" class="teacher-tab active p-3 rounded-lg text-left text-sm font-semibold transition hover:bg-white/5">Methodology & Strategy</button>
+                            <button onclick="renderTeacher('general')" id="t-btn-general" class="teacher-tab active p-3 rounded-lg text-left text-sm font-semibold transition hover:bg-white/5" data-i18n="teacher.methodology">Methodology & Strategy</button>
                             <div class="h-px bg-white/10 my-2"></div>
-                            <button onclick="renderTeacher('band1')" id="t-btn-band1" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white">Band I: K-2 (Embodied)</button>
-                            <button onclick="renderTeacher('band2')" id="t-btn-band2" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white">Band II: 3-5 (Visual)</button>
-                            <button onclick="renderTeacher('band3')" id="t-btn-band3" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white">Band III: 6-8 (Syntax)</button>
-                            <button onclick="renderTeacher('band4')" id="t-btn-band4" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white">Band IV: 9-11 (Innovation)</button>
+                            <button onclick="renderTeacher('band1')" id="t-btn-band1" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white" data-i18n="teacher.band1">Band I: K-2 (Embodied)</button>
+                            <button onclick="renderTeacher('band2')" id="t-btn-band2" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white" data-i18n="teacher.band2">Band II: 3-5 (Visual)</button>
+                            <button onclick="renderTeacher('band3')" id="t-btn-band3" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white" data-i18n="teacher.band3">Band III: 6-8 (Syntax)</button>
+                            <button onclick="renderTeacher('band4')" id="t-btn-band4" class="teacher-tab p-3 rounded-lg text-left text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white" data-i18n="teacher.band4">Band IV: 9-11 (Innovation)</button>
                         </nav>
                     </div>
                 </div>
@@ -316,6 +341,194 @@
     </main>
 
 <script>
+    // ==========================================
+    // INTERNATIONALIZATION (i18n) SYSTEM
+    // ==========================================
+
+    let currentLang = localStorage.getItem('language') || 'en';
+
+    const translations = {
+        en: {
+            nav: {
+                dashboard: "Crisis Dashboard",
+                curriculum: "Curriculum",
+                teacher: "Teacher's Hub"
+            },
+            teacher: {
+                guideSelector: "GUIDE SELECTOR",
+                methodology: "Methodology & Strategy",
+                band1: "Band I: K-2 (Embodied)",
+                band2: "Band II: 3-5 (Visual)",
+                band3: "Band III: 6-8 (Syntax)",
+                band4: "Band IV: 9-11 (Innovation)"
+            },
+            dashboard: {
+                diagnostic: "SYSTEM DIAGNOSTIC: CRITICAL",
+                titlePart1: "THE SOVEREIGN",
+                titlePart2: "BREACH",
+                subtitle: 'Colombia is not merely "developing." It is trapped in a structural <strong>Efficiency Paradox</strong> where investments are dissipated by systemic friction. We consume technology; we do not create it.',
+                paradoxTitle: "1. The Efficiency Paradox",
+                innovationInputs: "Innovation Inputs",
+                educationInfra: "Education Spend, Infra",
+                innovationOutputs: "Innovation Outputs",
+                patentsGoods: "Patents, Creative Goods",
+                stagnationText: "<strong>1:1 Stagnation Ratio.</strong> In mature economies, $1 of input yields $10 exponential output. In Colombia, friction consumes the investment before it becomes value.",
+                valleyTitle: "2. The Valley of Death",
+                totalPatents: "Total Patents (2023)",
+                criticalDeficit: "CRITICAL DEFICIT",
+                patentComparison: "A single mid-sized US university produces more patents annually than the entire nation.",
+                rdInvestment: "R&D Investment (% GDP)",
+                twoColombiasTitle: "3. The Two Colombias",
+                twoColombiasDesc: "Digital divide: A nation fractured between connectivity and exclusion.",
+                online: "ONLINE",
+                bogotaDesc: "Digital Maturity comparable to Southern Europe. High connectivity, access to fiber, 4G/5G.",
+                connectionError: "CONNECTION ERROR",
+                vichadaDesc: "Digital Maturity comparable to Least Developed Nations. Structural exclusion.",
+                motivationGap: '[!] Motivation Gap: 3.5% of divide is driven by "Lack of Interest".',
+                hemorrhageTitle: "4. The Hemorrhage",
+                turnoverRate: "Turnover Rate",
+                education: "Education",
+                localInvestment: "Local Investment",
+                valueCapture: "Value Capture",
+                foreignIP: "Foreign IP",
+                salaryArbitrage: '<strong>Salary Arbitrage:</strong> Our "Best and Brightest" work remotely for USD/EUR. While this brings cash, it prevents the accumulation of intellectual property within Colombian firms.',
+                rebootRequired: "SYSTEM REBOOT REQUIRED",
+                initializeCurriculum: "Initialize Sovereign Curriculum"
+            }
+        },
+        es: {
+            nav: {
+                dashboard: "Panel de Crisis",
+                curriculum: "Currículo",
+                teacher: "Hub del Profesor"
+            },
+            teacher: {
+                guideSelector: "SELECTOR DE GUÍAS",
+                methodology: "Metodología y Estrategia",
+                band1: "Banda I: Transición-2 (Incorporado)",
+                band2: "Banda II: 3-5 (Visual)",
+                band3: "Banda III: 6-8 (Sintaxis)",
+                band4: "Banda IV: 9-11 (Innovación)"
+            },
+            dashboard: {
+                diagnostic: "DIAGNÓSTICO DEL SISTEMA: CRÍTICO",
+                titlePart1: "LA BRECHA",
+                titlePart2: "SOBERANA",
+                subtitle: 'Colombia no está simplemente "en desarrollo". Está atrapada en una <strong>Paradoja de Eficiencia</strong> estructural donde las inversiones se disipan por fricción sistémica. Consumimos tecnología; no la creamos.',
+                paradoxTitle: "1. La Paradoja de Eficiencia",
+                innovationInputs: "Insumos de Innovación",
+                educationInfra: "Gasto en Educación, Infraestructura",
+                innovationOutputs: "Resultados de Innovación",
+                patentsGoods: "Patentes, Bienes Creativos",
+                stagnationText: "<strong>Relación de Estancamiento 1:1.</strong> En economías maduras, $1 de inversión genera $10 de resultado exponencial. En Colombia, la fricción consume la inversión antes de que se convierta en valor.",
+                valleyTitle: "2. El Valle de la Muerte",
+                totalPatents: "Patentes Totales (2023)",
+                criticalDeficit: "DÉFICIT CRÍTICO",
+                patentComparison: "Una sola universidad estadounidense de tamaño mediano produce más patentes anualmente que toda la nación.",
+                rdInvestment: "Inversión en I+D (% PIB)",
+                twoColombiasTitle: "3. Las Dos Colombias",
+                twoColombiasDesc: "Brecha digital: Una nación fracturada entre conectividad y exclusión.",
+                online: "EN LÍNEA",
+                bogotaDesc: "Madurez Digital comparable al sur de Europa. Alta conectividad, acceso a fibra óptica, 4G/5G.",
+                connectionError: "ERROR DE CONEXIÓN",
+                vichadaDesc: "Madurez Digital comparable a países menos desarrollados. Exclusión estructural.",
+                motivationGap: '[!] Brecha de Motivación: El 3.5% de la división se debe a "Falta de Interés".',
+                hemorrhageTitle: "4. La Hemorragia",
+                turnoverRate: "Tasa de Rotación",
+                education: "Educación",
+                localInvestment: "Inversión Local",
+                valueCapture: "Captura de Valor",
+                foreignIP: "PI Extranjera",
+                salaryArbitrage: '<strong>Arbitraje Salarial:</strong> Nuestros "Mejores y Más Brillantes" trabajan remotamente por USD/EUR. Si bien esto trae efectivo, impide la acumulación de propiedad intelectual dentro de las empresas colombianas.',
+                rebootRequired: "SE REQUIERE REINICIO DEL SISTEMA",
+                initializeCurriculum: "Inicializar Currículo Soberano"
+            }
+        }
+    };
+
+    // Initialize language on page load
+    function initLanguage() {
+        setLanguage(currentLang);
+    }
+
+    // Toggle between EN and ES
+    function toggleLanguage() {
+        currentLang = currentLang === 'en' ? 'es' : 'en';
+        setLanguage(currentLang);
+        localStorage.setItem('language', currentLang);
+    }
+
+    // Apply language to all elements with data-i18n
+    function setLanguage(lang) {
+        currentLang = lang;
+
+        // Update language indicator displays
+        const isEnglish = lang === 'en';
+        const code = lang.toUpperCase();
+        const text = isEnglish ? 'English' : 'Español';
+        const gradient = isEnglish ? 'from-blue-500 to-red-500' : 'from-yellow-400 to-red-600';
+
+        // Desktop indicator
+        const indicator = document.getElementById('lang-indicator');
+        const langText = document.getElementById('lang-text');
+        indicator.textContent = code;
+        indicator.className = `w-6 h-6 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center text-white text-xs font-bold shadow-lg`;
+        langText.textContent = text;
+
+        // Mobile indicator
+        const indicatorMobile = document.getElementById('lang-indicator-mobile');
+        const langTextMobile = document.getElementById('lang-text-mobile');
+        indicatorMobile.textContent = code;
+        indicatorMobile.className = `w-5 h-5 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center text-white text-[10px] font-bold shadow-lg`;
+        langTextMobile.textContent = code;
+
+        // Update all translatable elements (text only)
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const translation = getNestedTranslation(translations[lang], key);
+            if (translation) {
+                el.textContent = translation;
+            }
+        });
+
+        // Update all translatable elements with HTML content
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            const key = el.getAttribute('data-i18n-html');
+            const translation = getNestedTranslation(translations[lang], key);
+            if (translation) {
+                el.innerHTML = translation;
+            }
+        });
+
+        // Re-render dynamic content
+        const currentView = document.querySelector('[id^="view-"]:not(.hidden)');
+        if (currentView) {
+            const viewName = currentView.id.replace('view-', '');
+            if (viewName === 'curriculum') {
+                // Find active band button
+                const activeBtn = document.querySelector('.band-btn.active');
+                if (activeBtn) {
+                    const bandId = activeBtn.id.replace('btn-', '');
+                    renderBand(bandId);
+                }
+            } else if (viewName === 'teacher') {
+                // Find active teacher tab
+                const activeTab = document.querySelector('.teacher-tab.active');
+                if (activeTab) {
+                    const contentId = activeTab.id.replace('t-btn-', '');
+                    renderTeacher(contentId);
+                }
+            }
+        }
+
+        lucide.createIcons();
+    }
+
+    // Helper to get nested translation (e.g., "nav.dashboard")
+    function getNestedTranslation(obj, path) {
+        return path.split('.').reduce((current, key) => current?.[key], obj);
+    }
+
     // ==========================================
     // 1. THE RENDER ENGINE (The "Oven")
     // ==========================================
@@ -1952,10 +2165,1577 @@
     ];
 
     // ==========================================
+    // SPANISH VERSIONS OF BAND JSONs
+    // ==========================================
+
+    // BAND I DATA (Grados Transición-2) - CURRÍCULO REAL DE SOVEREIGN TECH
+    const band1Json_es = [
+        {
+            title: "TRIMESTRE 1: El Cuerpo como Máquina",
+            weeks: "SEMANAS 1-10",
+            color: "primary", // Magenta
+            goal: "Establecer 'Soberanía Cognitiva' sin pantallas. El estudiante es la computadora; el profesor es el usuario. Eliminamos la 'magia' de la tecnología y nos enfocamos en la lógica de las instrucciones.",
+            activities: [
+                {
+                    week: "Semanas 1-2",
+                    topic: "Literalismo y Algoritmos",
+                    concept: "Las computadoras son literales. Las instrucciones vagas fallan.",
+                    title: "El Profesor Robot",
+                    icon: "user-check",
+                    setup: "El profesor actúa como 'Robot'. Los estudiantes deben instruirlo para realizar una tarea simple (ej., Ponerse una chaqueta).",
+                    execution: "Si dicen 'Recógelo', recógelo con los codos. Muestra que la vaguedad falla. Oblígalos a refinar: 'Abre la mano. Mueve la mano hacia el pan.'",
+                    logic: "Las instrucciones deben ser precisas. Las computadoras no tienen contexto ni intuición.",
+                    script: "Soy un robot. No tengo cerebro. Solo hago exactamente lo que dices. Si no me dices que deje de servir el agua, serviré hasta que la habitación esté inundada.",
+                    refs: [
+                        {name: "Unplugged Plans", url: "https://code.org/curriculum/docs/k-5/complete_LessStandards.pdf"},
+                        {name: "Robot Teacher Guide", url: "https://learn.k20center.ou.edu/lesson/1037/pdf"}
+                    ]
+                },
+                {
+                    week: "Semanas 3-4",
+                    topic: "Secuenciación",
+                    concept: "El orden importa en los algoritmos.",
+                    title: "Errores de Línea de Tiempo",
+                    icon: "layers",
+                    setup: "Usa tarjetas impresas (Despertar, Cepillarse los Dientes, Zapatos, Medias). Los estudiantes las ordenan.",
+                    execution: "Pregunta '¿Qué pasa si ponemos Zapatos ANTES de Medias?' Introduce vocabulario: Bug (error) y Debug (depurar).",
+                    logic: "Los errores de secuenciación rompen el algoritmo. La computadora sigue el orden exacto dado.",
+                    script: "Si le digo a la computadora que pinte la pared antes de comprar pintura, ¿qué pasa? ¡Se rompe!",
+                    refs: [{name: "Digital Competencies Map", url: "https://digitalfirstnetwork.eu/wp-content/uploads/2025/09/D4.2-Competencies-map-for-informatics-teachers-in-primary-school.pdf"}]
+                },
+                {
+                    week: "Semanas 5-6",
+                    topic: "Inglés TPR",
+                    concept: "Vincular movimiento físico con Inglés Técnico.",
+                    title: "Simón Dice Código",
+                    icon: "mic",
+                    setup: "Usa método de Respuesta Física Total (TPR). Los estudiantes realizan acciones cuando dices nombres de funciones.",
+                    execution: "Di 'Function Jump!' → Los estudiantes saltan. Di 'Loop Spin!' → Los estudiantes giran 3 veces.",
+                    logic: "El inglés es el lenguaje del código. Vincular palabras a acciones construye vocabulario técnico kinestésicamente.",
+                    script: "Cuando digo 'Execute', ¡EJECUTAN el código! Cuando digo 'Debug', ¡lo ARREGLAN!",
+                    refs: [{name: "TPR Toolkit", url: "https://www.theteachertoolkit.com/index.php/tool/total-physical-response-tpr"}]
+                },
+                {
+                    week: "Semanas 7-8",
+                    topic: "Lógica Espacial",
+                    concept: "Mapear movimiento 3D a coordenadas 2D.",
+                    title: "La Cuadrícula del Piso",
+                    icon: "map",
+                    setup: "Crea una cuadrícula 5x5 en el piso con cinta. Coloca obstáculos. Empareja estudiantes: Codificador (afuera) y Robot (adentro).",
+                    execution: "El Codificador da comandos orales: 'Adelante 2, Giro Derecha'. El Robot se mueve SOLO cuando se le ordena. Si choca, el equipo debe Depurar.",
+                    logic: "Coordenadas, dirección relativa y detección de colisiones sin pantallas.",
+                    script: "El piso es un plano cartesiano. ¡Estás programando una computadora humana!",
+                    refs: [{name: "Electric Maze", url: "https://learningmole.com/the-electric-maze/"}]
+                },
+                {
+                    week: "Semanas 9-10",
+                    topic: "Proyecto Culminante",
+                    concept: "Síntesis de conceptos desconectados.",
+                    title: "El Programa Humano",
+                    icon: "flag",
+                    setup: "Grupos pequeños diseñan una carrera de obstáculos. Escriben código usando flechas grandes de papel (→, ↑, ←, ↓).",
+                    execution: "Otro grupo 'ejecuta' el código siguiendo las flechas. Si chocan, el primer grupo debe depurar.",
+                    logic: "Escribir, leer y depurar código sin computadoras.",
+                    script: "¿Tu código funcionó perfectamente? ¿O tuviste que arreglar errores? ¡Eso es lo que los programadores hacen todos los días!",
+                    refs: [{name: "Unplugged CT", url: "https://microcredentials.digitalpromise.org/explore/unplugged-computational-thinking"}]
+                }
+            ]
+        },
+        {
+            title: "TRIMESTRE 2: Codificación Tangible",
+            weeks: "SEMANAS 11-20",
+            color: "secondary", // Cyan
+            goal: "Transferir lógica del cuerpo a un agente externo. Introducir 'Funciones' y 'Colas' usando robots sin pantalla (Cubetto, Bee-Bot o Blue-Bot).",
+            activities: [
+                {
+                    week: "Semanas 11-12",
+                    topic: "Anatomía E/S",
+                    concept: "Desmitificar la 'caja negra'.",
+                    title: "Anatomía del Hardware",
+                    icon: "cpu",
+                    setup: "Examinar el robot juntos. Identificar: Salida (Ruedas), Entrada (Botones), Sin Pantalla.",
+                    execution: "Pregunta del Profesor: '¿Dónde están los ojos del robot? ¿Ve como nosotros?' (No, está ciego. Solo sigue la cola.)",
+                    logic: "Entender E/S ayuda a los estudiantes a ver los robots como sistemas, no magia.",
+                    script: "¡Este robot no tiene cerebro. Solo recuerda los botones que presionaste. Esa es su memoria!",
+                    refs: [{name: "Bee-Bot Lessons", url: "https://resources.terrapinlogo.com/curriculum/beebot-lessons"}]
+                },
+                {
+                    week: "Semanas 13-14",
+                    topic: "La Cola",
+                    concept: "Planificación vs. Ejecución (Gratificación Retrasada).",
+                    title: "Linealidad y La Cola",
+                    icon: "list",
+                    setup: "Explica: El robot no se mueve hasta que presionas GO. Debes construir toda la cola de instrucciones primero.",
+                    execution: "Los estudiantes planifican la ruta completa, LUEGO ejecutan. Construye pensamiento computacional: Pensar → Codificar → Ejecutar → Depurar.",
+                    logic: "La cola enseña planificación. La programación real requiere pensar antes de escribir.",
+                    script: "El robot no se mueve hasta que presiones el Botón Azul (Go). Debes construir toda la línea de instrucciones primero.",
+                    refs: [{name: "Teaching Coding in K-12", url: "https://ebin.pub/teaching-coding-in-k-12-schools-research-and-application-3031219694-9783031219696.html"}]
+                },
+                {
+                    week: "Semanas 15-16",
+                    topic: "Dirección Relativa",
+                    concept: "Cuando el robot mira al estudiante, Izquierda es Derecha.",
+                    title: "Izquierda vs Derecha (Vista de Piloto)",
+                    icon: "compass",
+                    setup: "Haz que los estudiantes se paren DETRÁS del robot. Usa calcomanías en el lado izquierdo del robot y la mano izquierda del estudiante.",
+                    execution: "Practica dar comandos desde la perspectiva del piloto. 'Tu izquierda es la izquierda del robot SOLO cuando estás detrás de él.'",
+                    logic: "Tomar perspectiva es esencial para el razonamiento espacial y la programación.",
+                    script: "Si me siento frente a ti y levanto mi mano derecha, ¿qué mano VES? ¡Mi izquierda! ¡La posición importa!",
+                    refs: [{name: "Perspective Taking", url: "https://www.researchgate.net/publication/342675951_Exploring_the_Role_of_Perspective_Taking_in_Educational_Child-Robot_Interaction"}]
+                },
+                {
+                    week: "Semanas 17-18",
+                    topic: "Funciones",
+                    concept: "Abstracción: Empaquetar secuencias.",
+                    title: "La Mochila",
+                    icon: "package",
+                    setup: "En Cubetto, el Bloque Azul es una Función. Pones una secuencia (Paso-Giro-Paso) DENTRO de él.",
+                    execution: "Compara: Cargar 3 cosas vs. ponerlas en una mochila. La mochila (Función) lo hace más fácil.",
+                    logic: "Las funciones reducen la complejidad. Una llamada ejecuta muchos pasos.",
+                    script: "Una Función es una mochila. Pones una secuencia DENTRO. Ahora, solo carga la mochila en lugar de sostener 3 cosas!",
+                    refs: [{name: "Cubetto Manual", url: "https://primotoys.com/cubetto-user-manual/"}]
+                },
+                {
+                    week: "Semanas 19-20",
+                    topic: "Proyecto Culminante",
+                    concept: "Codificación + Narrativa.",
+                    title: "El Mapa Narrativo",
+                    icon: "book-open",
+                    setup: "Crea un mapa de historia (Casa → Bosque → Abuela). Programa el robot para visitar cada ubicación en orden.",
+                    execution: "Avanzado: Usa el bloque Función para la secuencia 'Saltar sobre el río'. Los estudiantes presentan su código de historia.",
+                    logic: "Combinar lógica con creatividad. Los programas pueden contar historias.",
+                    script: "¡Acabas de programar un cuento de hadas! El código no es solo matemáticas—¡también es arte!",
+                    refs: [{name: "Readers Theater", url: "https://www.cajonvalley.net/cms/lib/CA01902277/Centricity/Domain/2200/Level1-ReadersTheater%20Booklet%20Final.pdf"}]
+                }
+            ]
+        },
+        {
+            title: "TRIMESTRE 3: Ingeniería Mecánica",
+            weeks: "SEMANAS 21-30",
+            color: "warning", // Orange/Red
+            goal: "Reconectar la lógica con la física. Entender torque, engranajes y fricción usando LEGO Simple Machines O materiales reciclados.",
+            activities: [
+                {
+                    week: "Semanas 21-22",
+                    topic: "Engranajes y Transmisión",
+                    concept: "Dirección rotacional y relaciones de engranajes.",
+                    title: "Amigos Tomados de la Mano",
+                    icon: "settings",
+                    setup: "Crea una línea de engranajes (cartón o LEGO). Si el Conductor gira en sentido horario, el Seguidor gira en sentido antihorario.",
+                    execution: "Los estudiantes observan: Los engranajes adyacentes giran en direcciones opuestas. Discute los dientes de los engranajes 'tomados de la mano'.",
+                    logic: "Lógica mecánica: La rotación de entrada determina la rotación de salida. Esto es computación física.",
+                    script: "Los engranajes son amigos tomados de la mano. Cuando uno gira a la derecha, ¡el amigo gira a la izquierda!",
+                    refs: [{name: "Cardboard Cogs", url: "https://www.questacon.edu.au/learn-and-play/activities/cardboard-cogs"}]
+                },
+                {
+                    week: "Semanas 23-24",
+                    topic: "Torque vs Velocidad",
+                    concept: "Compromisos en sistemas mecánicos.",
+                    title: "El Escalador de Colinas",
+                    icon: "truck",
+                    setup: "Construye un auto LEGO. Intenta subir una rampa usando engranaje GRANDE impulsando PEQUEÑO (configuración de Velocidad).",
+                    execution: "¡Falla! Cambia a PEQUEÑO impulsando GRANDE (configuración de Torque). Ahora sube. Discute el compromiso.",
+                    logic: "Velocidad vs. Potencia es una restricción fundamental de ingeniería. No puedes tener ambas.",
+                    script: "Un auto deportivo es rápido pero débil. Un tractor es lento pero fuerte. ¡Debes ELEGIR!",
+                    refs: [{name: "LEGO Gears", url: "https://education.lego.com/en-us/lessons/sm/gears/"}]
+                },
+                {
+                    week: "Semanas 25-26",
+                    topic: "Palancas y Ventaja Mecánica",
+                    concept: "Multiplicadores de fuerza.",
+                    title: "La Catapulta",
+                    icon: "hammer",
+                    setup: "Construye una palanca simple usando una regla y un lápiz (fulcro). Intenta levantar un libro.",
+                    execution: "Mueve el fulcro más cerca de la carga. ¡Levantar se vuelve más fácil! Eso es ventaja mecánica.",
+                    logic: "La posición importa. Pequeños cambios en el diseño crean cambios masivos en la salida.",
+                    script: "Las palancas nos permiten levantar cosas pesadas con fuerzas pequeñas. ¡Por eso las usamos en construcción!",
+                    refs: [{name: "Levers for Kids", url: "https://inventorsoftomorrow.com/2021/10/13/levers-simple-machines-for-kids/"}]
+                },
+                {
+                    week: "Semanas 27-28",
+                    topic: "Fricción y Ciencia de Superficies",
+                    concept: "Las propiedades del material afectan el movimiento.",
+                    title: "El Deslizamiento",
+                    icon: "move",
+                    setup: "Rueda un auto de juguete por una rampa hacia Baldosa, Alfombra y Papel de lija. Mide la distancia de parada.",
+                    execution: "Los estudiantes observan: El papel de lija lo detiene más rápido. La baldosa lo deja rodar más lejos. Registra datos.",
+                    logic: "La fricción es resistencia. Diferentes materiales = diferentes coeficientes de fricción.",
+                    script: "La fricción es el piso agarrando las ruedas. ¡El hielo tiene baja fricción. El papel de lija tiene alta fricción!",
+                    refs: [{name: "Friction Guide", url: "https://rubytuesdaybooks.com/wp-content/uploads/forcesMagnets_page8.pdf"}]
+                },
+                {
+                    week: "Semanas 29-30",
+                    topic: "Proyecto Culminante",
+                    concept: "Ingeniería + Depuración de mecánica.",
+                    title: "Desafío de Ingeniería",
+                    icon: "award",
+                    setup: "Construye un vehículo usando materiales reciclados que viaje la mayor distancia.",
+                    execution: "Los estudiantes prueban, identifican errores mecánicos (ruedas rozando, distribución de peso) e iteran.",
+                    logic: "La ingeniería real es depurar sistemas físicos, no solo código.",
+                    script: "¡Tus ruedas están rozando! Eso es un error mecánico. ¿Cómo lo depuramos?",
+                    refs: [{name: "General Engineering Principles", url: "#"}]
+                }
+            ]
+        },
+        {
+            title: "TRIMESTRE 4: Transición Digital",
+            weeks: "SEMANAS 31-40",
+            color: "accent", // Purple
+            goal: "Pasar del espacio físico a la pantalla. Mapear 'Bloques Verdes' (Cubetto) a 'Bloques Azules' (ScratchJr). Introducir bucles y eventos.",
+            activities: [
+                {
+                    week: "Semanas 31-32",
+                    topic: "Cuadrículas 2D (Analógico Primero)",
+                    concept: "No saltar directo a las tabletas. Usa papel primero.",
+                    title: "Programación en Papel Cuadriculado",
+                    icon: "grid",
+                    setup: "Los estudiantes escriben código usando símbolos (→, ←, ↑, ↓, Llenar) en papel cuadriculado.",
+                    execution: "Modo Pareja: Uno escribe código, uno actúa como computadora dibujando. Si el dibujo está mal, depura el código.",
+                    logic: "Depurar es más fácil en papel que en pantalla. Domina la lógica antes de la sintaxis.",
+                    script: "¡Estamos programando píxeles! Cada cuadrado es un píxel. ¡Tu código pinta una imagen!",
+                    refs: [{name: "Graph Paper Programming", url: "https://ct4edu.org/graph-paper-programming/"}]
+                },
+                {
+                    week: "Semanas 33-34",
+                    topic: "Mapeo de Interfaz",
+                    concept: "Relacionar bloques físicos con bloques digitales.",
+                    title: "Hola Gato (Intro a ScratchJr)",
+                    icon: "monitor",
+                    setup: "Abre ScratchJr. Familiarización con el espacio de trabajo digital. Arrastra bloques Azules (Movimiento) para hacer que el gato se mueva.",
+                    execution: "Relaciona explícitamente: Bloques Azules en ScratchJr = Bloques Verdes en Cubetto. Misma lógica, interfaz diferente.",
+                    logic: "Las herramientas digitales son solo interfaces diferentes para el mismo pensamiento computacional.",
+                    script: "¿Recuerdas la flecha verde de Cubetto? ¡Este bloque azul hace lo mismo, pero en la pantalla!",
+                    refs: [{name: "Coding in K-2", url: "http://www.etwinning.gr/images/ms2017/CodingScratchJrPatras.pdf"}]
+                },
+                {
+                    week: "Semanas 35-36",
+                    topic: "Eventos y Disparadores",
+                    concept: "Causa y Efecto en programación.",
+                    title: "Iniciar al Tocar",
+                    icon: "zap",
+                    setup: "Usa bloques Amarillos (Disparador). Compara 'Iniciar con Bandera Verde' vs 'Iniciar al Tocar'.",
+                    execution: "Haz que el personaje salte solo cuando se toca. Los estudiantes aprenden: Diferentes disparadores = Diferentes comportamientos.",
+                    logic: "Los eventos hacen que los programas sean interactivos. La computadora espera una señal.",
+                    script: "¡La Bandera Verde es como un pistoletazo de salida. El Toque es como un timbre. Ambos son disparadores!",
+                    refs: [{name: "ScratchJr Teach", url: "https://www.scratchjr.org/teach"}]
+                },
+                {
+                    week: "Semanas 37-38",
+                    topic: "Bucles (Eficiencia)",
+                    concept: "La pereza es una virtud. No repitas código manualmente.",
+                    title: "La Fiesta de Baile",
+                    icon: "repeat",
+                    setup: "CÓDIGO MALO: Mover-Saltar-Mover-Saltar (4 bloques). CÓDIGO BUENO: [Repetir 2] (Mover-Saltar) (2 bloques).",
+                    execution: "Los estudiantes comparan conteos de bloques. Los bucles ahorran tiempo y reducen errores.",
+                    logic: "Los bucles son eficiencia computacional. ¿Qué pasaría si necesitáramos repetir 100 veces?",
+                    script: "¡El bloque naranja nos ahorra hacer trabajo aburrido. Para eso son las computadoras!",
+                    refs: [{name: "Getting Loopy", url: "https://sites.google.com/sfusd.edu/k-2cs/orange/unit-3-scratchjr/17-getting-loopy"}]
+                },
+                {
+                    week: "Semanas 39-40",
+                    topic: "Proyecto Culminante",
+                    concept: "Síntesis: Aplicar habilidades al contexto local.",
+                    title: "Mi Comunidad",
+                    icon: "home",
+                    setup: "Crea una historia animada sobre un problema local (basura, caminos, escasez de agua).",
+                    execution: "DEBE usar: 2 personajes, 1 Bucle, 1 Evento. Los estudiantes presentan su historia de solución.",
+                    logic: "La tecnología sirve a la sociedad. El código puede comunicar problemas y soluciones.",
+                    script: "¡Acabas de usar código para hablar sobre tu comunidad! Eso es lo que hacen los ingenieros—¡resuelven problemas REALES!",
+                    refs: [{name: "Unit 3 ScratchJr", url: "https://www.sfusd.edu/departments/computer-science-department/computer-science-curriculum/k-2-computer-science-curriculum/k-2-computer-science-curriculum-orange/k-2-computer-science-orange-unit-3-scratch-jr"}]
+                }
+            ]
+        }
+    ];
+
+    const band2Json_es = [
+        {
+            title: "TRIMESTRE 1: Computación Creativa",
+            weeks: "SEMANAS 1-10",
+            color: "secondary", // Cyan
+            goal: "Establecer fundamento de lógica de software. Moverse de secuenciación física al espacio de trabajo digital (Scratch). Dominar el plano de coordenadas, eventos y bucles.",
+            activities: [
+                {
+                    week: "Semana 1",
+                    topic: "El Plano Cartesiano",
+                    concept: "La pantalla es un mapa de coordenadas (X, Y).",
+                    title: "Búsqueda en Cuadrícula",
+                    icon: "map",
+                    setup: "Abre Scratch con fondo 'Xy-grid'. 'Teletransporta' el sprite a las esquinas.",
+                    logic: "Los números positivos van Derecha/Arriba. Los números negativos van Izquierda/Abajo.",
+                    script: "El centro del mundo es 0,0. Si queremos que nuestro gato vaya a la derecha, cambiamos X.",
+                    refs: [{name: "Scratch Lesson Plans", url: "https://scratched.gse.harvard.edu/sites/default/files/lp_scratch3.pdf"}]
+                },
+                {
+                    week: "Semana 2",
+                    topic: "Secuenciación",
+                    concept: "Linealidad: Las computadoras leen código de arriba hacia abajo.",
+                    title: "Codifica una Fiesta de Baile",
+                    icon: "music",
+                    setup: "Elige un sprite de Bailarín. Apila bloques 'Mover' y 'Siguiente Disfraz'.",
+                    logic: "Sin bloques 'Esperar', el baile es demasiado rápido para ver. El orden importa.",
+                    script: "La computadora es demasiado rápida para nuestros ojos. Debemos decirle que espere.",
+                    refs: [{name: "Code a Dance Party", url: "https://code.org/en-US/hour-of-code/dance"}]
+                },
+                {
+                    week: "Semana 3",
+                    topic: "Bucles (Eficiencia)",
+                    concept: "La pereza es una virtud. No repitas código manualmente.",
+                    title: "Arte Geométrico",
+                    icon: "box",
+                    setup: "Dibuja un cuadrado usando Lápiz. En lugar de 8 bloques, usa un Bucle.",
+                    logic: "Repetir 4 [Mover 100, Girar 90]. 360 / 4 = 90 grados.",
+                    script: "¿Qué pasaría si quisiera dibujar una figura con 100 lados? ¿Arrastrarías 200 bloques?",
+                    refs: [{name: "Geometric Art Guide", url: "https://kodexacademy.com/create-stunning-geometric-art-in-scratch-draw-art-math-combo-patterns-step-by-step-coding/"}]
+                },
+                {
+                    week: "Semana 4",
+                    topic: "Eventos y Paralelismo",
+                    concept: "Concurrencia: La computadora puede hacer dos cosas a la vez.",
+                    title: "La Banda Virtual",
+                    icon: "mic",
+                    setup: "Crea 3 instrumentos (Batería, Piano, Saxofón). Asigna diferentes teclas a cada uno.",
+                    logic: "Presiona Espacio y Flecha Arriba al mismo tiempo. Ambos scripts se ejecutan juntos.",
+                    script: "La computadora tiene múltiples oídos. Escucha todas las teclas a la vez.",
+                    refs: [{name: "Scratch Animation Guide", url: "https://www.scribd.com/document/522070321/Unit-2-Animations"}]
+                },
+                {
+                    week: "Semana 5",
+                    topic: "Condicionales",
+                    concept: "Compuertas Lógicas: Decisiones Si-Entonces-Sino.",
+                    title: "El Robot Educado",
+                    icon: "cpu",
+                    setup: "Usa el bloque 'Preguntar y Esperar'. Ingresa un nombre.",
+                    logic: "SI respuesta = 'Juan' ENTONCES di 'Hola Profesor' SINO di 'Mucho gusto'.",
+                    script: "La Inteligencia Artificial comienza con millones de preguntas Si-Entonces simples.",
+                    refs: [{name: "Conditional Cards", url: "https://resources.scratch.mit.edu/www/cards/en/conditionalstatement-cards.pdf"}]
+                },
+                {
+                    week: "Semana 6",
+                    topic: "Variables",
+                    concept: "Almacenamiento de Datos: Un contenedor para un valor.",
+                    title: "Atrapa la Fruta",
+                    icon: "database",
+                    setup: "Crea una variable 'Puntuación'. Haz que una manzana caiga de arriba hacia abajo.",
+                    logic: "Cuando se hace clic: Cambiar Puntuación por 1. Si toca el fondo: Fijar Puntuación a 0.",
+                    script: "La variable es como una caja en mi escritorio. Ponemos canicas (números) en ella.",
+                    refs: [{name: "Variables Guide", url: "https://techwiseacademy.com/scratch-tips-power-variables/"}]
+                },
+                {
+                    week: "Semana 7",
+                    topic: "Difusión",
+                    concept: "Comunicación entre sprites (Activación).",
+                    title: "Escenas de Historia",
+                    icon: "radio",
+                    setup: "El narrador dice 'Ir a la Playa' y difunde mensaje. El fondo cambia.",
+                    logic: "Desacopla el activador de la acción. Esencial para niveles de juego.",
+                    script: "Los sprites no pueden gritar, pero pueden enviar señales de radio invisibles.",
+                    refs: [{name: "Digital Storyteller", url: "https://girlswhocode.com/assets/downloads/craft-prod/downloads/Girls-Who-Code-At-Home-Digital-Storyteller2.pdf"}]
+                },
+                {
+                    week: "Semana 8",
+                    topic: "Sensado",
+                    concept: "Detección de Colisión: Bucles de retroalimentación.",
+                    title: "El Corredor del Laberinto",
+                    icon: "grid",
+                    setup: "Dibuja un laberinto con paredes negras. El jugador se mueve con flechas.",
+                    logic: "SI tocando color 'Negro' ENTONCES mover -10 pasos (Rebotar).",
+                    script: "Si caminas hacia una pared, la física te empuja hacia atrás. Debemos codificar esa física.",
+                    refs: [{name: "Maze Game Guide", url: "https://itsmybot.com/maze-game-in-scratch/"}]
+                },
+                {
+                    week: "Semana 9",
+                    topic: "Depuración",
+                    concept: "Leer código y arreglar lógica rota.",
+                    title: "El Reparador",
+                    icon: "wrench",
+                    setup: "El profesor proporciona un proyecto roto (el gato camina hacia atrás).",
+                    logic: "Los estudiantes deben aislar el bloque que causa el error y arreglarlo.",
+                    script: "Lee el código en voz alta. ¿Tiene sentido?",
+                    refs: [{name: "Debugging Strategies", url: "https://resources.scratch.mit.edu/www/guides/en/ScratchLearningResource_DebuggingStrategies.pdf"}]
+                },
+                {
+                    week: "Semana 10",
+                    topic: "Proyecto Culminante",
+                    concept: "Síntesis: Aplicar habilidades al contexto local.",
+                    title: "Mi Comunidad",
+                    icon: "home",
+                    setup: "Crea un juego/historia abordando un problema local (Tráfico, Basura, Agua).",
+                    logic: "Debe usar: 1 Bucle, 1 Condicional, 1 Variable.",
+                    script: "No son solo programadores; son solucionadores comunitarios.",
+                    refs: [{name: "Project Rubric", url: "#"}]
+                }
+            ]
+        },
+        {
+            title: "TRIMESTRE 2: Diseño de Juegos",
+            weeks: "SEMANAS 11-20",
+            color: "accent", // Purple
+            goal: "Profundizar fluidez algorítmica. Moverse de Animación a Simulación (Física, Máquinas de Estado).",
+            activities: [
+                {
+                    week: "Semanas 11-13",
+                    topic: "Mecánicas Avanzadas",
+                    concept: "Física 101: Gravedad y Velocidad.",
+                    title: "El Salto de Plataforma",
+                    icon: "arrow-up",
+                    setup: "Crea una variable 'velocidad_y'. Cambia Y por Velocidad.",
+                    logic: "Gravedad: Cambiar Velocidad por -1 por siempre. Saltar: Fijar Velocidad a 10.",
+                    script: "Caer es solo un número que se hace más pequeño cada segundo.",
+                    refs: [{name: "Gravity Simulator", url: "https://www.youtube.com/watch?v=4FpDu81hTkQ"}]
+                },
+                {
+                    week: "Semanas 14-16",
+                    topic: "Máquinas de Estado",
+                    concept: "Gestionar fases: Menú -> Juego -> Fin del Juego.",
+                    title: "El Gestor de Estado",
+                    icon: "layers",
+                    setup: "Variable 'Estado_Juego' (0=Menú, 1=Jugar, 2=Terminado).",
+                    logic: "Detener todo cuando cambia el estado. Los sprites se ocultan/muestran según el estado.",
+                    script: "Un semáforo no puede estar Rojo y Verde al mismo tiempo.",
+                    refs: [{name: "State Machines Guide", url: "https://medium.com/well-red/state-machines-for-everyone-part-1-introduction-b7ac9aaf482e"}]
+                },
+                {
+                    week: "Semanas 17-19",
+                    topic: "Desafíos de Depuración",
+                    concept: "Antifragilidad: Arreglar errores lógicos.",
+                    title: "El Museo del Código Roto",
+                    icon: "alert-triangle",
+                    setup: "Arregla 'El Bucle Infinito', 'El Fantasma' y 'El Teletransportador'.",
+                    logic: "Diagnostica por qué el bucle nunca termina o por qué el sprite es invisible.",
+                    script: "Los médicos sanan personas; los desarrolladores sanan código.",
+                    refs: [{name: "Debugging Activity", url: "http://faculty.chas.uni.edu/~schafer/1320/lessons/Unit1/debugging/index.html"}]
+                },
+                {
+                    week: "Semana 20",
+                    topic: "Revisión por Pares",
+                    concept: "Habilidades Blandas: Dar retroalimentación técnica.",
+                    title: "La Sala de Juegos",
+                    icon: "star",
+                    setup: "Juega los juegos de compañeros. Usa el marco 'Dos Estrellas y un Deseo'.",
+                    logic: "Critica el código, no la persona.",
+                    script: "Desearía que el enemigo se moviera más lento para que el juego no fuera imposible.",
+                    refs: [{name: "Two Stars & Wish", url: "https://learn.k20center.ou.edu/strategy/83"}]
+                }
+            ]
+        },
+        {
+            title: "TRIMESTRE 3: Computación Física",
+            weeks: "SEMANAS 21-30",
+            color: "warning", // Red
+            goal: "El Puente de Hardware. Mover la lógica fuera de la pantalla y a la mano usando BBC Micro:bit.",
+            activities: [
+                {
+                    week: "Semana 21",
+                    topic: "Intro al Hardware",
+                    concept: "Anatomía del Microcontrolador.",
+                    title: "La Placa de Nombre",
+                    icon: "cpu",
+                    setup: "Codifica la matriz LED 5x5 para desplazar tu nombre.",
+                    logic: "El software controla el Hardware. Los píxeles en un teléfono funcionan de la misma manera.",
+                    script: "¿Por qué muere el robot sin energía (batería)?",
+                    refs: [{name: "Micro:bit Lessons", url: "https://microbit.org/teach/lessons/"}]
+                },
+                {
+                    week: "Semana 22",
+                    topic: "Entradas",
+                    concept: "Interfaz Humano-Máquina (Entrada Binaria).",
+                    title: "El Juguete Inquieto",
+                    icon: "mouse-pointer",
+                    setup: "Botón A -> Sonrisa. Botón B -> Ceño.",
+                    logic: "Si Entrada Detectada -> Activar Salida.",
+                    script: "¿Cómo hablan los humanos con las máquinas?",
+                    refs: [{name: "MakeCode Editors", url: "https://makecode.microbit.org/"}]
+                },
+                {
+                    week: "Semana 23",
+                    topic: "Sensores (Movimiento)",
+                    concept: "Acelerómetro: Detectar movimiento en X,Y,Z.",
+                    title: "El Contador de Pasos",
+                    icon: "activity",
+                    setup: "Ata Micro:bit al zapato. Código: Al Agitar -> Cambiar Pasos por 1.",
+                    logic: "Calibración: ¿Qué tan fuerte tienes que agitar?",
+                    script: "Conecta código abstracto con acción incorporada.",
+                    refs: [{name: "Step Counter", url: "https://microbit.org/projects/make-it-code-it/step-counter/"}]
+                },
+                {
+                    week: "Semana 24",
+                    topic: "Sensores (Brújula y Temperatura)",
+                    concept: "Sensado Ambiental: Magnetómetro y Termistor.",
+                    title: "La Herramienta del Explorador",
+                    icon: "compass",
+                    setup: "Muestra rumbo de brújula en matriz LED. Muestra temperatura en Celsius.",
+                    logic: "La brújula devuelve 0-360 grados. Norte = 0. La temperatura lee el sensor integrado.",
+                    script: "¿Cómo navegan los exploradores sin GPS? Usan el campo magnético de la Tierra.",
+                    refs: [{name: "Compass Projects", url: "https://microbit.org/projects/make-it-code-it/compass/"}]
+                },
+                {
+                    week: "Semana 25",
+                    topic: "Radio e IoT",
+                    concept: "Comunicación Inalámbrica.",
+                    title: "Mensajes Secretos",
+                    icon: "wifi",
+                    setup: "Envía la cadena 'Hola' por Radio Grupo 1.",
+                    logic: "El Transmisor y el Receptor deben estar en el mismo canal.",
+                    script: "Así es como el Wi-Fi mantiene los datos privados.",
+                    refs: [{name: "Radio Guide", url: "https://www.verizon.com/learning/static/content-import/extracted/course_smartsolutions/unit2_codingadventures/chapter2_codingwithmicro_bit/codingwithmicro_bit_lesson3of4__radioandifstatements/teacher_facilitator_guide_radio_and_if_statements.pdf"}]
+                },
+                {
+                    week: "Semana 26",
+                    topic: "Pines y Circuitos",
+                    concept: "Conductividad: Detectar flujo eléctrico.",
+                    title: "El Probador de Conductividad",
+                    icon: "zap",
+                    setup: "Conecta Pin 0 y GND con cables. Toca ambos extremos juntos.",
+                    logic: "SI Pin 0 está Presionado (Circuito Completo) ENTONCES Encender LED.",
+                    script: "El agua conduce electricidad. El aire no. Así funcionan las pantallas táctiles.",
+                    refs: [{name: "Pin Guide", url: "https://microbit.org/get-started/user-guide/pins/"}]
+                },
+                {
+                    week: "Semana 27",
+                    topic: "Servos (Actuadores)",
+                    concept: "Mover objetos físicos.",
+                    title: "El Robot que Saluda",
+                    icon: "settings",
+                    setup: "Conecta Servo al Pin 0. Pega mano de cartón al brazo.",
+                    logic: "Escribe Pin 0 a 0. Espera. Escribe Pin 0 a 180.",
+                    script: "Las señales eléctricas mueven engranajes.",
+                    refs: [{name: "Using Servos", url: "https://support.microbit.org/support/solutions/articles/19000101864-using-a-servo-with-the-micro-bit"}]
+                },
+                {
+                    week: "Semana 28",
+                    topic: "Compuertas Lógicas y Aleatorización",
+                    concept: "Lógica Booleana: Operaciones Y, O, NO.",
+                    title: "Piedra, Papel o Tijera Digital",
+                    icon: "shuffle",
+                    setup: "Al Agitar: Elegir Aleatorio (0,1,2). Mostrar ícono Piedra/Papel/Tijera.",
+                    logic: "SI Jugador = Piedra Y Oponente = Tijera ENTONCES Ganar.",
+                    script: "La aleatoriedad no es magia. Es solo matemáticas escogiendo un número impredeciblemente.",
+                    refs: [{name: "Rock Paper Scissors", url: "https://makecode.microbit.org/projects/rock-paper-scissors"}]
+                },
+                {
+                    week: "Semana 29",
+                    topic: "Tecnología Portátil",
+                    concept: "Aplicaciones de Seguridad y Comunidad.",
+                    title: "La Insignia de Seguridad",
+                    icon: "shield",
+                    setup: "Crea dispositivo portátil. Presiona Botón A para enviar alerta vía Radio.",
+                    logic: "Al Botón A Presionado: Enviar mensaje 'AYUDA'. El receptor muestra ícono de Alerta.",
+                    script: "La tecnología puede hacer que las comunidades sean más seguras. Esto es ingeniería cívica.",
+                    refs: [{name: "Safety Projects", url: "https://microbit.org/projects/make-it-code-it/"}]
+                },
+                {
+                    week: "Semana 30",
+                    topic: "Proyecto Culminante",
+                    concept: "Diseño Emocional.",
+                    title: "Micro-Mascota",
+                    icon: "heart",
+                    setup: "Crea una mascota digital (Tamagotchi). Reacciona a Agitar, Luz, Botones.",
+                    logic: "Si Luz < 20 (Oscuro) -> Mostrar ícono Zzz (Dormir).",
+                    script: "La personalidad en robots es solo código reaccionando a sensores.",
+                    refs: [{name: "Pet Rubric", url: "https://www.rcampus.com/rubricshowc.cfm?code=K24XB87&sp=yes&"}]
+                }
+            ]
+        },
+        {
+            title: "TRIMESTRE 4: Ingeniería",
+            weeks: "SEMANAS 31-40",
+            color: "secondary", // Cyan
+            goal: "Ingeniería Aplicada y Sostenibilidad. Resolver problemas del mundo real (Agro Inteligente).",
+            activities: [
+                {
+                    week: "Semanas 31-34",
+                    topic: "Agro Inteligente",
+                    concept: "Conductividad: El suelo como resistor variable.",
+                    title: "Sensor de Humedad del Suelo",
+                    icon: "droplet",
+                    setup: "Usa dos clavos galvanizados en suelo. Conecta al Pin 1 y 3V.",
+                    logic: "Lectura Analógica Pin 1. Suelo húmedo = Número alto. Seco = Bajo.",
+                    script: "No necesitamos sensores caros. Necesitamos física.",
+                    refs: [{name: "Soil Sensor Guide", url: "https://sensorsandtransmitters.com/monitoring-moisture-levels-in-coffee-production/"}]
+                },
+                {
+                    week: "Semanas 35-38",
+                    topic: "Sistemas Automatizados",
+                    concept: "Cerrando el Bucle: Sensor -> Decisión -> Actuador.",
+                    title: "El Bucle de Agua",
+                    icon: "refresh-cw",
+                    setup: "Conecta Sensor de Suelo a Motor Servo (Válvula).",
+                    logic: "SI Lectura < 400 (Seco) ENTONCES Servo Girar 90 (Abrir Agua).",
+                    script: "Este es un sistema completamente autónomo.",
+                    refs: [{name: "Plant Watering", url: "https://makecode.microbit.org/projects/plant-watering"}]
+                },
+                {
+                    week: "Semanas 39-40",
+                    topic: "Feria de Innovación",
+                    concept: "Comunicación y Soberanía.",
+                    title: "El Discurso",
+                    icon: "users",
+                    setup: "Los estudiantes presentan Micro-Mascotas y sistemas de Agro Inteligente a la comunidad.",
+                    logic: "Explica CÓMO funciona, no solo qué hace.",
+                    script: "Esto valida al estudiante como Creador.",
+                    refs: [{name: "Eval Rubric", url: "https://www.scribd.com/document/724655603/MicroBit-CULMINATING-Project-Rubric-ROBOTICS-Space-exploration"}]
+                }
+            ]
+        }
+    ];
+
+    // BAND III DATA (Grados 6-8) - VERSIÓN ESPAÑOL
+    const band3Json_es = [
+        {
+            title: "TRIMESTRE 1: La Piedra Rosetta",
+            weeks: "SEMANAS 1-10",
+            color: "warning", // Red
+            goal: "Cerrar la brecha entre bloques y texto. Transición de Scratch a Python usando el método de 'Piedra Rosetta'.",
+            activities: [
+                {
+                    week: "Semana 1",
+                    topic: "Entorno e Interfaz",
+                    concept: "La Consola es el nuevo Escenario.",
+                    title: "Hola Mundo",
+                    icon: "terminal",
+                    setup: "Instalar Mu Editor. Diferenciar Área de Script vs. REPL.",
+                    logic: "print('Hola Mundo'). Discutir comillas y paréntesis.",
+                    script: "En Scratch, arrastraste bloques. En Python, hablas directamente a la computadora.",
+                    refs: [{name: "Mu Editor Guide", url: "https://codewith.mu/"}]
+                },
+                {
+                    week: "Semana 2",
+                    topic: "Variables y Tipos",
+                    concept: "La Analogía de la 'Caja Etiquetada'. String vs Integer.",
+                    title: "El Generador de Bio",
+                    icon: "box",
+                    setup: "Crear vars: name='Juan', age=12. Intentar sumarlas.",
+                    logic: "TypeError: No se puede pegar número a palabra. Solución: str(age).",
+                    script: "No puedes hacer matemáticas con un plato y una cuchara. Los tipos importan.",
+                    refs: [{name: "Teaching Variables", url: "https://cs-blog.khanacademy.org/2013/09/teaching-variables-analogies-and.html"}]
+                },
+                {
+                    week: "Semana 3",
+                    topic: "Entrada",
+                    concept: "Programas interactivos. In + Put.",
+                    title: "El Chatbot v1",
+                    icon: "message-square",
+                    setup: "Pedir al usuario nombre y comida. Responder con concatenación.",
+                    logic: "food = input('¿Comida favorita?'). print('Puaj, odio ' + food).",
+                    script: "Estamos enseñando a la computadora a escuchar.",
+                    refs: [{name: "Python Projects", url: "https://codakid.com/blog/python/python-tutorial-middle-schoolers/"}]
+                },
+                {
+                    week: "Semana 4",
+                    topic: "Condicionales",
+                    concept: "Compuertas Lógicas. Indentación como Gramática.",
+                    title: "El Portero",
+                    icon: "shield",
+                    setup: "Preguntar edad. Si < 18, negar entrada. Sino, dar bienvenida.",
+                    logic: "IF age < 18: print('No'). La indentación sostiene el código.",
+                    script: "Los dos puntos (:) son el 'Entonces' de Python.",
+                    refs: [{name: "Conditionals Guide", url: "https://realpython.com/python-conditional-statements/"}]
+                },
+                {
+                    week: "Semana 5",
+                    topic: "Bucles",
+                    concept: "Iteración. For vs. While.",
+                    title: "El Escritor de Castigos",
+                    icon: "repeat",
+                    setup: "Escribir 'No hablaré' 100 veces.",
+                    logic: "for i in range(100): print(f'{i}. No hablaré').",
+                    script: "Un humano tarda una hora. Python tarda 0.01 segundos.",
+                    refs: [{name: "Loops in Python", url: "https://www.modernagecoders.com/blog/loops-in-python-for-kids"}]
+                },
+                {
+                    week: "Semana 6",
+                    topic: "Listas",
+                    concept: "Estructuras de Datos. La Analogía del 'Tren'.",
+                    title: "El Selector Aleatorio",
+                    icon: "list",
+                    setup: "Lista de estudiantes. Usar random.choice() para elegir un ganador.",
+                    logic: "students = ['Ana', 'Bob']. El índice 0 es la locomotora.",
+                    script: "Una variable contiene una cosa. Una lista contiene un universo.",
+                    refs: [{name: "Python Lists", url: "https://www.geeksforgeeks.org/python-list/"}]
+                },
+                {
+                    week: "Semana 7",
+                    topic: "Funciones",
+                    concept: "Código Modular. La 'Receta'.",
+                    title: "Calculadora de Geometría",
+                    icon: "function-square",
+                    setup: "Def area_square(side). Llamarla con diferentes números.",
+                    logic: "Return devuelve valor. Print solo lo muestra.",
+                    script: "No reescribes la receta de Arepas cada vez. Solo dices 'Hacer Arepas'.",
+                    refs: [{name: "Functions Guide", url: "https://www.modernagecoders.com/blog/functions-in-python-for-kids"}]
+                },
+                {
+                    week: "Semana 8",
+                    topic: "Bibliotecas",
+                    concept: "Usar código de otras personas. Gratificación visual.",
+                    title: "Arte Generativo",
+                    icon: "pen-tool",
+                    setup: "Importar Turtle. Dibujar espirales usando bucles.",
+                    logic: "t.forward(i), t.right(91). Matemática: 360/n.",
+                    script: "Python es poderoso por sus bibliotecas.",
+                    refs: [{name: "Turtle Guide", url: "https://realpython.com/beginners-guide-python-turtle/"}]
+                },
+                {
+                    week: "Semana 9",
+                    topic: "Depuración",
+                    concept: "Tolerancia al Fracaso. Cirugía de Sintaxis.",
+                    title: "El Código Roto",
+                    icon: "alert-octagon",
+                    setup: "El profesor proporciona script con comillas/dos puntos faltantes.",
+                    logic: "Depuración del Patito de Goma: Explicar código línea por línea.",
+                    script: "Los mensajes de error son pistas, no juicios.",
+                    refs: [{name: "Debugging Tips", url: "https://realpython.com/python-debugging-pdb/"}]
+                },
+                {
+                    week: "Semana 10",
+                    topic: "Proyecto Culminante",
+                    concept: "Síntesis.",
+                    title: "La Aventura de Texto",
+                    icon: "book-open",
+                    setup: "Crear un explorador de mazmorras. Usar input, listas y bucles.",
+                    logic: "Debe tener sistema de inventario y 3 habitaciones.",
+                    script: "Usa folclore colombiano (El Mohán) para tu historia.",
+                    refs: [{name: "Big Book of Projects", url: "https://edu.anarcho-copy.org/Programming%20Languages/Python/BigBookSmallPythonProjects.pdf"}]
+                }
+            ]
+        },
+        {
+            title: "TRIMESTRE 2: Electrónica",
+            weeks: "SEMANAS 11-20",
+            color: "secondary", // Cyan
+            goal: "Pasar de la lógica virtual a la física. Dominar el circuito, Ley de Ohm y el entorno Arduino.",
+            activities: [
+                {
+                    week: "Semana 11",
+                    topic: "Física del Flujo",
+                    concept: "Voltaje = Presión. Corriente = Flujo.",
+                    title: "El Tanque de Agua",
+                    icon: "zap",
+                    setup: "Analogía: Tanque de Agua. La resistencia es la arena en la tubería.",
+                    logic: "El voltaje no se mueve; la corriente se mueve.",
+                    script: "La electricidad es solo agua perezosa.",
+                    refs: [{name: "Ohm's Law Analogy", url: "https://www.allaboutcircuits.com/textbook/direct-current/chpt-2/analogy-ohms-law/"}]
+                },
+                {
+                    week: "Semana 12",
+                    topic: "Protoboard",
+                    concept: "Prototipado. VCC vs GND.",
+                    title: "Encender el Fuego",
+                    icon: "battery-charging",
+                    setup: "Conectar 9V a LED sin resistor. Hacerlo estallar.",
+                    logic: "El resistor limita el flujo. V=IR.",
+                    script: "Positivo y Negativo son enemigos. Nunca los toques directamente.",
+                    refs: [{name: "Breadboard Safety", url: "https://breadboardcircuits.com/welcome-to-breadboardcircuits-com/"}]
+                },
+                {
+                    week: "Semana 13",
+                    topic: "Laboratorio Ley de Ohm",
+                    concept: "Verificación matemática.",
+                    title: "Laboratorio de Multímetro",
+                    icon: "activity",
+                    setup: "Medir corriente con resistores de 1k, 10k, 100k.",
+                    logic: "A medida que la Resistencia SUBE, la Corriente BAJA.",
+                    script: "Estamos probando el álgebra con física.",
+                    refs: [{name: "Ohm's Law Lesson", url: "https://www.learningundefeated.org/curriculum/ohms-law/"}]
+                },
+                {
+                    week: "Semana 14",
+                    topic: "Introducción a Arduino",
+                    concept: "Fusionar código con hardware.",
+                    title: "El Cerebro",
+                    icon: "cpu",
+                    setup: "Instalar IDE. Explicar void setup() vs loop().",
+                    logic: "Setup se ejecuta una vez. Loop se ejecuta para siempre.",
+                    script: "Esto es una computadora pequeña que habla con el mundo.",
+                    refs: [{name: "Arduino Education", url: "https://www.arduino.cc/education"}]
+                },
+                {
+                    week: "Semana 15",
+                    topic: "Salida Digital",
+                    concept: "Controlar voltaje con código.",
+                    title: "El Parpadeo",
+                    icon: "sun",
+                    setup: "LED al Pin 13. digitalWrite(HIGH).",
+                    logic: "Desafío: Crear señal S.O.S.",
+                    script: "Estás controlando luz con palabras.",
+                    refs: [{name: "Arduino Tutorial", url: "https://www.youtube.com/watch?v=fJWR7dBuc18"}]
+                },
+                {
+                    week: "Semana 16",
+                    topic: "Entrada Digital",
+                    concept: "Los circuitos deben estar cerrados para leer.",
+                    title: "El Timbre",
+                    icon: "mouse-pointer",
+                    setup: "Cablear un botón con resistor Pull-Down.",
+                    logic: "Si buttonState == HIGH, encender LED.",
+                    script: "Sin el resistor, el pin lee ruido aleatorio.",
+                    refs: [{name: "Digital Input Guide", url: "https://codehs.com/course/arduino/lessons"}]
+                },
+                {
+                    week: "Semana 17",
+                    topic: "Entrada Analógica",
+                    concept: "Leer datos variables (0-1023).",
+                    title: "El Atenuador",
+                    icon: "sliders",
+                    setup: "Potenciómetro a A0. Mapear valores.",
+                    logic: "Map(0-1023) a (0-255) para brillo LED.",
+                    script: "El mundo no es solo On/Off. Es analógico.",
+                    refs: [{name: "Potentiometer Tutorial", url: "https://www.sciencebuddies.org/science-fair-projects/references/arduino-project-troubleshooting-guide"}]
+                },
+                {
+                    week: "Semana 18",
+                    topic: "PWM (Modulación por Ancho de Pulso)",
+                    concept: "Simular salida analógica mediante conmutación rápida.",
+                    title: "El LED Respirante",
+                    icon: "radio",
+                    setup: "Usar analogWrite() para desvanecer brillo de LED arriba y abajo.",
+                    logic: "Arduino cambia 0V y 5V rápido. 50% ciclo de trabajo = 2.5V promedio.",
+                    script: "El Arduino no puede sacar 2.5 Voltios, pero puede simularlo.",
+                    refs: [{name: "PWM Explained", url: "https://www.arduino.cc/en/Tutorial/Foundations/PWM"}]
+                },
+                {
+                    week: "Semana 19",
+                    topic: "Transistores",
+                    concept: "Controlar cargas grandes con señales pequeñas.",
+                    title: "El Interruptor Pesado",
+                    icon: "toggle-right",
+                    setup: "Usar Arduino para activar transistor NPN para Motor.",
+                    logic: "Arduino es débil. El transistor es el músculo.",
+                    script: "No frías el cerebro. Usa un interruptor.",
+                    refs: [{name: "Transistor Guide", url: "https://learn.sparkfun.com/tutorials/transistors"}]
+                },
+                {
+                    week: "Semana 20",
+                    topic: "Proyecto Culminante",
+                    concept: "Integración de Sistemas.",
+                    title: "Semáforo",
+                    icon: "alert-circle",
+                    setup: "3 LEDs (Auto), 2 LEDs (Peatón), 1 Botón.",
+                    logic: "Secuencia: Verde → Amarillo → Rojo → Caminar.",
+                    script: "¿La luz amarilla se enciende en el momento correcto?",
+                    refs: [{name: "Project Rubric", url: "#"}]
+                }
+            ]
+        },
+        {
+            title: "TRIMESTRE 3: Robótica",
+            weeks: "SEMANAS 21-30",
+            color: "accent",
+            goal: "Construir robot autónomo con sensores ultrasónicos y motores DC. Integración completa de hardware/software.",
+            activities: [
+                {
+                    week: "Semana 21",
+                    topic: "Energía y Chasis",
+                    concept: "Diseño mecánico del robot.",
+                    title: "Construcción del Robot",
+                    icon: "box",
+                    setup: "Construir chasis con ruedas. Montar Arduino, portabaterías, motores.",
+                    logic: "Entender centro de gravedad, distribución de peso.",
+                    script: "Un robot es una máquina. El diseño importa tanto como el código.",
+                    refs: [{name: "Construcción de Robot", url: "https://www.instructables.com/Arduino-Robot-Car/"}]
+                },
+                {
+                    week: "Semana 22",
+                    topic: "Puente H (L298N)",
+                    concept: "Control de dirección del motor.",
+                    title: "Driver de Motor",
+                    icon: "cpu",
+                    setup: "Conectar driver L298N. Controlar dirección y velocidad de 2 motores.",
+                    logic: "El puente H permite adelante/atrás/parar. Esencial para robots móviles.",
+                    script: "El L298N es el cerebro de los motores. Arduino lo controla, él controla los motores.",
+                    refs: [{name: "L298N", url: "https://lastminuteengineers.com/l298n-dc-stepper-driver-arduino-tutorial/"}]
+                },
+                {
+                    week: "Semana 23",
+                    topic: "Movimiento Básico",
+                    concept: "Adelante, atrás, izquierda, derecha.",
+                    title: "Primeros Pasos del Robot",
+                    icon: "navigation",
+                    setup: "Escribir funciones: adelante(), atras(), izquierda(), derecha(), detener().",
+                    logic: "El movimiento del robot requiere coordinación de motores. Misma lógica que Bee-Bot.",
+                    script: "Tu robot ahora camina. Siguiente paso: hacerlo pensar.",
+                    refs: [{name: "Control de Robot", url: "https://www.instructables.com/Arduino-Robot-Car/"}]
+                },
+                {
+                    week: "Semana 24",
+                    topic: "Sensores Ultrasónicos",
+                    concept: "Medir distancia con sonar.",
+                    title: "Ojos del Robot",
+                    icon: "eye",
+                    setup: "Conectar HC-SR04. Leer distancia. Imprimir en Serial.",
+                    logic: "Ultrasónico emite sonido, mide eco. Tiempo → Distancia.",
+                    script: "Los murciélagos usan sonar. Tu robot también.",
+                    refs: [{name: "HC-SR04", url: "https://lastminuteengineers.com/arduino-sr04-ultrasonic-sensor-tutorial/"}]
+                },
+                {
+                    week: "Semana 25",
+                    topic: "Integración Sensor-Motor",
+                    concept: "Reaccionar a obstáculos.",
+                    title: "Robot Reactivo",
+                    icon: "zap",
+                    setup: "SI distancia < 20cm, detener(). SINO, adelante().",
+                    logic: "Combinar sensores con actuadores. Retroalimentación en tiempo real.",
+                    script: "Ahora tu robot puede ver y reaccionar. Eso es autonomía.",
+                    refs: [{name: "Robot de Evasión de Obstáculos", url: "https://create.arduino.cc/projecthub/electropeak/obstacle-avoiding-robot-using-arduino-47c431"}]
+                },
+                {
+                    week: "Semana 26",
+                    topic: "Servomotor (El Cuello)",
+                    concept: "Exploración orientada.",
+                    title: "Cabeza del Robot",
+                    icon: "rotate-cw",
+                    setup: "Montar sensor ultrasónico en servo. Girar servo, escanear izquierda/derecha.",
+                    logic: "El robot mira alrededor antes de moverse. Toma la ruta más clara.",
+                    script: "El servo es el cuello del robot. Ahora puede mirar a su alrededor.",
+                    refs: [{name: "Servo con Ultrasónico", url: "https://create.arduino.cc/projecthub/electropeak/obstacle-avoiding-robot-using-arduino-47c431"}]
+                },
+                {
+                    week: "Semana 27",
+                    topic: "Algoritmo de Evasión",
+                    concept: "Toma de decisiones en tiempo real.",
+                    title: "Navegación Inteligente",
+                    icon: "cpu",
+                    setup: "SI obstáculo adelante, escanear izquierda y derecha. Ir hacia el lado más despejado.",
+                    logic: "El robot toma decisiones. Eso es inteligencia artificial básica.",
+                    script: "Tu robot ahora piensa. No solo reacciona, planea.",
+                    refs: [{name: "Algoritmo de Evasión", url: "https://create.arduino.cc/projecthub/electropeak/obstacle-avoiding-robot-using-arduino-47c431"}]
+                },
+                {
+                    week: "Semana 28",
+                    topic: "Codificación de Lógica Inteligente",
+                    concept: "Refinar comportamiento.",
+                    title: "Ajuste del Robot",
+                    icon: "code",
+                    setup: "Agregar lógica: SI atascado, retroceder y girar. SI camino despejado, velocidad completa.",
+                    logic: "Los robots del mundo real manejan casos extremos. Anticipar fallos.",
+                    script: "Un buen programa maneja errores. Un gran programa los previene.",
+                    refs: [{name: "Lógica Robótica", url: "https://www.instructables.com/Arduino-Robot-Car/"}]
+                },
+                {
+                    week: "Semana 29",
+                    topic: "Calibración y Ajuste",
+                    concept: "Optimizar rendimiento.",
+                    title: "Ajuste Fino",
+                    icon: "sliders",
+                    setup: "Ajustar umbrales de distancia, velocidades de motor, tiempos de retraso.",
+                    logic: "Los robots requieren ajuste. Hardware varía. Código se adapta.",
+                    script: "Ningún robot funciona perfectamente la primera vez. La iteración es clave.",
+                    refs: [{name: "Ajuste de Robot", url: "https://www.instructables.com/Arduino-Robot-Car/"}]
+                },
+                {
+                    week: "Semana 30",
+                    topic: "Proyecto Final",
+                    concept: "Carrera de robots.",
+                    title: "Rodeo de Robots",
+                    icon: "flag",
+                    setup: "Crear pista con obstáculos. ¿Qué robot completa la pista más rápido sin chocar?",
+                    logic: "Evaluar: velocidad, evitación de colisiones, robustez.",
+                    script: "El mejor código no es el más elegante. Es el que funciona bajo presión.",
+                    refs: [{name: "Competencia de Robots", url: "https://www.instructables.com/Arduino-Robot-Car/"}]
+                }
+            ]
+        },
+        {
+            title: "TRIMESTRE 4: Sostenibilidad",
+            weeks: "SEMANAS 31-40",
+            color: "secondary", // Cyan
+            goal: "Conectar tecnología con medio ambiente. Reutilizar residuos electrónicos (Reproductores de DVD) en máquinas funcionales (Plotter CNC).",
+            activities: [
+                {
+                    week: "Semana 31",
+                    topic: "Economía Circular",
+                    concept: "Los residuos electrónicos son un recurso.",
+                    title: "Arqueología Tecnológica",
+                    icon: "trash-2",
+                    setup: "Desensamblar unidades de DVD. Guardar motores.",
+                    logic: "Extraer imanes, láseres y motores paso a paso.",
+                    script: "Esto no es basura; es una máquina de precisión.",
+                    refs: [{name: "E-Waste Guide", url: "https://samrinc.com/blog/dvd-player-recycling/"}]
+                },
+                {
+                    week: "Semana 32",
+                    topic: "El Desmontaje",
+                    concept: "Protocolos de desensamblaje seguro.",
+                    title: "Seguridad Primero",
+                    icon: "alert-circle",
+                    setup: "Desensamblar unidad de DVD. Extraer mecanismo de trineo.",
+                    logic: "Los capacitores retienen carga. Nunca tocar la placa de fuente de poder. No encender láseres.",
+                    script: "Somos arqueólogos extrayendo motores de precisión.",
+                    refs: [{name: "Teardown Safety", url: "https://makered.org/wp-content/uploads/2016/08/YMSPB-Taking-Things-Apart-Appendix-B.pdf"}]
+                },
+                {
+                    week: "Semana 33",
+                    topic: "Identificación de Componentes",
+                    concept: "Distinguir tipos de motores.",
+                    title: "Paso a Paso vs DC",
+                    icon: "search",
+                    setup: "Identificar motores paso a paso (4 cables). Usar multímetro para continuidad.",
+                    logic: "Motor DC: 2 cables, giro rápido. Paso a Paso: 4 cables, tics precisos.",
+                    script: "Encuentra los pares de bobinas. Estos son nuestros ejes.",
+                    refs: [{name: "Motor Types", url: "https://esimotion.com/blogs/news/key-differences-between-dc-and-stepper-motors"}]
+                },
+                {
+                    week: "Semana 34",
+                    topic: "Conducción de Motores Paso a Paso",
+                    concept: "Control de precisión con pasos.",
+                    title: "La Calibración",
+                    icon: "target",
+                    setup: "Conectar paso a paso a driver L293D o A4988. Usar librería Stepper.h.",
+                    logic: "Hacer que el trineo se mueva exactamente 1cm adelante y atrás.",
+                    script: "Cuenta los pasos. Si 100 pasos = 1cm, calcular pasos por mm.",
+                    refs: [{name: "Stepper Control", url: "https://www.youtube.com/watch?v=M9WzUyv6Rkc"}]
+                },
+                {
+                    week: "Semana 35",
+                    topic: "Mecanismo de Levantamiento de Lápiz",
+                    concept: "Control del eje Z para dibujar.",
+                    title: "El Brazo del Servo",
+                    icon: "edit-3",
+                    setup: "Conectar micro-servo al trineo. Usar bridas de cremallera y pistola de silicona.",
+                    logic: "El brazo del servo empuja el lápiz hacia abajo o lo levanta.",
+                    script: "Necesitamos un eje Z para dibujar. Esto es ingeniería mecánica.",
+                    refs: [{name: "Pen Mechanism", url: "https://www.instructables.com/Arduino-Based-CNC-Plotter-Made-From-Scrap-DVDCD-Dr/"}]
+                },
+                {
+                    week: "Semana 36",
+                    topic: "El Plotter Frankenstein",
+                    concept: "Integración de Eje X/Y.",
+                    title: "Construcción CNC",
+                    icon: "crosshair",
+                    setup: "Montar dos trineos de DVD perpendiculares.",
+                    logic: "X mueve el lápiz, Y mueve el papel.",
+                    script: "Construiste un robot con basura.",
+                    refs: [{name: "DVD Plotter", url: "https://www.instructables.com/Arduino-Based-CNC-Plotter-Made-From-Scrap-DVDCD-Dr/"}]
+                },
+                {
+                    week: "Semana 37",
+                    topic: "Código G",
+                    concept: "Lenguaje de Manufactura.",
+                    title: "Enviar Coordenadas",
+                    icon: "code",
+                    setup: "Transmitir Código G al Arduino.",
+                    logic: "G1 X10 Y10 = Ir a 10,10.",
+                    script: "Así funcionan las fábricas.",
+                    refs: [{name: "G-Code Intro", url: "https://howtomechatronics.com/tutorials/arduino/how-to-control-stepper-motors-with-arduino-and-a4988-driver/"}]
+                },
+                {
+                    week: "Semana 38",
+                    topic: "Cadena de Herramientas de Software",
+                    concept: "Flujo de trabajo digital: Inkscape a Plotter.",
+                    title: "Vector a Código G",
+                    icon: "layers",
+                    setup: "Usar Inkscape + extensión de Código G para convertir dibujo a código.",
+                    logic: "Dibujo vectorial -> Código G -> Transmitir a Arduino.",
+                    script: "Dibuja una estrella o tu nombre. La computadora lo traduce.",
+                    refs: [{name: "Inkscape Tutorial", url: "https://www.youtube.com/watch?v=q9dSuiy0MHI"}]
+                },
+                {
+                    week: "Semana 39",
+                    topic: "Optimización y Solución de Problemas",
+                    concept: "Refinamiento a través de iteración.",
+                    title: "La Sesión de Depuración",
+                    icon: "wrench",
+                    setup: "Probar plotter. Arreglar problemas comunes.",
+                    logic: "Vibración: Baja potencia. Eje invertido: Voltear cables de bobina. Arrastre de lápiz: Ajustar ángulos de servo.",
+                    script: "La ingeniería es 10% construcción, 90% arreglo.",
+                    refs: [{name: "Troubleshooting CNC", url: "https://www.instructables.com/Arduino-Based-CNC-Plotter-Made-From-Scrap-DVDCD-Dr/"}]
+                },
+                {
+                    week: "Semana 40",
+                    topic: "Feria de Innovación",
+                    concept: "Soberanía.",
+                    title: "Exhibición Frankenstein",
+                    icon: "award",
+                    setup: "Los plotters dibujan formas geométricas en vivo.",
+                    logic: "Explicar el proceso de salvamento.",
+                    script: "No son consumidores; son ingenieros.",
+                    refs: [{name: "Engineering Rubric", url: "https://recf.org/documents/2024/11/notebook-and-interview-rubrics-vex-factory-automation-competition.pdf/"}]
+                }
+            ]
+        }
+    ];
+
+    // BAND IV DATA (Grados 9-11) - VERSIÓN ESPAÑOL
+    const band4Json_es = [
+        {
+            title: "TRIMESTRE 1: Ciencia de Datos",
+            weeks: "SEMANAS 1-10",
+            color: "secondary", // Cyan
+            goal: "Operacionalizar el Método Científico a través de código. Derivar insights de información cruda usando Python (Pandas/Matplotlib).",
+            activities: [
+                {
+                    week: "Semana 1",
+                    topic: "Ética y Soberanía",
+                    concept: "Soberanía de Datos: Quien procesa los datos posee el valor.",
+                    title: "El Contexto de los Datos",
+                    icon: "shield",
+                    setup: "Analizar Términos de Servicio (TikTok/Instagram). Identificar datos recolectados.",
+                    logic: "Contrastar hallazgos con leyes de Habeas Data.",
+                    script: "No eres el cliente; eres el producto. Nosotros cambiamos el guion.",
+                    refs: [{name: "Data Privacy Guide", url: "https://www.sic.gov.co/proteccion-de-datos-personales"}]
+                },
+                {
+                    week: "Semana 2",
+                    topic: "Entorno Jupyter",
+                    concept: "El 'Cuaderno de Laboratorio' para código.",
+                    title: "Repaso de Python",
+                    icon: "book",
+                    setup: "Usar Google Colab. Crear un Diccionario representándote.",
+                    logic: "Listas y Diccionarios son los átomos de la ciencia de datos.",
+                    script: "Código, visuales y texto viven juntos aquí.",
+                    refs: [{name: "Google Colab", url: "https://colab.research.google.com/"}]
+                },
+                {
+                    week: "Semana 3",
+                    topic: "Biblioteca Pandas",
+                    concept: "Excel con Esteroides.",
+                    title: "La Super Hoja de Cálculo",
+                    icon: "table",
+                    setup: "Cargar conjunto de datos 'Titanic'. Inspeccionar columnas (df.head).",
+                    logic: "Big Data es solo una tabla demasiado grande para que los humanos la lean.",
+                    script: "Manipulamos millones de filas instantáneamente.",
+                    refs: [{name: "Pandas Docs", url: "https://pandas.pydata.org/docs/getting_started/intro_tutorials/"}]
+                },
+                {
+                    week: "Semana 4",
+                    topic: "Limpieza de Datos",
+                    concept: "Basura Entra, Basura Sale.",
+                    title: "El Filtro",
+                    icon: "filter",
+                    setup: "Limpiar un conjunto de datos sucio con Nulos y Errores tipográficos.",
+                    logic: "df.fillna() y df.dropna().",
+                    script: "La Ciencia de Datos es 80% limpieza y 20% modelado.",
+                    refs: [{name: "Cleaning Guide", url: "https://realpython.com/python-data-cleaning-numpy-pandas/"}]
+                },
+                {
+                    week: "Semana 5",
+                    topic: "Fundamentos Estadísticos",
+                    concept: "Integración de Matemáticas PISA.",
+                    title: "Media, Mediana, Desv Est",
+                    icon: "trending-up",
+                    setup: "Calcular media, mediana, desviación estándar usando Pandas.",
+                    logic: "Graficar histograma. Añadir un multimillonario al conjunto de datos. Observar la media dispararse pero la mediana estable.",
+                    script: "Las estadísticas describen la realidad. Aprende a preguntar: '¿Usan media o mediana?'",
+                    refs: [{name: "Stats Tutorial", url: "https://realpython.com/python-statistics/"}]
+                },
+                {
+                    week: "Semana 6",
+                    topic: "Visualización",
+                    concept: "Narración con Datos.",
+                    title: "Matplotlib y Seaborn",
+                    icon: "bar-chart",
+                    setup: "Crear un gráfico engañoso y un gráfico preciso.",
+                    logic: "Los visuales pueden mentir. Debemos ser rigurosos.",
+                    script: "Datos sin visualización son invisibles.",
+                    refs: [{name: "Seaborn Gallery", url: "https://seaborn.pydata.org/examples/index.html"}]
+                },
+                {
+                    week: "Semana 7",
+                    topic: "Correlación vs. Causación",
+                    concept: "Fundamentos de Investigación Científica.",
+                    title: "Helados y Tiburones",
+                    icon: "git-branch",
+                    setup: "Usar df.corr() para generar matriz de correlación. Crear mapa de calor con sns.heatmap().",
+                    logic: "Las ventas de helados se correlacionan con ataques de tiburones. ¿El helado causa tiburones? No. Variable confundente: Verano.",
+                    script: "La correlación no es igual a causación. Encuentra la variable oculta.",
+                    refs: [{name: "Correlation Guide", url: "https://realpython.com/numpy-scipy-pandas-correlation-python/"}]
+                },
+                {
+                    week: "Semana 8",
+                    topic: "Investigación Aplicada",
+                    concept: "Pertinencia Local.",
+                    title: "El Conjunto de Datos Colombiano",
+                    icon: "map-pin",
+                    setup: "Descargar datos de www.datos.gov.co (ej., Crimen, Cultivos).",
+                    logic: "Limpiar, Analizar, Encontrar una Tendencia.",
+                    script: "Encuentra la verdad sobre tu propia comunidad.",
+                    refs: [{name: "Datos Abiertos Colombia", url: "https://www.datos.gov.co/"}]
+                },
+                {
+                    week: "Semana 9",
+                    topic: "Redacción Técnica",
+                    concept: "Alfabetización Global - Integración de Inglés.",
+                    title: "El Resumen",
+                    icon: "file-text",
+                    setup: "Escribir resumen de investigación en inglés: Antecedentes, Métodos, Resultados, Conclusión.",
+                    logic: "Enfocarse en vocabulario técnico: dataset, outlier, trend, significant.",
+                    script: "La documentación es clave para el mercado laboral remoto global. Precisión sobre gramática.",
+                    refs: [{name: "Technical Writing", url: "https://www.nature.com/scitable/topicpage/effective-writing-13815989/"}]
+                },
+                {
+                    week: "Semana 10",
+                    topic: "Proyecto Culminante",
+                    concept: "Comunicación Científica.",
+                    title: "La Cumbre de Datos",
+                    icon: "award",
+                    setup: "Presentación de 5 minutos usando Jupyter como diapositivas.",
+                    logic: "Calidad del Código + Rigor Estadístico + Narrativa.",
+                    script: "El código es la presentación.",
+                    refs: [{name: "Presentation Rubric", url: "#"}]
+                }
+            ]
+        },
+        {
+            title: "TRIMESTRE 2: Redes IoT",
+            weeks: "SEMANAS 11-20",
+            color: "secondary",
+            goal: "Desplegar sensores ESP32 con conectividad WiFi. Transmitir datos a la nube. Construir panel de monitoreo.",
+            activities: [
+                {
+                    week: "Semana 11",
+                    topic: "Configuración ESP32",
+                    concept: "Microcontrolador con WiFi incorporado.",
+                    title: "Hola ESP32",
+                    icon: "wifi",
+                    setup: "Instalar soporte de placa ESP32 en Arduino IDE. Cargar sketch de parpadeo.",
+                    logic: "ESP32 es como Arduino pero con WiFi/Bluetooth. Misma lógica de programación.",
+                    script: "ESP32 cuesta $5. Pero alimenta aplicaciones IoT industriales reales.",
+                    refs: [{name: "Guía ESP32", url: "https://randomnerdtutorials.com/getting-started-with-esp32/"}]
+                },
+                {
+                    week: "Semana 12",
+                    topic: "Sensores Ambientales",
+                    concept: "Medir temperatura, humedad.",
+                    title: "Estación Meteorológica",
+                    icon: "cloud",
+                    setup: "Conectar sensor DHT22. Leer temperatura y humedad. Imprimir en Serial.",
+                    logic: "Los sensores convierten fenómenos físicos en datos digitales.",
+                    script: "Este sensor mide el mundo. Luego lo convierte en números que el código puede usar.",
+                    refs: [{name: "DHT22", url: "https://randomnerdtutorials.com/esp32-dht11-dht22-temperature-humidity-sensor-arduino-ide/"}]
+                },
+                {
+                    week: "Semana 13",
+                    topic: "La Nube",
+                    concept: "El API Key (Pasaporte Digital).",
+                    title: "Hola Nube",
+                    icon: "cloud",
+                    setup: "Enviar número aleatorio al panel de ThingSpeak.",
+                    logic: "El API Key permite escribir en el canal.",
+                    script: "Los datos son inútiles si están atrapados en el chip.",
+                    refs: [{name: "ThingSpeak Guide", url: "https://randomnerdtutorials.com/esp32-thingspeak-publish-arduino/"}]
+                },
+                {
+                    week: "Semana 14",
+                    topic: "Telemetría",
+                    concept: "Gemelo Digital del Ambiente.",
+                    title: "Enviar Datos del Sensor",
+                    icon: "send",
+                    setup: "Conectar sensores de Semana 12 al panel de Semana 13.",
+                    logic: "Inestabilidad WiFi. Implementar bucles de reconexión: if (WiFi.status() != WL_CONNECTED).",
+                    script: "Las redes fallan; el buen código se recupera. Esto es Antifragilidad.",
+                    refs: [{name: "IoT Resilience", url: "https://randomnerdtutorials.com/esp32-useful-wi-fi-functions-arduino/"}]
+                },
+                {
+                    week: "Semana 15",
+                    topic: "Computación en el Borde",
+                    concept: "Lógica de Automatización.",
+                    title: "El Borde Inteligente",
+                    icon: "cpu",
+                    setup: "Si Suelo < 30%, activar Relé (Bomba).",
+                    logic: "No esperar a la nube; decidir en el chip.",
+                    script: "Monitorear es pasivo; Controlar es activo.",
+                    refs: [{name: "Relay Guide", url: "https://randomnerdtutorials.com/esp32-relay-module-ac-web-server/"}]
+                },
+                {
+                    week: "Semana 16",
+                    topic: "Alertas",
+                    concept: "Interacción Humano-Máquina.",
+                    title: "Bot de WhatsApp",
+                    icon: "message-circle",
+                    setup: "Activar Webhook (IFTTT) para enviar alerta al teléfono.",
+                    logic: "Si Umbral Superado -> Enviar Solicitud HTTP.",
+                    script: "El sistema TE notifica cuando necesita ayuda.",
+                    refs: [{name: "IFTTT Webhooks", url: "https://randomnerdtutorials.com/esp32-ifttt-send-text-messages/"}]
+                },
+                {
+                    week: "Semana 17",
+                    topic: "Gestión de Energía",
+                    concept: "Los dispositivos IoT deben durar.",
+                    title: "Modo de Sueño Profundo",
+                    icon: "battery",
+                    setup: "Usar esp_deep_sleep(). ESP32 duerme durante 10 minutos, despierta, lee sensor, envía, duerme.",
+                    logic: "El sueño profundo reduce el consumo de energía de 240mA a 0.01mA. Duración de batería de días → meses.",
+                    script: "Los dispositivos IoT deben vivir en el campo. El sueño profundo hace eso posible.",
+                    refs: [{name: "Sueño Profundo ESP32", url: "https://randomnerdtutorials.com/esp32-deep-sleep-arduino-ide-wake-up-sources/"}]
+                },
+                {
+                    week: "Semana 18",
+                    topic: "Carcasa",
+                    concept: "Protección de Ingreso.",
+                    title: "Diseño Resistente a la Intemperie",
+                    icon: "box",
+                    setup: "Construir carcasa usando Tupperware, cajas de empalme o cajas impresas en 3D. Usar prensaestopas.",
+                    logic: "Prueba de campo: Agro - Colocar en jardín. Ciudad - Colocar cerca de zona de recogida.",
+                    script: "La tecnología debe sobrevivir a los elementos. Esto es ingeniería física.",
+                    refs: [{name: "Enclosure Guide", url: "https://www.instructables.com/Waterproof-Your-Electronics/"}]
+                },
+                {
+                    week: "Semana 19",
+                    topic: "Análisis",
+                    concept: "Síntesis: Ciencia de Datos + IoT.",
+                    title: "Bucle de Recolección de Datos",
+                    icon: "activity",
+                    setup: "Descargar CSV de ThingSpeak (1 semana de datos). Usar Pandas para analizar.",
+                    logic: "¿La humedad del suelo bajó más rápido en días soleados? ¿La calidad del aire es peor por la mañana o la tarde?",
+                    script: "Ahora estás analizando datos que TÚ generaste. Esto es soberanía tecnológica.",
+                    refs: [{name: "ThingSpeak API", url: "https://www.mathworks.com/help/thingspeak/rest-api.html"}]
+                },
+                {
+                    week: "Semana 20",
+                    topic: "Proyecto Culminante",
+                    concept: "Validación de Utilidad.",
+                    title: "Ecosistema Conectado",
+                    icon: "globe",
+                    setup: "Desplegar nodo funcionando. Analizar datos recolectados.",
+                    logic: "¿Resuelve el problema local?",
+                    script: "Este dispositivo ahorra agua/prueba que la contaminación existe.",
+                    refs: [{name: "IoT Rubric", url: "#"}]
+                }
+            ]
+        },
+        {
+            title: "TRIMESTRE 3: Ingeniería Aplicada",
+            weeks: "SEMANAS 21-30",
+            color: "warning", // Red
+            goal: "Sistemas Complejos. Construir un 'Clasificador Industrial' que detecta, decide y actúa con velocidad.",
+            activities: [
+                {
+                    week: "Semana 21",
+                    topic: "Mecanismos",
+                    concept: "Alimentación por Gravedad y Singulación.",
+                    title: "El Embudo",
+                    icon: "filter",
+                    setup: "Construir una tolva para alimentar frijoles uno por uno.",
+                    logic: "El software no puede arreglar mal hardware.",
+                    script: "El primer desafío es mecánico, no digital.",
+                    refs: [{name: "Sorting Mech", url: "https://www.youtube.com/watch?v=5J3eOA9-hYg"}]
+                },
+                {
+                    week: "Semana 22",
+                    topic: "Sensor de Color",
+                    concept: "Optoelectrónica.",
+                    title: "Física del TCS3200",
+                    icon: "eye",
+                    setup: "Leer valores RGB de objetos.",
+                    logic: "Filtrar luz a través de fotodiodos. Normalizar valores.",
+                    script: "¿Cómo 'ven' las máquinas el color?",
+                    refs: [{name: "TCS3200 Guide", url: "https://randomnerdtutorials.com/arduino-color-sensor-tcs230-tcs3200/"}]
+                },
+                {
+                    week: "Semana 23",
+                    topic: "Cinemática de Servo",
+                    concept: "Actuación Física.",
+                    title: "Los Brazos Clasificadores",
+                    icon: "move",
+                    setup: "Adjuntar compuerta o brazo al motor Servo para dirigir objeto que cae.",
+                    logic: "Neutral (0°), Contenedor A Rojo (45°), Contenedor B Verde (135°). Vibración de Servo por fluctuaciones de potencia - usar fuente de alimentación separada.",
+                    script: "Una vez que se conoce el color, la máquina debe actuar.",
+                    refs: [{name: "Servo Control", url: "https://www.arduino.cc/reference/en/libraries/servo/"}]
+                },
+                {
+                    week: "Semana 24",
+                    topic: "Multitarea",
+                    concept: "Código No Bloqueante.",
+                    title: "Tiempo y millis()",
+                    icon: "clock",
+                    setup: "Reemplazar delay() con millis().",
+                    logic: "Máquina de Estados: Inactivo -> Sensando -> Actuando.",
+                    script: "En la industria, todo sucede a la vez.",
+                    refs: [{name: "Millis Tutorial", url: "https://learn.adafruit.com/multi-tasking-the-arduino-part-1/using-millis-for-timing"}]
+                },
+                {
+                    week: "Semana 25",
+                    topic: "Integración de Sistema",
+                    concept: "Fusionar Subsistemas.",
+                    title: "El Ensamblaje",
+                    icon: "settings",
+                    setup: "Cablear sensor, servo y singulador al mismo ESP32. Proporcionar potencia externa para servos.",
+                    logic: "Gestión de potencia: Baterías 4xAA para servos, USB para ESP32. Tierras compartidas.",
+                    script: "Software, hardware y potencia deben funcionar como un solo sistema.",
+                    refs: [{name: "Power Guide", url: "https://randomnerdtutorials.com/esp32-pinout-reference-gpios/"}]
+                },
+                {
+                    week: "Semana 26",
+                    topic: "Lógica de Decisión",
+                    concept: "El Cerebro de la Máquina.",
+                    title: "El Algoritmo",
+                    icon: "zap",
+                    setup: "Leer R, G, B. if (R > G && R > B) { Clase = ROJO; }",
+                    logic: "Optimización: Usar Intervalo de Confianza. if (R > G + Umbral) previene falsos positivos de sombras.",
+                    script: "Esto es Procesamiento de Señales. El umbral previene el ruido.",
+                    refs: [{name: "Decision Trees", url: "https://www.arduino.cc/reference/en/language/structure/control-structure/if/"}]
+                },
+                {
+                    week: "Semana 27",
+                    topic: "Ajuste de Rendimiento",
+                    concept: "Métricas de Eficiencia.",
+                    title: "Rendimiento",
+                    icon: "trending-up",
+                    setup: "Métrica: Frijoles por Minuto. Competencia: Carrera para clasificar 50 cuentas/frijoles.",
+                    logic: "Iteración: ¿Puede el servo moverse más rápido? ¿Puede reducirse el tiempo de lectura del sensor? ¿La gravedad del embudo es demasiado lenta?",
+                    script: "Diferencia entre prototipo que 'funciona' y producto que rinde.",
+                    refs: [{name: "Optimization", url: "https://www.arduino.cc/reference/en/language/functions/time/millis/"}]
+                },
+                {
+                    week: "Semana 28",
+                    topic: "Industria 4.0",
+                    concept: "Gemelo Digital.",
+                    title: "El Panel",
+                    icon: "monitor",
+                    setup: "Enviar conteo de clasificación a la Nube (ThingSpeak). El panel muestra 'Frijoles Rojos: 150, Frijoles Verdes: 40'.",
+                    logic: "Esto imita el panel del gerente de fábrica. Máquina física -> Análisis de datos.",
+                    script: "Los datos de fabricación informan las decisiones empresariales.",
+                    refs: [{name: "Industrial IoT", url: "https://www.thingspeak.com/"}]
+                },
+                {
+                    week: "Semana 29",
+                    topic: "Documentación",
+                    concept: "Ingeniería Profesional.",
+                    title: "El Manual",
+                    icon: "book-open",
+                    setup: "Escribir Manual de Usuario en inglés. Solución de problemas: 'Si el brazo se atasca...' Calibración: 'Cómo restablecer el balance de blancos.'",
+                    logic: "Limpieza: Gestión de cables. Finalizar chasis. La máquina debe ser robusta para transporte.",
+                    script: "La documentación es tan importante como el código.",
+                    refs: [{name: "Tech Writing", url: "https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/"}]
+                },
+                {
+                    week: "Semana 30",
+                    topic: "Proyecto Culminante",
+                    concept: "Rendimiento y Confiabilidad.",
+                    title: "El Piso de Fábrica",
+                    icon: "package",
+                    setup: "Clasificar cuentas mixtas (simulación de Café).",
+                    logic: "Métrica: Precisión + Frijoles por Minuto.",
+                    script: "La diferencia entre un prototipo y un producto es la confiabilidad.",
+                    refs: [{name: "Sorter Project", url: "https://create.arduino.cc/projecthub/projects/tags/sorting"}]
+                }
+            ]
+        },
+        {
+            title: "TRIMESTRE 4: Emprendimiento",
+            weeks: "SEMANAS 31-40",
+            color: "secondary", // Cyan
+            goal: "Traducir habilidad en valor. De prototipo a producto usando metodología Lean Startup.",
+            activities: [
+                {
+                    week: "Semana 31",
+                    topic: "Ideación",
+                    concept: "Problemas, no Soluciones.",
+                    title: "La Lista de Errores",
+                    icon: "lightbulb",
+                    setup: "Listar 10 molestias en tu comunidad.",
+                    logic: "Filtrar por capacidad de resolución tecnológica.",
+                    script: "No te enamores del robot; enamórate del problema.",
+                    refs: [{name: "Ideation Tips", url: "https://www.ycombinator.com/library/8g-how-to-get-startup-ideas"}]
+                },
+                {
+                    week: "Semana 32",
+                    topic: "Validación de Mercado",
+                    concept: "La Prueba de Mamá.",
+                    title: "Descubrimiento de Cliente",
+                    icon: "users",
+                    setup: "Salir del edificio. No puede mencionar la solución. Solo preguntar sobre el problema.",
+                    logic: "Pregunta Mala: '¿Comprarías mi dispensador de píldoras?' Pregunta Buena: 'Cuéntame sobre la última vez que olvidaste las píldoras. ¿Qué pasó?'",
+                    script: "Las personas mienten para ser amables. Reúne datos cualitativos para respaldar el caso de negocio.",
+                    refs: [{name: "Mom Test Book", url: "http://momtestbook.com/"}]
+                },
+                {
+                    week: "Semana 33",
+                    topic: "Modelo de Negocio",
+                    concept: "El Lean Canvas.",
+                    title: "El Plan",
+                    icon: "clipboard",
+                    setup: "Llenar las 9 casillas (Problema, Solución, UVP).",
+                    logic: "Plan de negocio de una página.",
+                    script: "¿Quién paga? ¿La escuela? ¿Los padres?",
+                    refs: [{name: "Lean Canvas", url: "https://leanstack.com/lean-canvas"}]
+                },
+                {
+                    week: "Semana 34",
+                    topic: "Economía Unitaria",
+                    concept: "Costo de Bienes Vendidos (COGS).",
+                    title: "El BOM",
+                    icon: "dollar-sign",
+                    setup: "Calcular costo: ESP32 + Sensor + Carcasa.",
+                    logic: "Precio > Costo. Matemáticas simples.",
+                    script: "Los negocios no son magia; son aritmética.",
+                    refs: [{name: "Hardware Pricing", url: "https://blog.bolt.io/how-to-price-your-hardware-product/"}]
+                },
+                {
+                    week: "Semana 35",
+                    topic: "Prototipado Rápido",
+                    concept: "El Producto Mínimo Viable (MVP).",
+                    title: "El Sprint MVP",
+                    icon: "zap",
+                    setup: "Construir lo más pequeño que resuelva el problema central. Restricción: Sprint de una semana.",
+                    logic: "Pista de App: Wireframes o interfaz básica de React. Pista de Hardware: Prototipo funcional 'se ve/funciona'.",
+                    script: "Perfecto es enemigo de hecho. Envía el MVP.",
+                    refs: [{name: "MVP Guide", url: "https://www.ycombinator.com/library/4Q-a-minimum-viable-product-is-not-a-product"}]
+                },
+                {
+                    week: "Semana 36",
+                    topic: "Propiedad Intelectual",
+                    concept: "Fosos Defensivos.",
+                    title: "Estrategia de PI",
+                    icon: "shield",
+                    setup: "¿Qué hace que la empresa sea defendible? ¿Código (Copyright)? ¿Invención (Patente)? ¿Marca?",
+                    logic: "Buscar en Google Patents ideas similares. ¿En qué se diferencia la tuya?",
+                    script: "La PI es una clase de activo que aumenta la valoración de la empresa.",
+                    refs: [{name: "Patent Guide", url: "https://www.uspto.gov/patents/basics"}]
+                },
+                {
+                    week: "Semana 37",
+                    topic: "Alfabetización Global",
+                    concept: "Narración en Inglés.",
+                    title: "El Pitch Deck",
+                    icon: "mic-2",
+                    setup: "Crear diapositivas: Gancho -> Solución -> Pedido.",
+                    logic: "Debe estar en inglés.",
+                    script: "Esta es la prueba definitiva de competencia global.",
+                    refs: [{name: "Pitch Guide", url: "https://guykawasaki.com/the-only-10-slides-you-need-in-your-pitch/"}]
+                },
+                {
+                    week: "Semana 38",
+                    topic: "Hablar en Público",
+                    concept: "Ensayo y Retroalimentación.",
+                    title: "Ensayo de Pitch",
+                    icon: "mic",
+                    setup: "Estilo PechaKucha (20 segundos por diapositiva) o límite estricto de 3 minutos.",
+                    logic: "Revisión por pares: 'Hablaste demasiado rápido.' 'No explicaste CÓMO funciona.' 'La pronunciación en inglés necesita trabajo.'",
+                    script: "La práctica hace permanente. Itera en la entrega.",
+                    refs: [{name: "TED Talks Guide", url: "https://www.ted.com/participate/organize-a-local-tedx-event/tedx-organizer-guide/speakers-program/prepare-your-speaker"}]
+                },
+                {
+                    week: "Semana 39",
+                    topic: "Portafolio",
+                    concept: "Preparación para Universidad y Fuerza Laboral.",
+                    title: "Limpieza de GitHub",
+                    icon: "github",
+                    setup: "Asegurar que README.md explique el proyecto en inglés. Subir Pitch Deck y Video de Demo al repositorio.",
+                    logic: "Este enlace va en el CV. Prueba que eres graduado 'Full Stack'.",
+                    script: "Tu GitHub es tu currículum. Hazlo profesional.",
+                    refs: [{name: "GitHub Guide", url: "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"}]
+                },
+                {
+                    week: "Semana 40",
+                    topic: "Graduación",
+                    concept: "Soberanía.",
+                    title: "Demo Day",
+                    icon: "flag",
+                    setup: "Booths de Feria de Innovación + Pitches en Escenario.",
+                    logic: "Premios Más Escalable / Impacto Social.",
+                    script: "Ya no son estudiantes. Son fundadores.",
+                    refs: [{name: "Demo Day", url: "#"}]
+                }
+            ]
+        }
+    ];
+
+    // ==========================================
     // 3. MAIN APP LOGIC
     // ==========================================
 
-    const curriculumData = {
+    const curriculumData_en = {
         'band1': {
             title: "Band I: Early Foundations",
             subtitle: "Embodied Cognition (Grades K-2)",
@@ -1965,7 +3745,7 @@
                 {name: "Unplugged Kits", type: "Analog", icon: "file-text"},
                 {name: "TPR English", type: "Methodology", icon: "mic"}
             ],
-            chart: [60, 30, 10], 
+            chart: [60, 30, 10],
             syllabus: [
                 {term: "Term 1: The Body as Machine", weeks: "Weeks 1-10", desc: "<strong class='text-retro-secondary'>Focus: Unplugged Logic</strong><br>• W1-2: Literalism ('The Robot Teacher')<br>• W3-4: Sequencing (Timeline Bugs)<br>• W5-6: TPR English ('Simon Says Code')<br>• W7-8: Spatial Logic (Floor Grid)<br>• W9-10: Capstone ('The Human Program')"},
                 {term: "Term 2: Tangible Coding", weeks: "Weeks 11-20", desc: "<strong class='text-retro-secondary'>Focus: Screen-less Robotics</strong><br>• W11-12: I/O Anatomy<br>• W13-14: The Queue<br>• W15-16: Relative Direction<br>• W17-18: Functions ('The Backpack')<br>• W19-20: Capstone ('The Narrative Map')"},
@@ -2026,7 +3806,83 @@
         }
     };
 
-    const teacherDeepContent = {
+    const curriculumData_es = {
+        'band1': {
+            title: "Banda I: Fundamentos Tempranos",
+            subtitle: "Cognición Incorporada (Grados Transición-2)",
+            desc: "Abordando la 'Paradoja de Eficiencia' comenzando con lógica, no con pantallas. Utilizamos la estrategia 'Piso Bajo, Techo Alto' con actividades desconectadas y robots sin pantalla para enseñar algoritmos, bucles y depuración a través del movimiento físico.",
+            stack: [
+                {name: "Cubetto/Bee-Bot", type: "Hardware", icon: "box"},
+                {name: "Kits Desconectados", type: "Análogo", icon: "file-text"},
+                {name: "TPR Inglés", type: "Metodología", icon: "mic"}
+            ],
+            chart: [60, 30, 10],
+            syllabus: [
+                {term: "Trimestre 1: El Cuerpo como Máquina", weeks: "Semanas 1-10", desc: "<strong class='text-retro-secondary'>Enfoque: Lógica Desconectada</strong><br>• S1-2: Literalismo ('El Profesor Robot')<br>• S3-4: Secuenciación (Errores de Línea de Tiempo)<br>• S5-6: TPR Inglés ('Simón Dice Código')<br>• S7-8: Lógica Espacial (Cuadrícula de Piso)<br>• S9-10: Proyecto Final ('El Programa Humano')"},
+                {term: "Trimestre 2: Codificación Tangible", weeks: "Semanas 11-20", desc: "<strong class='text-retro-secondary'>Enfoque: Robótica Sin Pantalla</strong><br>• S11-12: Anatomía de Entrada/Salida<br>• S13-14: La Cola<br>• S15-16: Dirección Relativa<br>• S17-18: Funciones ('La Mochila')<br>• S19-20: Proyecto Final ('El Mapa Narrativo')"},
+                {term: "Trimestre 3: Mecánica 101", weeks: "Semanas 21-30", desc: "<strong class='text-retro-secondary'>Enfoque: Física e Ingeniería</strong><br>• S21-22: Engranajes<br>• S23-24: Torque vs. Velocidad<br>• S25-26: Palancas<br>• S27-28: Fricción<br>• S29-30: Proyecto Final ('Desafío de Ingeniería')"},
+                {term: "Trimestre 4: Transición Digital", weeks: "Semanas 31-40", desc: "<strong class='text-retro-secondary'>Enfoque: Introducción a ScratchJr</strong><br>• S31-32: Programación en Papel Cuadriculado<br>• S33-34: Mapeo de Interfaz<br>• S35-36: Eventos<br>• S37-38: Bucles<br>• S39-40: Proyecto Final ('Mi Comunidad')"}
+            ]
+        },
+        'band2': {
+            title: "Banda II: Los Constructores de Lógica",
+            subtitle: "Abstracción Visual (Grados 3-5)",
+            desc: "Pasando de la intuición física a estructuras lógicas formales. Contrarrestando la 'Brecha de Motivación' construyendo juegos y soluciones de sensores locales. Esta banda introduce variables, coordenadas cartesianas y conceptos básicos de IoT.",
+            stack: [
+                {name: "Scratch (MIT)", type: "Software", icon: "code"},
+                {name: "BBC Micro:bit", type: "Hardware", icon: "cpu"},
+                {name: "MakeCode", type: "IDE", icon: "terminal"}
+            ],
+            chart: [50, 40, 10],
+            syllabus: [
+                {term: "Trimestre 1: Computación Creativa", weeks: "Semanas 1-10", desc: "<strong class='text-retro-secondary'>Enfoque: Lógica de Scratch</strong><br>• S1: Plano Cartesiano (X,Y)<br>• S2: Secuenciación<br>• S3: Bucles<br>• S4: Eventos<br>• S5: Condicionales<br>• S6: Variables<br>• S7: Difusión<br>• S8: Sensores<br>• S9: Depuración<br>• S10: Proyecto Final 'Mi Comunidad'"},
+                {term: "Trimestre 2: Diseño de Juegos", weeks: "Semanas 11-20", desc: "<strong class='text-retro-secondary'>Enfoque: Simulación</strong><br>• S11-13: Física/Gravedad<br>• S14-16: Estados del Juego<br>• S17-19: Depuración<br>• S20: Revisión Entre Pares"},
+                {term: "Trimestre 3: Computación Física", weeks: "Semanas 21-30", desc: "<strong class='text-retro-secondary'>Enfoque: Micro:bit</strong><br>• S21: Insignia de Nombre<br>• S22: Entradas (Botones)<br>• S23: Sensores (Movimiento)<br>• S24: Brújula y Temperatura<br>• S25: Radio e IoT<br>• S26: Pines y Circuitos<br>• S27: Servos (Actuadores)<br>• S28: Compuertas Lógicas y Aleatorización<br>• S29: Tecnología Portátil<br>• S30: Proyecto Final 'Micro-Mascota'"},
+                {term: "Trimestre 4: Ingeniería", weeks: "Semanas 31-40", desc: "<strong class='text-retro-secondary'>Enfoque: Agro Inteligente</strong><br>• S31-34: Sensor de Humedad del Suelo<br>• S35-38: Sistema de Riego Automatizado<br>• S39-40: Feria de Innovación"}
+            ]
+        },
+        'band3': {
+            title: "Banda III: Sintaxis y Sistemas",
+            subtitle: "El Puente Cognitivo (Grados 6-8)",
+            desc: "Cruzando el 'Valle de la Muerte' de bloques a Python. Enfoque intenso en Ingeniería de Sistemas, electrónica a nivel de componentes (Arduino) y rescate de residuos electrónicos. Abordando la trampa de 'Tecnología Superficial'.",
+            stack: [
+                {name: "Python (Mu)", type: "Lenguaje", icon: "hash"},
+                {name: "Arduino Uno", type: "Hardware", icon: "zap"},
+                {name: "Driver L298N", type: "Componente", icon: "settings"}
+            ],
+            chart: [40, 40, 20],
+            syllabus: [
+                {term: "Trimestre 1: La Piedra Rosetta", weeks: "Semanas 1-10", desc: "<strong class='text-retro-secondary'>Enfoque: Sintaxis de Python</strong><br>• S1: Entorno (Editor Mu)<br>• S2: Variables y Tipos<br>• S3: Entrada (Programas Interactivos)<br>• S4: Condicionales (Lógica)<br>• S5: Bucles (Iteración)<br>• S6: Listas (Datos)<br>• S7: Funciones<br>• S8: Bibliotecas (Turtle)<br>• S9: Depuración<br>• S10: Proyecto Final 'Aventura de Texto'"},
+                {term: "Trimestre 2: Electrónica", weeks: "Semanas 11-20", desc: "<strong class='text-retro-secondary'>Enfoque: Circuitería</strong><br>• S11: Ley de Ohm (Física)<br>• S12: Protoboard<br>• S13: Laboratorio Ley de Ohm<br>• S14: Introducción a Arduino<br>• S15: Salida Digital (Parpadeo)<br>• S16: Entrada Digital (Botones)<br>• S17: Entrada Analógica (Potenciómetro)<br>• S18: PWM (Atenuación)<br>• S19: Transistores (Cargas)<br>• S20: Proyecto Final 'Semáforo'"},
+                {term: "Trimestre 3: Robótica", weeks: "Semanas 21-30", desc: "<strong class='text-retro-secondary'>Enfoque: Integración</strong><br>• S21: Energía y Chasis<br>• S22: Puente H (L298N)<br>• S23: Movimiento Básico<br>• S24: Sensores Ultrasónicos<br>• S25: Integración Sensor-Motor<br>• S26: Servomotor (El Cuello)<br>• S27: Algoritmo de Evasión<br>• S28: Codificación de Lógica Inteligente<br>• S29: Calibración y Ajuste<br>• S30: Proyecto Final 'Rodeo de Robots'"},
+                {term: "Trimestre 4: Sostenibilidad", weeks: "Semanas 31-40", desc: "<strong class='text-retro-secondary'>Enfoque: Rescate de Residuos Electrónicos</strong><br>• S31: Economía Circular<br>• S32: El Desmontaje (Seguridad)<br>• S33: Identificación de Componentes<br>• S34: Motores Paso a Paso<br>• S35: Mecanismo de Levantamiento de Lápiz<br>• S36: El Plotter Frankenstein<br>• S37: Código G<br>• S38: Cadena de Herramientas de Software<br>• S39: Optimización y Solución de Problemas<br>• S40: Feria de Innovación"}
+            ]
+        },
+        'band4': {
+            title: "Banda IV: Motor de Innovación",
+            subtitle: "Deep Tech y Soberanía (Grados 9-11)",
+            desc: "Incubación pre-profesional. Los estudiantes operan como Ingenieros Full Stack Júnior, utilizando Ciencia de Datos (Pandas) e IoT (ESP32) para automatizar. Culmina en un pitch de startup con Lean Canvas.",
+            stack: [
+                {name: "ESP32", type: "IoT", icon: "wifi"},
+                {name: "Pandas/Python", type: "Ciencia de Datos", icon: "bar-chart-2"},
+                {name: "Lean Canvas", type: "Negocios", icon: "briefcase"}
+            ],
+            chart: [30, 30, 40],
+            syllabus: [
+                {term: "Trimestre 1: Ciencia de Datos", weeks: "Semanas 1-10", desc: "<strong class='text-retro-secondary'>Enfoque: Investigación</strong><br>• S1: Ética y Soberanía<br>• S2: Entorno Jupyter<br>• S3: Biblioteca Pandas<br>• S4: Limpieza de Datos<br>• S5: Fundamentos Estadísticos<br>• S6: Visualización<br>• S7: Correlación vs. Causación<br>• S8: Conjuntos de Datos Colombianos<br>• S9: Redacción Técnica (Inglés)<br>• S10: Proyecto Final 'Cumbre de Datos'"},
+                {term: "Trimestre 2: Redes IoT", weeks: "Semanas 11-20", desc: "<strong class='text-retro-secondary'>Enfoque: Conectividad</strong><br>• S11: Configuración ESP32<br>• S12: Sensores Ambientales<br>• S13: Paneles en la Nube<br>• S14: Telemetría<br>• S15: Computación en el Borde<br>• S16: Alertas (Webhooks)<br>• S17: Gestión de Energía<br>• S18: Diseño de Carcasa<br>• S19: Análisis de Datos<br>• S20: Proyecto Final 'Ecosistema Conectado'"},
+                {term: "Trimestre 3: Ingeniería Aplicada", weeks: "Semanas 21-30", desc: "<strong class='text-retro-secondary'>Enfoque: Industria</strong><br>• S21: Mecanismos<br>• S22: Sensores de Color (TCS3200)<br>• S23: Brazos de Clasificación<br>• S24: Multitarea<br>• S25: Integración de Sistemas<br>• S26: Lógica de Decisión<br>• S27: Ajuste de Rendimiento<br>• S28: Gemelo Digital<br>• S29: Documentación<br>• S30: Proyecto Final 'Piso de Fábrica'"},
+                {term: "Trimestre 4: Startup", weeks: "Semanas 31-40", desc: "<strong class='text-retro-secondary'>Enfoque: Emprendimiento</strong><br>• S31: Ideación<br>• S32: Validación de Mercado<br>• S33: Lean Canvas<br>• S34: Economía Unitaria<br>• S35: Sprint MVP<br>• S36: Propiedad Intelectual<br>• S37: Pitch Deck (Inglés)<br>• S38: Ensayo de Presentación<br>• S39: Portafolio GitHub<br>• S40: Demo Day"}
+            ]
+        }
+    };
+
+    // Helper function to get curriculum data based on current language
+    function getCurriculumData() {
+        return currentLang === 'es' ? curriculumData_es : curriculumData_en;
+    }
+
+    const teacherDeepContent_en = {
         'general': `
             <div class="bg-retro-card p-8 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-retro-primary/10 blur-[80px]"></div>
@@ -2160,8 +4016,142 @@
         'band4': buildTeacherHTML(band4Json)
     };
 
+    const teacherDeepContent_es = {
+        'general': `
+            <div class="bg-retro-card p-8 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-retro-primary/10 blur-[80px]"></div>
+                <h2 class="text-3xl font-display font-bold text-white mb-6">Filosofía Pedagógica e <span class="text-retro-secondary">Integración Metodológica</span></h2>
+
+                <p class="text-slate-300 mb-8 leading-relaxed text-lg">
+                    Antes de detallar los horarios semanales, es imperativo establecer el sustrato pedagógico sobre el cual descansa este currículo. El fracaso de intervenciones previas a menudo se origina en un enfoque "herramientas primero"—desplegando tabletas o portátiles sin un marco cognitivo para su uso. Esta arquitectura prioriza la <strong class="text-retro-primary">"Soberanía Cognitiva,"</strong> definida como la capacidad del estudiante para deconstruir problemas complejos, formular soluciones algorítmicas y ejecutarlas utilizando las herramientas disponibles, ya sean kits de robótica de alta gama o residuos electrónicos rescatados.
+                </p>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl font-display font-bold text-retro-secondary mb-4 border-b border-white/20 pb-2">Las Tres Alfabetizaciones de la Economía de la Innovación</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">Para cerrar la brecha con el Norte Global, el currículo integra tres alfabetizaciones indivisibles en cada semana académica:</p>
+
+                    <div class="grid md:grid-cols-3 gap-6 mb-6">
+                        <div class="bg-slate-800/50 p-6 rounded-xl border border-retro-primary/30">
+                            <h4 class="text-lg font-bold text-retro-primary mb-3 flex items-center gap-2">
+                                <i data-lucide="code" class="w-5 h-5"></i>
+                                Alfabetización Algorítmica
+                            </h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">Yendo más allá de la "Alfabetización Digital" (cómo usar Word/Excel) hacia el "Pensamiento Computacional" (cómo estructurar lógica). La progresión avanza desde bloques tangibles hasta sintaxis visual, y finalmente lenguajes profesionales basados en texto (Python), abordando directamente la demanda del mercado por desarrolladores especializados.</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 p-6 rounded-xl border border-retro-secondary/30">
+                            <h4 class="text-lg font-bold text-retro-secondary mb-3 flex items-center gap-2">
+                                <i data-lucide="cpu" class="w-5 h-5"></i>
+                                Alfabetización Mecánica
+                            </h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">Reconectando la mente digital con el mundo físico. Este pilar aborda la brecha de "Acceso Material" enseñando a los estudiantes que el hardware no es una "caja negra" sino un sistema de componentes comprensibles y modificables. Aprovecha la estrategia de hardware "Piso Bajo, Techo Alto", utilizando herramientas costo-efectivas como el ESP32 y motores rescatados.</p>
+                        </div>
+
+                        <div class="bg-slate-800/50 p-6 rounded-xl border border-white/20">
+                            <h4 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                                <i data-lucide="globe" class="w-5 h-5"></i>
+                                Alfabetización Global
+                            </h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">Tratando el inglés no como humanidad sino como el "sistema operativo" de la economía global. Al usar Respuesta Física Total (TPR) y lectura de documentación técnica como actividades centrales, el currículo ataca directamente la trampa del "Arbitraje Salarial", permitiendo a la juventud colombiana acceder a escalas salariales globales.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl font-display font-bold text-retro-secondary mb-4 border-b border-white/20 pb-2">El "Aula Invertida" y Restricciones de Recursos</h3>
+                    <p class="text-slate-300 mb-4 leading-relaxed">
+                        Reconociendo la <strong>"Brecha de Habilidades Docentes,"</strong> este currículo asume la metodología del "Aula Invertida". El tiempo de contacto semanal de 2 horas no es para dictar clase sino para <em>ejecutar</em>. La instrucción principal—la "lección"—se entrega mediante contenido de video centralizado de alta calidad (con capacidad offline para áreas rurales), liberando al docente en el aula para actuar como facilitador y depurador.
+                    </p>
+                    <div class="bg-slate-800/70 p-5 rounded-lg border-l-4 border-retro-primary">
+                        <p class="text-slate-300 leading-relaxed">
+                            <strong class="text-retro-primary">Esto garantiza que un estudiante en Vichada reciba la misma explicación conceptual que un estudiante en Medellín</strong>, democratizando el acceso a instrucción de alta calidad.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-2xl font-display font-bold text-retro-secondary mb-4 border-b border-white/20 pb-2">Metodologías de Implementación</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">Para asegurar que este currículo tenga éxito donde otros han fallado, las siguientes metodologías están explícitamente integradas en el flujo semanal:</p>
+
+                    <div class="space-y-6">
+                        <div class="bg-slate-800/50 p-6 rounded-xl border border-white/10">
+                            <h4 class="text-lg font-bold text-retro-primary mb-3">1. La Estrategia de Hardware "Piso Bajo, Techo Alto"</h4>
+                            <ul class="space-y-2 text-slate-400 text-sm leading-relaxed">
+                                <li class="flex gap-2"><span class="text-retro-secondary">→</span> <strong>Piso Bajo:</strong> Banda I/II usan herramientas accesibles (Micro:bit, Scratch) que producen resultados inmediatos.</li>
+                                <li class="flex gap-2"><span class="text-retro-secondary">→</span> <strong>Techo Alto:</strong> Banda III/IV usan componentes estándar de la industria (ESP32, Python). El ESP32 cuesta menos de $5 USD, haciéndolo viable para despliegue masivo en escuelas públicas, aunque alimenta dispositivos IoT industriales reales.</li>
+                                <li class="flex gap-2"><span class="text-retro-secondary">→</span> <strong>Protocolo de Rescate:</strong> Las semanas 31-40 de Banda III enseñan explícitamente a rescatar motores de reproductores de DVD. Esto reduce costos y enseña principios de economía circular, cruciales para escuelas con recursos limitados.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-800/50 p-6 rounded-xl border border-white/10">
+                            <h4 class="text-lg font-bold text-retro-primary mb-3">2. El Aula Invertida para Escalabilidad Docente</h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-sm text-retro-secondary font-bold mb-2">Desafío:</p>
+                                    <p class="text-slate-400 text-sm leading-relaxed">La mayoría de docentes K-12 no son expertos en Python.</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-retro-secondary font-bold mb-2">Solución:</p>
+                                    <p class="text-slate-400 text-sm leading-relaxed">El currículo se basa en un "Repositorio Nacional" de lecciones en video.</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 bg-slate-900/50 p-4 rounded">
+                                <p class="text-slate-300 text-sm"><strong>Mecanismo:</strong> Los estudiantes ven el "Cómo Hacer" técnico en video.</p>
+                                <p class="text-slate-300 text-sm"><strong>Rol del Docente:</strong> El docente actúa como "Facilitador", ayudando a depurar conexiones físicas y manejando la dinámica del aula, en lugar de dar clase magistral sobre sintaxis. Esto baja la barrera de entrada para los docentes.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800/50 p-6 rounded-xl border border-white/10">
+                            <h4 class="text-lg font-bold text-retro-primary mb-3">3. Inglés como Alfabetización Técnica (No Humanística)</h4>
+                            <p class="text-slate-400 text-sm mb-3">El inglés está integrado no como materia sino como herramienta:</p>
+                            <ul class="space-y-2 text-slate-400 text-sm">
+                                <li class="flex gap-2"><span class="text-retro-secondary">→</span> <strong>Banda I/II:</strong> TPR (Total Physical Response) vincula comandos de programación con acciones físicas.</li>
+                                <li class="flex gap-2"><span class="text-retro-secondary">→</span> <strong>Banda III:</strong> Los estudiantes leen documentación de Arduino en inglés.</li>
+                                <li class="flex gap-2"><span class="text-retro-secondary">→</span> <strong>Banda IV:</strong> Escritura de documentación técnica y pitches de startups en inglés.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-800/50 p-6 rounded-xl border border-white/10">
+                            <h4 class="text-lg font-bold text-retro-primary mb-3">4. Evaluación Basada en Proyectos (No Exámenes)</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Cada trimestre culmina en un proyecto capstone tangible. No hay exámenes de opción múltiple. El éxito se mide por "¿Funciona el robot?" o "¿El plotter dibuja correctamente?" Esto alinea la evaluación con resultados del mundo real y reduce la ansiedad por exámenes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-slate-900/50 to-retro-primary/10 p-6 rounded-xl border border-retro-primary/30">
+                    <h3 class="text-xl font-display font-bold text-retro-primary mb-3 flex items-center gap-2">
+                        <i data-lucide="target" class="w-6 h-6"></i>
+                        Resultado Final: Soberanía Tecnológica
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        Al final de la Banda IV, los estudiantes no son meramente "alfabetizados digitalmente"—son <strong>ingenieros júnior full-stack</strong> capaces de construir soluciones IoT, analizar datos y presentar sus innovaciones en inglés. Están equipados para competir globalmente, no como consumidores de tecnología, sino como creadores soberanos de ella.
+                    </p>
+                </div>
+            </div>
+        `,
+
+        // BAND 1 NOW USES THE BUILDER FUNCTION!
+        'band1': buildTeacherHTML(band1Json_es),
+        // BAND 2 NOW USES THE BUILDER FUNCTION!
+        'band2': buildTeacherHTML(band2Json_es),
+
+        // BAND 3 NOW USES THE BUILDER FUNCTION!
+        'band3': buildTeacherHTML(band3Json_es),
+
+        // BAND 4 NOW USES THE BUILDER FUNCTION!
+        'band4': buildTeacherHTML(band4Json_es)
+    };
+
+    // Helper function to get teacher content based on current language
+    function getTeacherContent() {
+        return currentLang === 'es' ? teacherDeepContent_es : teacherDeepContent_en;
+    }
+
     // --- CHART & RENDER LOGIC ---
     function init() {
+        initLanguage(); // Initialize language system
         lucide.createIcons();
         renderDashboardChart();
         renderBand('band1'); // Default start
@@ -2176,7 +4166,29 @@
                 el.classList.remove('hidden');
                 btn.classList.add('active');
                 btn.classList.remove('text-slate-400');
-                if(viewName === 'dashboard') renderDashboardChart();
+
+                // Re-render content when switching to view (ensures correct language)
+                if(viewName === 'dashboard') {
+                    renderDashboardChart();
+                } else if(viewName === 'curriculum') {
+                    // Re-render the currently active band
+                    const activeBtn = document.querySelector('.band-btn.active');
+                    if (activeBtn) {
+                        const bandId = activeBtn.id.replace('btn-', '');
+                        renderBand(bandId);
+                    } else {
+                        renderBand('band1'); // Default
+                    }
+                } else if(viewName === 'teacher') {
+                    // Re-render the currently active teacher tab
+                    const activeTab = document.querySelector('.teacher-tab.active');
+                    if (activeTab) {
+                        const contentId = activeTab.id.replace('t-btn-', '');
+                        renderTeacher(contentId);
+                    } else {
+                        renderTeacher('general'); // Default
+                    }
+                }
             } else {
                 el.classList.add('hidden');
                 btn.classList.remove('active');
@@ -2247,7 +4259,7 @@
     }
 
     function renderBand(key) {
-        const data = curriculumData[key];
+        const data = getCurriculumData()[key];
         document.getElementById('band-header').innerHTML = `<h2 class="text-3xl font-display font-bold text-white mb-2">${data.title}</h2><div class="text-retro-primary font-bold uppercase tracking-widest text-sm mb-4">${data.subtitle}</div><p class="text-slate-400 leading-relaxed">${data.desc}</p>`;
         
         const sylContainer = document.getElementById('syllabus-content');
@@ -2272,7 +4284,7 @@
     }
 
     function renderTeacher(key) {
-        document.getElementById('teacher-content').innerHTML = teacherDeepContent[key];
+        document.getElementById('teacher-content').innerHTML = getTeacherContent()[key];
         
         document.querySelectorAll('.teacher-tab').forEach(t => { 
             t.classList.remove('active', 'bg-retro-primary', 'text-white'); 
